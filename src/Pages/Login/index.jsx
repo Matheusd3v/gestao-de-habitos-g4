@@ -19,10 +19,13 @@ const Login = () => {
   });
 
   const onSubmitFunction = (data) => {
-    console.log(data);
     api
-      .post("/sessions/")
-      .then(() => "")
+      .post("/sessions/", data)
+      .then((response) => {
+        const token = response.data.access;
+        window.localStorage.clear();
+        window.localStorage.setItem("token", JSON.stringify(token));
+      })
       .catch((err) => {
         toast("Senha ou Login errados", {
           type: "error",
