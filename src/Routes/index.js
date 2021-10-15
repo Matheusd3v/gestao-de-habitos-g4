@@ -1,28 +1,24 @@
-
-import React from 'react'
-import { Route, Switch } from 'react-router'
-import Home from '../Pages/Home'
+import React from "react";
+import { Route, Switch } from "react-router";
+import Home from "../Pages/Home";
+import Register from "../Pages/Register";
 
 const Routers = () => {
-    return (
-        <>
-            <Switch>
-                <Route exact path='/'>
-                    <Home/>
-                </Route>
-                <Route path='/register'>
+  return (
+    <>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/register">
+          <Register />
+        </Route>
+        <Route path="/login"></Route>
+        <Route path="/habits"></Route>
+        <Route path="/groups"></Route>
+      </Switch>
+    </>
+  );
+};
 
-                </Route>
-                <Route path='/login'>
-
-                </Route>
-                <Route path='/habits'>
-
-                </Route>
-                <Route path='/groups'></Route>
-            </Switch>
-        </>
-    )
-}
-
-export default Routers
+export default Routers;
