@@ -3,6 +3,7 @@ import { HomeContainer } from './style.js'
 import img1 from '../../assets/acceptTerms.svg' 
 import img2 from '../../assets/addToCart.svg'
 import img3 from '../../assets/coWorking.svg'
+import Button from '../../components/ButtonDefault/index.js'
 import { motion } from 'framer-motion'
 const Home = () => {
     return (
@@ -41,7 +42,7 @@ const Home = () => {
                 />
                <p>Junte-se com seus amigos em um grupo de desenvolvimento s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make </p>
            </section>
-           <button>Cadastre-se</button>
+          <Button>Cadastre-se</Button>
         </HomeContainer>
     )
 }
