@@ -2,10 +2,11 @@ import { Button, TextField } from "@material-ui/core";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const Register = () => {
   const schema = yup.object().shape({
-    user: yup.string().required("Nome de usuário obrigatório"),
+    username: yup.string().required("Nome de usuário obrigatório"),
 
     email: yup.string().email("Email Inválido").required("Email obrigátório"),
 
@@ -16,10 +17,10 @@ const Register = () => {
 
     password: yup.string().required("Senha Obrigatória"),
 
-    passwordConfirm: yup.string
-      .apply()
-      .oneOf([yup.ref("password")], "Senhas Diferentes")
-      .required("Confirmação de senha obrigatória"),
+    passwordConfirm: yup
+      .string()
+      .required("Confirmação de senha obrigatória")
+      .oneOf([yup.ref("password")], "Senhas Diferentes"),
   });
 
   const {
@@ -30,8 +31,13 @@ const Register = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = ({ username, email, password }) => {
+    const user = { username, email, password };
+
+    axios
+      .post("https://kenzie-habits.herokuapp.com/users/", user)
+      .then((response) => console.log(response.data))
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -43,8 +49,8 @@ const Register = () => {
           margin="normal"
           size="small"
           color="primary"
-          {...register("user")}
-          helperText={errors.user?.message}
+          {...register("username")}
+          helperText={errors.username?.message}
         />
         <TextField
           label="Email"
@@ -81,10 +87,17 @@ const Register = () => {
           size="small"
           color="primary"
           type="password"
-          {...register("passworConfirm")}
+          {...register("passwordConfirm")}
           helperText={errors.passwordConfirm?.message}
         />
-        <button>Cadastrar-se</button>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          className="submit"
+        >
+          Cadastrar-se
+        </Button>
       </form>
     </>
   );
