@@ -5,12 +5,13 @@ import {
   Content,
   FormContainer,
 } from "./styles";
-import { Button, TextField } from "@material-ui/core";
-import axios from "axios";
+import api from "../../Services/api";
+import Button from "../../components/ButtonDefault";
+import { Link } from "react-router-dom";
+import { TextField } from "@material-ui/core";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 
@@ -44,7 +45,7 @@ const Register = () => {
   const onSubmit = ({ username, email, password }) => {
     const user = { username, email, password };
 
-    axios
+    api
       .post("https://kenzie-habits.herokuapp.com/users/", user)
       .then((response) => console.log(response.data))
       .then((_) => toast.success("Conta Criada com sucesso"))
@@ -105,15 +106,7 @@ const Register = () => {
               {...register("passwordConfirm")}
               helperText={errors.passwordConfirm?.message}
             />
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              className="submit"
-              style={{ marginTop: "10px" }}
-            >
-              Cadastrar-se
-            </Button>
+            <Button>Cadastrar-se</Button>
 
             <p>
               Ja tem uma conta? Faça seu <Link to="/login">login</Link>
