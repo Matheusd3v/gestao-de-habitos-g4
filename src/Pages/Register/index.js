@@ -11,6 +11,8 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Link } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const schema = yup.object().shape({
@@ -45,7 +47,8 @@ const Register = () => {
     axios
       .post("https://kenzie-habits.herokuapp.com/users/", user)
       .then((response) => console.log(response.data))
-      .catch((err) => console.log(err));
+      .then((_) => toast.success("Conta Criada com sucesso"))
+      .catch((err) => toast.error("Usuário já existente, tente outro"));
   };
 
   return (
