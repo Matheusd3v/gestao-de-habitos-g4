@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Container, FormContainer } from "./style";
 import loginImage from "../../assets/login.svg";
-import ButtonDefault from "../../components/ButtonDefault";
+import ButtonDefault from "../../Components/ButtonDefault";
 import api from "../../Services/api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
