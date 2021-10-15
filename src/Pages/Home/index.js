@@ -6,7 +6,11 @@ import img3 from '../../assets/coWorking.svg'
 import { motion } from 'framer-motion'
 const Home = () => {
     return (
-        <HomeContainer>
+        <HomeContainer  
+            initial={{opacity:0}}
+            transition={{ duration: 3}}
+            animate={{opacity:1}} 
+        >
            <section className='info-container'>
                 <motion.img 
                     initial={{opacity:0, x:200}}

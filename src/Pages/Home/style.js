@@ -1,6 +1,6 @@
-
+import { motion } from "framer-motion"
 import styled from "styled-components"
-export const HomeContainer = styled.div`
+export const HomeContainer = styled(motion.div)`
     width: 100vw;
     height: 100vh;
     background-color: #293241;
