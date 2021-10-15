@@ -6,7 +6,6 @@ import {
   FormContainer,
 } from "./styles";
 import api from "../../Services/api";
-import Button from "../../components/ButtonDefault";
 import { useHistory, Link } from "react-router-dom";
 import { TextField } from "@material-ui/core";
 import { useForm } from "react-hook-form";
@@ -14,6 +13,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import ButtonDefault from "../../Components/ButtonDefault";
 
 const Register = () => {
   const history = useHistory();
@@ -115,8 +115,8 @@ const Register = () => {
               error={!!errors.passwordConfirm}
               helperText={errors.passwordConfirm?.message}
             />
-            <Button>Cadastrar-se</Button>
-
+            
+            <ButtonDefault>Cadastre-se</ButtonDefault>
             <p>
               Ja tem uma conta? Faça seu <Link to="/login">login</Link>
             </p>
