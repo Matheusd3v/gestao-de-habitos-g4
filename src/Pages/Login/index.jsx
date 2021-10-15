@@ -8,8 +8,9 @@ import ButtonDefault from "../../Components/ButtonDefault";
 import api from "../../Services/api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { useHistory } from "react-router";
 const Login = () => {
+  const history = useHistory()
   const formSchema = yup.object().shape({
     username: yup.string().required("Username Obrigatório"),
     password: yup.string().required("Senha Obrigatória"),
@@ -19,12 +20,18 @@ const Login = () => {
   });
 
   const onSubmitFunction = (data) => {
+    toast.configure()
     api
       .post("/sessions/", data)
       .then((response) => {
         const token = response.data.access;
         window.localStorage.clear();
         window.localStorage.setItem("token", JSON.stringify(token));
+        toast("Bem vindo ao gestão de hábitos", {
+          type: "success",
+        });
+        console.log('aaa')
+        history.push('/habits')
       })
       .catch((err) => {
         toast("Senha ou Login errados", {

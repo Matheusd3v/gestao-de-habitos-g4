@@ -8,4 +8,4 @@ const ButtonDefault = ({ children }) =>{
     )
 }
 
-export default Button
+export default ButtonDefault
