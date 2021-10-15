@@ -3,7 +3,7 @@ import { HomeContainer } from './style.js'
 import img1 from '../../assets/acceptTerms.svg' 
 import img2 from '../../assets/addToCart.svg'
 import img3 from '../../assets/coWorking.svg'
-import Button from '../../components/ButtonDefault/index.js'
+import Button from '../../Components/ButtonDefault/index.js'
 import { motion } from 'framer-motion'
 const Home = () => {
     return (
