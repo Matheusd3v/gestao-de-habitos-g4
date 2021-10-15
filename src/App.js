@@ -1,8 +1,9 @@
+import Routers from "./Routes";
 
 function App() {
   return (
     <>
-<h1>Is running</h1>
+      <Routers/>
     </>
   );
 }
