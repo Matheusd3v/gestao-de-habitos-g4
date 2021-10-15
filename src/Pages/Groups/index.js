@@ -6,6 +6,13 @@ const GroupsPage = () => {
   const [isgroups, setIsGroups] = useState(false);
   const [allGroups, setAllGroups] = useState([]);
 
+  const allGroupsFunction = () => {
+    api
+      .get("/groups/")
+      .then((response) => setAllGroups(response.data.results))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <>
       <h1>Grupos</h1>
@@ -21,6 +28,10 @@ const GroupsPage = () => {
         </div>
         <p>Criar novo grupo</p>
       </div>
+
+      {/* <Button onClick={allGroupsFunction}>Teste</Button>
+
+      {console.log(allGroups)} */}
 
       <ul>
         {allGroups.map((group) => (
