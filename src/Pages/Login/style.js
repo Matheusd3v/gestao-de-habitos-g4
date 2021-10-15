@@ -35,6 +35,9 @@ export const Container = styled.main`
       color: #fff;
     } */
   }
+  Button {
+    width: 150px;
+  }
   @media (min-width: 768px) {
     background: #ffffff;
     background: -moz-linear-gradient(

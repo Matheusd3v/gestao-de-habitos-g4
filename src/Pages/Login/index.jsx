@@ -4,6 +4,10 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Container, FormContainer } from "./style";
 import loginImage from "../../assets/login.svg";
+import ButtonDefault from "../../components/ButtonDefault";
+import api from "../../Services/api";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const formSchema = yup.object().shape({
@@ -16,6 +20,14 @@ const Login = () => {
 
   const onSubmitFunction = (data) => {
     console.log(data);
+    api
+      .post("/sessions/")
+      .then(() => "")
+      .catch((err) => {
+        toast("Senha ou Login errados", {
+          type: "error",
+        });
+      });
   };
   return (
     <Container>
@@ -36,7 +48,7 @@ const Login = () => {
             size="small"
             {...register("password")}
           />
-          <button type="submit">Logar</button>
+          <ButtonDefault type="submit">Logar</ButtonDefault>
         </form>{" "}
       </FormContainer>
     </Container>
