@@ -1,13 +1,14 @@
 
 import React from 'react'
 import { Route, Switch } from 'react-router'
+import Home from '../Pages/Home'
 
 const Routers = () => {
     return (
         <>
             <Switch>
                 <Route exact path='/'>
-
+                    <Home/>
                 </Route>
                 <Route path='/register'>
 
