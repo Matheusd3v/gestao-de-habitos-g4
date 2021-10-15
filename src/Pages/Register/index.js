@@ -6,7 +6,7 @@ import {
   FormContainer,
 } from "./styles";
 import api from "../../Services/api";
-import Button from "../../components/ButtonDefault";
+import Button from "../../Components/ButtonDefault";
 import { useHistory, Link } from "react-router-dom";
 import { TextField } from "@material-ui/core";
 import { useForm } from "react-hook-form";
