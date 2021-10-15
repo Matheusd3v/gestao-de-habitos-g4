@@ -7,7 +7,7 @@ import {
 } from "./styles";
 import api from "../../Services/api";
 import Button from "../../components/ButtonDefault";
-import { Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { TextField } from "@material-ui/core";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -16,6 +16,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 
 const Register = () => {
+  const history = useHistory();
+
   const schema = yup.object().shape({
     username: yup.string().required("Nome de usuário obrigatório"),
 
@@ -44,12 +46,14 @@ const Register = () => {
 
   const onSubmit = ({ username, email, password }) => {
     const user = { username, email, password };
+    toast.configure();
 
     api
       .post("https://kenzie-habits.herokuapp.com/users/", user)
       .then((response) => console.log(response.data))
       .then((_) => toast.success("Conta Criada com sucesso"))
-      .catch((err) => toast.error("Usuário já existente, tente outro"));
+      .then((_) => history.push("/login"))
+      .catch((_) => toast.error("Usuário já existente, tente outro"));
   };
 
   return (
@@ -66,6 +70,7 @@ const Register = () => {
               size="small"
               color="primary"
               {...register("username")}
+              error={!!errors.username}
               helperText={errors.username?.message}
             />
             <TextField
@@ -75,6 +80,7 @@ const Register = () => {
               size="small"
               color="primary"
               {...register("email")}
+              error={!!errors.email}
               helperText={errors.email?.message}
             />
             <TextField
@@ -84,6 +90,7 @@ const Register = () => {
               size="small"
               color="primary"
               {...register("emailConfirm")}
+              error={!!errors.emailConfirm}
               helperText={errors.emailConfirm?.message}
             />
             <TextField
@@ -94,6 +101,7 @@ const Register = () => {
               color="primary"
               type="password"
               {...register("password")}
+              error={!!errors.password}
               helperText={errors.password?.message}
             />
             <TextField
@@ -104,6 +112,7 @@ const Register = () => {
               color="primary"
               type="password"
               {...register("passwordConfirm")}
+              error={!!errors.passwordConfirm}
               helperText={errors.passwordConfirm?.message}
             />
             <Button>Cadastrar-se</Button>
