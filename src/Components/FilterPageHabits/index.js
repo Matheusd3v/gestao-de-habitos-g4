@@ -3,25 +3,25 @@ import React, { useState } from 'react'
 import { ContainerFilter, FilterBtn, OptionsFilterBtn } from './style'
 import health from '../../assets/health.svg';
 import { AiFillFilter } from "react-icons/ai";
-
-
-const FilterHabits = ({habitsUser}) => {
+import  { useContext } from 'react'
+import { UserContext } from '../../Providers/user'
+const FilterHabits = () => {
+    const { userHabits, setCurrentFilterHabits } = useContext(UserContext)
     const [showFilter, setShowFilter] = useState(false)
-    const [achieved, setAchieved] = useState([])
-    const [inProgress, setInProgress] = useState([])
-
+    
     const pushAndPull = () => {
         setShowFilter(!showFilter)
     }
-
-    const filterAchieved = () => {
-        let habits = habitsUser.filter((el) => el.achieved );
-        setAchieved(habits)        
+    const filterAchieved = () =>{
+        const achieved = userHabits.filter((habit)=> habit.achieved) 
+        setCurrentFilterHabits(achieved)
     }
-
-    const filterInProgress = () => {
-        let progress = habitsUser.filter((el) => !el.achieved );
-        setInProgress(progress)        
+    const filterInProgress = () =>{
+        const inProgress = userHabits.filter((habit)=> !habit.achieved)
+        setCurrentFilterHabits(inProgress)
+    }
+    const allHabits = () =>{
+        setCurrentFilterHabits(userHabits)
     }
 
     return (
@@ -36,7 +36,7 @@ const FilterHabits = ({habitsUser}) => {
                 >
                 <OptionsFilterBtn onClick={filterAchieved} >Alcançados</OptionsFilterBtn>
                 <OptionsFilterBtn onClick={filterInProgress} >Em progresso</OptionsFilterBtn>
-                <OptionsFilterBtn>Todos</OptionsFilterBtn>
+                 <OptionsFilterBtn onClick={allHabits}>Todos</OptionsFilterBtn>
 
                 <img src={health} alt='Heath Habit' />
 

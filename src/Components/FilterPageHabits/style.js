@@ -3,12 +3,12 @@ import { motion } from 'framer-motion'
 
 export const ContainerFilter = styled(motion.div)`
     width: 300px;
-    height: calc(100vh  - 75px);
+    height:92%;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    position: relative;
+    position: absolute;
     left: 0;
-    top: -52px;
+    top: 75px;
     background: #98c1d9;
     padding: 130px 0;
     box-sizing: border-box;  
@@ -21,7 +21,7 @@ export const ContainerFilter = styled(motion.div)`
         margin-top: auto; 
     }
 
-    @media (max-width: 850px) {
+    @media (max-width: 768px) {
         position: static;
         margin: 0 auto;
         height: 500px;
@@ -40,20 +40,18 @@ export const FilterBtn = styled.button`
     border-radius: 10px;
     background: transparent;
     font-size: 23px;    
-    position: relative;
+    position: absolute;
     left: 0;
-    top: 20px;
-    z-index: 1;
-    :hover {
-        border-color:#FFFFFF;
-        cursor: pointer;
-    }
+    top: 80px;
+    z-index: 1; 
+    cursor: pointer;
+    
 
     svg {
         display: none;
     }
 
-    @media (max-width: 850px) {
+    @media (max-width: 768px) {
         position: static; 
         margin: 40px auto;
         width: 150px;
