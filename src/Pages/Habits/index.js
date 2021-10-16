@@ -13,18 +13,6 @@ const HabitsPage = () => {
     useEffect(()=>{
         callingHabits()
     },[])
-
-    const idUser = localStorage.id;
-
-
-        // data.user = idUser;
-        // api.post('/habits/', data, {
-        //     headers:{ Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`}
-        // })
-        // .then((response) => console.log(response))
-        // .catch((e) => console.log(e))
-    
-
     return (
         <Container>
             <FilterHabits />
