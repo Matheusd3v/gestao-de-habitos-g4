@@ -3,12 +3,17 @@ import styled from 'styled-components'
 export const Container = styled.div`
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
 `
 export const HabitsContainer = styled.div`
-    margin-left: 300px;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+    padding: 55px 0;
+    padding-left: 60px;     
+    box-sizing: border-box;
     @media screen and (max-width:767px){
         justify-content: center;
         align-items: center;
