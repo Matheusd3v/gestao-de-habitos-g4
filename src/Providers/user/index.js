@@ -3,7 +3,7 @@ import { createContext, useState, useEffect } from 'react'
 export const UserContext = createContext();
 
 export const UserProvider = ({children}) => {
-   let token = JSON.parse(localStorage.getItem('token') || '');
+   let token = JSON.parse(localStorage.getItem('token')) || '';
 
     const [isLogin, setIsLogin] = useState(false)
 
@@ -12,8 +12,10 @@ export const UserProvider = ({children}) => {
     }, [token])
 
     const logOut = () => {
-        localStorage.setItem('token', JSON.stringify(''));
+        localStorage.clear();
         token = '';
+        console.log('foi', isLogin)
+        
     }
 
     return (
