@@ -33,7 +33,7 @@ const Habit = ({ title, description, percentage}) =>{
                 <p>Não concluído</p>
              )}
             <IoPencil/>
-            <button>Editar Tarefa</button>
+            
         </HabitContainerMobile>
         </>
         
