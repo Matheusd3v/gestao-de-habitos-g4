@@ -9,10 +9,12 @@ export const HabitContainerDesktop = styled.div`
     justify-content: center;
     flex-direction: column;
     width: 300px;
+    height: 300px;
     h1{
         font-size:20px;
     }
     button{
+        margin-top: 20px;
         background-color: #3D5A80;
         color: white;
         border: 0;

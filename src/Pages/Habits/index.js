@@ -7,21 +7,22 @@ import Habit from '../../Components/Habit'
 import { useEffect } from 'react'
 import api from '../../Services/api'
 import { UserContext } from '../../Providers/user'
-import { HabitsContainer } from './style1.js'
+import { Container, HabitsContainer } from './style1.js'
 const HabitsPage = () => {
-    const { userHabits, setUserHabits, callingHabits } = useContext(UserContext)
+    const { userHabits, setUserHabits, callingHabits, currentFilterHabits } = useContext(UserContext)
     useEffect(()=>{
         callingHabits()
     },[])
-    console.log(userHabits)
 
     return (
-        <HabitsContainer>
-        <FilterHabits habitsUser={habitsUser}/>
-            {userHabits.map((habit, index)=>(
-                <Habit key={index} title={habit.title} description={habit.category} percentage={habit.how_much_achieved} />
-            ))}
-        </HabitsContainer>
+        <Container>
+            <FilterHabits />
+            <HabitsContainer>
+                {currentFilterHabits.map((habit, index)=>(
+                    <Habit key={index} title={habit.title} description={habit.category} percentage={habit.how_much_achieved} />
+                ))}
+            </HabitsContainer>
+        </Container>
         
     )
 }

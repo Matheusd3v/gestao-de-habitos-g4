@@ -12,6 +12,7 @@ export const HeaderBar = styledEngine(AppBar)({
 export const HeaderToolBar = styled.div`
     padding: 5px 25px;
     box-sizing: border-box;
+    width: 100%;
     height: 75px;
     display: flex;
     align-items: center;
