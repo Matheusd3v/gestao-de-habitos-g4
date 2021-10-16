@@ -1,14 +1,13 @@
-import React from 'react'
-import Toolbar from '@material-ui/core/Toolbar';
+import React, { useContext } from 'react'
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu'
 import { ButtonLog, HeaderBar, HeaderToolBar, MenuLists} from './style';
 import { Link } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import { UserContext } from '../../Providers/user';
 
-const NavBar = ({isLog}) => {
+const NavBar = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
 
@@ -19,6 +18,13 @@ const NavBar = ({isLog}) => {
     const handleClose = () => {
       setAnchorEl(null);
     };
+
+    const { isLogin, logOut } = useContext(UserContext)
+
+    const logOuting = () => {
+      handleClose()
+      logOut()
+    }
 
     return (      
       <HeaderBar position="static" >
@@ -53,8 +59,8 @@ const NavBar = ({isLog}) => {
               <MenuItem onClick={handleClose}>Usuário</MenuItem>
               <MenuItem onClick={handleClose}>Objetivos</MenuItem>
               <MenuItem onClick={handleClose}>Atividades</MenuItem>
-              {isLog? (
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
+              {isLogin? (
+                <MenuItem onClick={logOuting}>Logout</MenuItem>
               ) : (
                 <>
                   <MenuItem onClick={handleClose}><Link to='/login'>Login</Link> </MenuItem>
@@ -65,13 +71,13 @@ const NavBar = ({isLog}) => {
           </Menu>
 
 
-          {isLog? (
+          {isLogin? (
               <div className='navbar'>                
                 <h1>Gestão de Habitos</h1>
                 <div className='linksLogin'>
                  <Link to='/groups'>Grupos</Link>
                  <Link to ='/habits'>Hábitos</Link>
-                 <ButtonLog>Logout</ButtonLog>
+                 <ButtonLog onClick={logOut}>Logout</ButtonLog>
                 </div>
               </div>
           ) : (
