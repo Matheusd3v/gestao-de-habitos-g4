@@ -7,22 +7,16 @@ import api from '../../Services/api'
 import { UserContext } from '../../Providers/user'
 import { HabitsContainer } from './style1.js'
 const HabitsPage = () => {
-    const { userHabits, setUserHabits } = useContext(UserContext)
+    const { userHabits, setUserHabits, callingHabits } = useContext(UserContext)
     useEffect(()=>{
-        const token = localStorage.getItem('token')
-        api
-            .get('/habits/personal/', {
-                headers:{ Authorization: `Bearer ${JSON.parse(token)}`}
-            })
-            .then((response)=> setUserHabits(response.data))
-            .catch((err)=>console.log(err))
+        callingHabits()
     },[])
-
+    console.log(userHabits)
 
     return (
         <HabitsContainer>
             {userHabits.map((habit, index)=>(
-                <Habit key={index} title={habit.title} description={habit.category} />
+                <Habit key={index} title={habit.title} description={habit.category} percentage={habit.how_much_achieved} />
             ))}
         </HabitsContainer>
         

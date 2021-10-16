@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-export const HabitContainer = styled.div`
+export const HabitContainerDesktop = styled.div`
     background-color: #98C1D9;
     border-radius: 5px;
     margin: 5px;
     padding: 10px 0px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -26,4 +26,24 @@ export const HabitContainer = styled.div`
     button:hover{
         box-shadow:1px 2px #2D5A70;
     }
+    @media screen and (min-width:768px){
+        display:flex;
+    }
+`
+
+export const HabitContainerMobile = styled.div`
+   width: 90%;
+   margin: 10px 0px;
+   padding: 5px;
+   border-radius: 10px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   background-color: #98C1D9;
+   h1{
+       font-size: 20px;
+   }
+   @media screen and (min-width:767px){
+       display: none;
+   }
 `
