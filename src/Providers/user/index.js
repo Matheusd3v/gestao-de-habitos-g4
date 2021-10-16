@@ -3,8 +3,10 @@ import api from '../../Services/api';
 export const UserContext = createContext();
 
 export const UserProvider = ({children}) => {
-    const [tokenUser, setTokenUser] = useState('')
+
     const [ userHabits, setUserHabits ] = useState([])
+    const [tokenUser, setTokenUser] = useState( JSON.parse(localStorage.getItem('token')) || '');
+
     const [isLogin, setIsLogin] = useState(false)
 
     useEffect(() => {

@@ -1,4 +1,6 @@
+
 import './style1.js'
+import FilterHabits from '../../Components/FilterPageHabits'
 import React, { useContext } from 'react'
 import  ProgressBar  from '../../Components/ProgressBar'
 import Habit from '../../Components/Habit'
@@ -15,6 +17,7 @@ const HabitsPage = () => {
 
     return (
         <HabitsContainer>
+        <FilterHabits habitsUser={habitsUser}/>
             {userHabits.map((habit, index)=>(
                 <Habit key={index} title={habit.title} description={habit.category} percentage={habit.how_much_achieved} />
             ))}
