@@ -9,10 +9,21 @@ import api from '../../Services/api'
 import { UserContext } from '../../Providers/user'
 import { Container, HabitsContainer } from './style1.js'
 const HabitsPage = () => {
-    const { userHabits, setUserHabits, callingHabits, currentFilterHabits } = useContext(UserContext)
+    const { callingHabits, currentFilterHabits } = useContext(UserContext)
     useEffect(()=>{
         callingHabits()
     },[])
+
+    const idUser = localStorage.id;
+
+
+        // data.user = idUser;
+        // api.post('/habits/', data, {
+        //     headers:{ Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`}
+        // })
+        // .then((response) => console.log(response))
+        // .catch((e) => console.log(e))
+    
 
     return (
         <Container>
