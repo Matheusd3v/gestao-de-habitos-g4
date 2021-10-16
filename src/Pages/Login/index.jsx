@@ -10,6 +10,8 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useHistory } from "react-router";
 import jwtDecode from "jwt-decode";
+import { useContext } from "react";
+import { UserContext } from "../../Providers/user";
 const Login = () => {
   const history = useHistory()
   const formSchema = yup.object().shape({
@@ -19,6 +21,8 @@ const Login = () => {
   const { register, handleSubmit } = useForm({
     resolver: yupResolver(formSchema),
   });
+
+  const { setTokenUser } = useContext(UserContext)
 
   const onSubmitFunction = (data) => {
     toast.configure()
@@ -34,6 +38,7 @@ const Login = () => {
           type: "success",
         });
         history.push('/habits')
+        setTokenUser(token)
       })
       .catch((err) => {
         toast("Senha ou Login errados", {
