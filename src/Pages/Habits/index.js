@@ -1,22 +1,28 @@
 
-import React, { useEffect, useState } from 'react'
+import './style1.js'
 import FilterHabits from '../../Components/FilterPageHabits'
+import React, { useContext } from 'react'
+import  ProgressBar  from '../../Components/ProgressBar'
+import Habit from '../../Components/Habit'
+import { useEffect } from 'react'
 import api from '../../Services/api'
-
+import { UserContext } from '../../Providers/user'
+import { HabitsContainer } from './style1.js'
 const HabitsPage = () => {
-    const [habitsUser, setHabitsUser] = useState([])
-
-    useEffect(() => {
-      api
-      .get('/habits/personal/', {headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}` }})
-      .then((resp) => setHabitsUser(resp.data))
-      .catch((e) => console.log(e)) 
-    }, [])
+    const { userHabits, setUserHabits, callingHabits } = useContext(UserContext)
+    useEffect(()=>{
+        callingHabits()
+    },[])
+    console.log(userHabits)
 
     return (
-        <>
-            <FilterHabits habitsUser={habitsUser}/>
-        </>
+        <HabitsContainer>
+        <FilterHabits habitsUser={habitsUser}/>
+            {userHabits.map((habit, index)=>(
+                <Habit key={index} title={habit.title} description={habit.category} percentage={habit.how_much_achieved} />
+            ))}
+        </HabitsContainer>
+        
     )
 }
 
