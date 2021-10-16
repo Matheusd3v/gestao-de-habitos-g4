@@ -4,6 +4,7 @@ export const UserContext = createContext();
 
 export const UserProvider = ({children}) => {
     const [ currentFilterHabits, setCurrentFilterHabits ] = useState([])
+    const [ newHabit, setNewHabit ] = useState([])
     const [ userHabits, setUserHabits ] = useState([])
     const [tokenUser, setTokenUser] = useState( JSON.parse(localStorage.getItem('token')) || '');
 
@@ -26,7 +27,7 @@ export const UserProvider = ({children}) => {
             const token = localStorage.getItem('token')
             api
                 .get('/habits/personal/', {
-                    headers:{ Authorization: `Bearer ${JSON.parse(token)}`}
+                    headers:{ Authorization: `Bearer ${tokenUser}`}
                 })
                 .then((response)=> {
                     setUserHabits(response.data)
@@ -34,9 +35,17 @@ export const UserProvider = ({children}) => {
                 })
                 .catch((err)=>console.log(err))
     }
+    const addingHabit = (wholeHabit) =>{
+        const token = localStorage.getItem('token')
+        api.post('/habits/', wholeHabit, {
+            headers:{ Authorization: `Bearer ${tokenUser}`}
+        })
+        .then((response) => console.log(response))
+        .catch((e) => console.log(e))
+    }
 
     return (
-        <UserContext.Provider value={{logOut, tokenUser, setTokenUser,isLogin, userHabits, setUserHabits, callingHabits, currentFilterHabits, setCurrentFilterHabits }}>
+        <UserContext.Provider value={{logOut, tokenUser, setTokenUser,isLogin, userHabits, setUserHabits, callingHabits, currentFilterHabits, setCurrentFilterHabits, newHabit, setNewHabit, addingHabit }}>
             {children}
         </UserContext.Provider>
     )

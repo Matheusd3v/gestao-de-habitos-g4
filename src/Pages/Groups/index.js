@@ -1,10 +1,10 @@
 import React from 'react'
-import PopPup from '../../Components/teste1'
+import CreatingHabitsForm from '../../Components/CreatingHabitsForm'
 
 const GroupsPage = () => {
     return (
         <>
-            <PopPup/>
+            <CreatingHabitsForm/>
         </>
     )
 }
