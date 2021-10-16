@@ -9,6 +9,7 @@ import api from "../../Services/api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useHistory } from "react-router";
+import jwtDecode from "jwt-decode";
 const Login = () => {
   const history = useHistory()
   const formSchema = yup.object().shape({
@@ -25,12 +26,13 @@ const Login = () => {
       .post("/sessions/", data)
       .then((response) => {
         const token = response.data.access;
+        const decoded = jwtDecode(token)
         window.localStorage.clear();
         window.localStorage.setItem("token", JSON.stringify(token));
+        window.localStorage.setItem("id", JSON.stringify(decoded.user_id));
         toast("Bem vindo ao gestão de hábitos", {
           type: "success",
         });
-        console.log('aaa')
         history.push('/habits')
       })
       .catch((err) => {
