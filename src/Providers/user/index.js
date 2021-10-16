@@ -23,7 +23,6 @@ export const UserProvider = ({children}) => {
         setTokenUser('');        
     }
     const callingHabits = () =>{
-        console.log("abadada")
             const token = localStorage.getItem('token')
             api
                 .get('/habits/personal/', {
