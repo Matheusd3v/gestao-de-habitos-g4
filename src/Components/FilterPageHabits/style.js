@@ -3,12 +3,9 @@ import { motion } from 'framer-motion'
 
 export const ContainerFilter = styled(motion.div)`
     width: 300px;
-    height:92%;
+    height:calc(100vh - 75px);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    position: absolute;
-    left: 0;
-    top: 75px;
     background: #98c1d9;
     padding: 130px 0;
     box-sizing: border-box;  

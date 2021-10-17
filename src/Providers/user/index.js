@@ -1,9 +1,12 @@
 import { createContext, useState, useEffect } from "react";
 import api from "../../Services/api";
+import { toast } from "react-toastify";
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
+  toast.configure();
   const [currentFilterHabits, setCurrentFilterHabits] = useState([]);
+  const [newHabit, setNewHabit] = useState([]);
   const [userHabits, setUserHabits] = useState([]);
   const [tokenUser, setTokenUser] = useState(
     JSON.parse(localStorage.getItem("token")) || ""
@@ -17,6 +20,7 @@ export const UserProvider = ({ children }) => {
     } else {
       setIsLogin(false);
     }
+    callingHabits();
   }, [tokenUser]);
 
   const logOut = () => {
@@ -24,16 +28,29 @@ export const UserProvider = ({ children }) => {
     setTokenUser("");
   };
   const callingHabits = () => {
+    if (tokenUser) {
+      api
+        .get("/habits/personal/", {
+          headers: { Authorization: `Bearer ${tokenUser}` },
+        })
+        .then((response) => {
+          setUserHabits(response.data);
+          setCurrentFilterHabits(response.data);
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+  const addingHabit = (wholeHabit) => {
     const token = localStorage.getItem("token");
     api
-      .get("/habits/personal/", {
-        headers: { Authorization: `Bearer ${JSON.parse(token)}` },
+      .post("/habits/", wholeHabit, {
+        headers: { Authorization: `Bearer ${tokenUser}` },
       })
       .then((response) => {
-        setUserHabits(response.data);
-        setCurrentFilterHabits(response.data);
+        toast.success("Hábito cadastrado com sucesso");
+        callingHabits();
       })
-      .catch((err) => console.log(err));
+      .catch((e) => console.log(e));
   };
 
   return (
@@ -48,6 +65,9 @@ export const UserProvider = ({ children }) => {
         callingHabits,
         currentFilterHabits,
         setCurrentFilterHabits,
+        newHabit,
+        setNewHabit,
+        addingHabit,
       }}
     >
       {children}

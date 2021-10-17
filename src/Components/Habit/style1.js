@@ -2,7 +2,7 @@ import styled from 'styled-components'
 export const HabitContainerDesktop = styled.div`
     background-color: #98C1D9;
     border-radius: 5px;
-    margin: 5px;
+    margin: 10px;
     padding: 10px 0px;
     display: none;
     align-items: center;
