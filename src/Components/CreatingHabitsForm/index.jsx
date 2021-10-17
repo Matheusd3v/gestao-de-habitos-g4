@@ -31,7 +31,7 @@ const CreatingHabitsForm = () =>{
 
         
     })
-    const { register,handleSubmit, formState:{ errors}} = useForm({
+    const { register,reset,handleSubmit, formState:{ errors}} = useForm({
         resolver: yupResolver(schema)
     })
     const onSubmit = (data) => {
@@ -39,6 +39,7 @@ const CreatingHabitsForm = () =>{
         const wholeHabit = {...data, achieved:false, how_much_achieved:0,user:id, difficulty:currency }
         setNewHabit(wholeHabit)
         addingHabit(wholeHabit)
+        reset()
     }
 
     return(
@@ -49,7 +50,9 @@ const CreatingHabitsForm = () =>{
                 variant="outlined" 
                 margin='normal'
                 {...register("title")}
+                error={!!errors.title}
                 helperText={errors.title?.message}
+                
                />
              <TextField 
                 id="outlined-basic"
@@ -57,6 +60,7 @@ const CreatingHabitsForm = () =>{
                 variant="outlined"
                 margin='normal'
                 {...register('category')}
+                error={!!errors.category}
                 helperText={errors.category?.message}
                 />
                 <TextField
@@ -81,8 +85,9 @@ const CreatingHabitsForm = () =>{
                 variant="outlined"
                 margin='normal' 
                 {...register('frequency')}
+                error={!!errors.frequency}
                 helperText={errors.frequency?.message}
-                />
+            />
              
             <Button type='submit'>Criar Hábito</Button>
         </FormCreatingHabit>

@@ -8,13 +8,14 @@ import { useEffect } from 'react'
 import api from '../../Services/api'
 import { UserContext } from '../../Providers/user'
 import { Container, HabitsContainer } from './style1.js'
+import { IoIosAdd } from "react-icons/io";
+import Modal  from '../../Components/Modal'
 const HabitsPage = () => {
-    const { callingHabits, currentFilterHabits } = useContext(UserContext)
-    useEffect(()=>{
-        callingHabits()
-    },[])
+    const { callingHabits, currentFilterHabits,tokenUser } = useContext(UserContext)
+    
     return (
         <Container>
+            <Modal/>
             <FilterHabits />
             <HabitsContainer>
                 {currentFilterHabits.map((habit, index)=>(
