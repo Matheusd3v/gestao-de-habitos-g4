@@ -5,7 +5,7 @@ export const StyledPopup = styled(Popup)`
   // use your custom style for ".popup-overlay"
   &-overlay {
     width: 50%;
-    background-color: blue;
+    background-color: #fff;
     position: absolute;
     height: fit-content;
     display: block;
@@ -45,4 +45,9 @@ export const StyledPopup = styled(Popup)`
       border: 1px solid #cfcece;
     }
   }
+`;
+export const EditHabitForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;

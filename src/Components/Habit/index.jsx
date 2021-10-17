@@ -5,7 +5,10 @@ import ProgressBarMobile from "../ProgressBar";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { IoPencil } from "react-icons/io5";
 import EditHabitPopup from "../EditHabitPopup";
-const Habit = ({ title, description, percentage }) => {
+const Habit = ({ habit }) => {
+  const title = habit.title;
+  const description = habit.category;
+  const percentage = habit.how_much_achieved;
   return (
     <>
       <HabitContainerDesktop>
@@ -21,7 +24,7 @@ const Habit = ({ title, description, percentage }) => {
           labelColor="black"
         />
         {/* <button>Editar Tarefa</button> */}
-        <EditHabitPopup />
+        <EditHabitPopup habit={habit} />
       </HabitContainerDesktop>
 
       <HabitContainerMobile>
