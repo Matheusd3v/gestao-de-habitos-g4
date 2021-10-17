@@ -27,6 +27,7 @@ export const UserProvider = ({children}) => {
         setTokenUser('');        
     }
     const callingHabits = () =>{
+
             if(tokenUser){
                 api
                 .get('/habits/personal/', {
@@ -38,7 +39,7 @@ export const UserProvider = ({children}) => {
                 })
                 .catch((err)=>console.log(err))
             }
-        console.log("callingHabits")
+       
 
             
     }
@@ -52,7 +53,8 @@ export const UserProvider = ({children}) => {
             callingHabits()
         })
         .catch((e) => console.log(e))
-        console.log("addingHabits")
+      
+
 
     }
     

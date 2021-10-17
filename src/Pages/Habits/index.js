@@ -11,8 +11,9 @@ import { Container, HabitsContainer } from './style1.js'
 import { IoIosAdd } from "react-icons/io";
 import Modal  from '../../Components/Modal'
 const HabitsPage = () => {
+
     const { callingHabits, currentFilterHabits,tokenUser } = useContext(UserContext)
-    
+
     return (
         <Container>
             <Modal/>
