@@ -1,8 +1,10 @@
 import { createContext, useState, useEffect } from 'react'
 import api from '../../Services/api';
+import { toast } from 'react-toastify';
 export const UserContext = createContext();
 
 export const UserProvider = ({children}) => {
+    toast.configure()
     const [ currentFilterHabits, setCurrentFilterHabits ] = useState([])
     const [ newHabit, setNewHabit ] = useState([])
     const [ userHabits, setUserHabits ] = useState([])
@@ -17,6 +19,7 @@ export const UserProvider = ({children}) => {
         else {
             setIsLogin(false)
         }
+        callingHabits()
     }, [tokenUser])
     
     const logOut = () => {
@@ -24,8 +27,9 @@ export const UserProvider = ({children}) => {
         setTokenUser('');        
     }
     const callingHabits = () =>{
-            const token = localStorage.getItem('token')
-            api
+
+            if(tokenUser){
+                api
                 .get('/habits/personal/', {
                     headers:{ Authorization: `Bearer ${tokenUser}`}
                 })
@@ -34,16 +38,26 @@ export const UserProvider = ({children}) => {
                     setCurrentFilterHabits(response.data)
                 })
                 .catch((err)=>console.log(err))
+            }
+       
+
+            
     }
     const addingHabit = (wholeHabit) =>{
         const token = localStorage.getItem('token')
         api.post('/habits/', wholeHabit, {
             headers:{ Authorization: `Bearer ${tokenUser}`}
         })
-        .then((response) => console.log(response))
+        .then((response) => {
+            toast.success("Hábito cadastrado com sucesso")
+            callingHabits()
+        })
         .catch((e) => console.log(e))
-    }
+      
 
+
+    }
+    
     return (
         <UserContext.Provider value={{logOut, tokenUser, setTokenUser,isLogin, userHabits, setUserHabits, callingHabits, currentFilterHabits, setCurrentFilterHabits, newHabit, setNewHabit, addingHabit }}>
             {children}
