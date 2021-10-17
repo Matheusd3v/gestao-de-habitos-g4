@@ -5,18 +5,18 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { TextField, MenuItem, Slider } from "@material-ui/core";
 import ButtonDefault from "../ButtonDefault";
+import api from "../../Services/api";
+import { toast } from "react-toastify";
+import { useHistory } from "react-router";
+import "react-toastify/dist/ReactToastify.css";
 
 const EditHabitPopup = ({ habit }) => {
-  const {
-    achieved,
-    category,
-    difficulty,
-    frequency,
-    how_much_achieved,
-    id,
-    title,
-  } = habit;
+  const history = useHistory();
+  toast.configure();
+  const { category, difficulty, frequency, how_much_achieved, id, title } =
+    habit;
   const [currency, setCurrency] = useState(difficulty);
+  const [radiusValue, setRadiusValue] = useState(how_much_achieved);
 
   const curriencies = [
     {
@@ -47,15 +47,32 @@ const EditHabitPopup = ({ habit }) => {
     resolver: yupResolver(schema),
   });
   const onSubmit = ({ title, category, frequency, how_much_achieved }) => {
+    const token = localStorage.getItem("token");
     const data = {
       title,
       category,
-      frequency,
-      how_much_achieved,
       difficulty: currency,
-      user: JSON.parse(localStorage.getItem("id")),
+      frequency,
+      achieved: how_much_achieved === 100 ? true : false,
+      how_much_achieved,
     };
-    console.log(data);
+    api
+      .patch(`/habits/${id}/`, data, {
+        headers: { Authorization: `Bearer ${JSON.parse(token)}` },
+      })
+      .then(() => {
+        history.push({ pathname: "/empty" });
+        history.replace({ pathname: "/habits" });
+        toast("Hábito editado !", {
+          type: "success",
+        });
+      })
+      .catch(() => {
+        console.log("b");
+        toast("Falha ao Editar hábito", {
+          type: "error",
+        });
+      });
   };
 
   return (
@@ -114,7 +131,9 @@ const EditHabitPopup = ({ habit }) => {
               </TextField>
 
               <Slider
-                defaultValue={how_much_achieved}
+                key="slider"
+                defaultValue={radiusValue}
+                onChange={(e) => setRadiusValue(e.target.value)}
                 aria-label="Default"
                 valueLabelDisplay="auto"
                 {...register("how_much_achieved")}
