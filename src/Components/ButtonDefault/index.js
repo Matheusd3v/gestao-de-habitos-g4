@@ -1,8 +1,8 @@
 import './style.js'
 import { Button } from './style.js'
-const ButtonDefault = ({ children }) =>{
+const ButtonDefault = ({ children, callback }) =>{
     return (
-        <Button>
+        <Button onClick={callback}>
             { children }
         </Button>
     )
