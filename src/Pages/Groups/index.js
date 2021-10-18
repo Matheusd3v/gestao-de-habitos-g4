@@ -1,7 +1,10 @@
 import { Container, ContainerList, NewGroup, SectionInfo } from "./styles";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../../Components/ButtonDefault";
+import React from "react";
+import CreatingHabitsForm from "../../Components/CreatingHabitsForm";
+import Modal from "../../Components/Modal";
 
 const GroupsPage = () => {
   const [allGroups, setAllGroups] = useState([]);

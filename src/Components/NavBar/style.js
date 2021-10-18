@@ -1,134 +1,60 @@
-import { AppBar, Button, MenuList, Toolbar } from "@material-ui/core";
-import styledEngine from "@material-ui/styled-engine";
 import styled from 'styled-components'
 
-
-
-export const HeaderBar = styledEngine(AppBar)({
-    background: '#3D5A80',
-    boxShadow: '0px 10px 19px -5px rgba(0,0,0,0.78)'
-})
-
-export const HeaderToolBar = styled.div`
-    padding: 5px 25px;
-    box-sizing: border-box;
-    height: 75px;
+export const HeaderBar =  styled.header`
+    width: 100%;
+    height: 70px;
+    background: #3D5A80;
     display: flex;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-end;
+    padding: 5px 40px;
+    box-sizing: border-box;
+    box-shadow: 0px 7px 21px -4px rgba(0,0,0,0.53);
 
-    h1 {
-        margin: 0;
-    }
-
-    .iconMenu {
+    button {
         display: none;
     }
 
-    .navbar {
-        width: 64%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        
-        .links {
-            width: 180px;
-            display: flex;
-            justify-content: space-between;
+    button {
+        background: transparent;
+        border: none;
+        font-size: 18px;
+        color: #FFFFFF;
+        cursor: pointer;
+        border: 1px solid #FFFFFF;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
 
-            a {
-                text-decoration: none;
-                color: #FFFFFF;
-                font-size: 19px;
-                font-weight: 600;
+   @media screen and (max-width: 800px) {
+       .notShowMob {
+           display: none;
+       }
 
-                :hover {
-                    color: #FF715B;
-                    cursor: pointer;
-                    transition: 0.4s;
-                }
-            }
-
-            @media (max-width: 1024px) {
-                display: none;
-            }
-        }
-
-        .linksLogin {
-            width: 300px;
+       button {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-
-            button {                
-                color: #FFFFFF;                
-
-                :hover {
-                    color: #FF715B;
-                    cursor: pointer;
-                    transition: 0.4s;
-                }
-            }
-
-            a {                
-                text-decoration: none;
-                color: #FFFFFF;
-                font-size: 19px;
-                font-weight: 600;
-
-                :hover {
-                    color: #FF715B;
-                    cursor: pointer;
-                    transition: 0.4s;
-                }            
-            }
-
-            @media (max-width: 1024px) {
-                display: none;
-            }
-        }
-    }
-
-    .isLog {
-        width: 100%;
-        padding: 0 50px;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-
-        button {
-            color: #FFFFFF;
-            :hover {
-                color: #FF715B;
-            }
-        }
-    }
-
-    @media (max-width: 1024px){
-        justify-content: space-between;
-        padding: 0 50px;
-
-        .iconMenu {
-            display: block;
-        } 
-        
-    }
-
-    @media (max-width: 510px) {
-        height: 100px;
-    }
+            height: 60%;
+       }
+   }
 `
 
-export const ButtonLog = styledEngine(Button)({
+export const NameContainer = styled.div`
+    margin-right: 15%;
 
-})
-
-export const MenuLists = styled(MenuList)({
-    width: '100%',
-    padding: '0',
-    a : {
-        textDecoration: 'none',
-        color: '#FFFFFF',        
+    h1 {
+        margin: 0;
+        color: #FFFFFF;
     }
-})
 
+    @media (max-width: 915px) {
+        width: 250px;
+        margin-right: 5%;
+    }
+
+    @media (max-width: 820px) {
+        margin: 0 auto;
+    }
+
+`

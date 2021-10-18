@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import styled from "styled-components"
 export const HomeContainer = styled(motion.div)`
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background-color: #293241;
     display: flex;

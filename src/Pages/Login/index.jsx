@@ -8,8 +8,12 @@ import ButtonDefault from "../../Components/ButtonDefault";
 import api from "../../Services/api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { useHistory } from "react-router";
+import jwtDecode from "jwt-decode";
+import { useContext } from "react";
+import { UserContext } from "../../Providers/user";
 const Login = () => {
+  const history = useHistory()
   const formSchema = yup.object().shape({
     username: yup.string().required("Username Obrigatório"),
     password: yup.string().required("Senha Obrigatória"),
@@ -18,13 +22,23 @@ const Login = () => {
     resolver: yupResolver(formSchema),
   });
 
+  const { setTokenUser } = useContext(UserContext)
+
   const onSubmitFunction = (data) => {
+    toast.configure()
     api
       .post("/sessions/", data)
       .then((response) => {
         const token = response.data.access;
+        const decoded = jwtDecode(token)
         window.localStorage.clear();
         window.localStorage.setItem("token", JSON.stringify(token));
+        window.localStorage.setItem("id", JSON.stringify(decoded.user_id));
+        toast("Bem vindo ao gestão de hábitos", {
+          type: "success",
+        });
+        history.push('/habits')
+        setTokenUser(token)
       })
       .catch((err) => {
         toast("Senha ou Login errados", {
