@@ -23,10 +23,6 @@ export const UserProvider = ({ children }) => {
     callingHabits();
   }, [tokenUser]);
 
-  const logOut = () => {
-    localStorage.clear();
-    setTokenUser("");
-  };
   const callingHabits = () => {
     if (tokenUser) {
       api
@@ -40,8 +36,11 @@ export const UserProvider = ({ children }) => {
         .catch((err) => console.log(err));
     }
   };
+  const logOut = () => {
+    localStorage.clear();
+    setTokenUser("");
+  };
   const addingHabit = (wholeHabit) => {
-    const token = localStorage.getItem("token");
     api
       .post("/habits/", wholeHabit, {
         headers: { Authorization: `Bearer ${tokenUser}` },

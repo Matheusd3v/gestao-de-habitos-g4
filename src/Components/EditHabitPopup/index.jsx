@@ -103,7 +103,7 @@ const EditHabitPopup = ({ habit, version }) => {
     <StyledPopup
       trigger={
         version === "desktop" ? (
-          <button className="button"> Editar </button>
+          <button className="button"> Editar hábito </button>
         ) : (
           <button className="pencil">
             <IoPencil />
