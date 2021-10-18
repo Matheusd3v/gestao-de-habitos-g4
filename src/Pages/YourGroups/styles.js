@@ -16,8 +16,8 @@ export const Container = styled.div`
   }
 
   button {
-    width: 200px;
-    font-size: 20px;
+    width: 220px;
+    font-size: 18px;
 
     a {
       text-decoration: none;
