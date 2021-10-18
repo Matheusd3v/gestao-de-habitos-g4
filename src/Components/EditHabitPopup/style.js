@@ -3,7 +3,10 @@ import styled from "styled-components";
 
 export const StyledPopup = styled(Popup)`
   // use your custom style for ".popup-overlay"
+
   &-overlay {
+    min-width: fit-content;
+    padding: 10px;
     width: 50%;
     background-color: #fff;
     position: absolute;
@@ -25,6 +28,7 @@ export const StyledPopup = styled(Popup)`
       width: 100%;
       padding: 10px 5px;
     }
+
     .modal > .actions {
       width: 100%;
       padding: 10px 5px;

@@ -1,5 +1,5 @@
 import { StyledPopup, EditHabitForm } from "./style";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -7,11 +7,13 @@ import { TextField, MenuItem, Slider } from "@material-ui/core";
 import ButtonDefault from "../ButtonDefault";
 import api from "../../Services/api";
 import { toast } from "react-toastify";
-import { useHistory } from "react-router";
 import "react-toastify/dist/ReactToastify.css";
+import { UserContext } from "../../Providers/user";
+import { useHistory } from "react-router";
 
 const EditHabitPopup = ({ habit }) => {
   const history = useHistory();
+  const { callingHabits } = useContext(UserContext);
   toast.configure();
   const { category, difficulty, frequency, how_much_achieved, id, title } =
     habit;
@@ -61,6 +63,7 @@ const EditHabitPopup = ({ habit }) => {
         headers: { Authorization: `Bearer ${JSON.parse(token)}` },
       })
       .then(() => {
+        callingHabits();
         history.push({ pathname: "/empty" });
         history.replace({ pathname: "/habits" });
         toast("Hábito editado !", {
@@ -68,8 +71,28 @@ const EditHabitPopup = ({ habit }) => {
         });
       })
       .catch(() => {
-        console.log("b");
         toast("Falha ao Editar hábito", {
+          type: "error",
+        });
+      });
+  };
+
+  const deleteHabit = () => {
+    const token = localStorage.getItem("token");
+    api
+      .delete(`/habits/${id}/`, {
+        headers: { Authorization: `Bearer ${JSON.parse(token)}` },
+      })
+      .then(() => {
+        callingHabits();
+        history.push({ pathname: "/empty" });
+        history.replace({ pathname: "/habits" });
+        toast("Hábito deletado !", {
+          type: "success",
+        });
+      })
+      .catch(() => {
+        toast("Falha ao deletar hábito", {
           type: "error",
         });
       });
@@ -138,10 +161,16 @@ const EditHabitPopup = ({ habit }) => {
                 valueLabelDisplay="auto"
                 {...register("how_much_achieved")}
               />
-              <ButtonDefault type="submit">Editar Hábito</ButtonDefault>
+
+              <ButtonDefault type="submit">Salvar alterações</ButtonDefault>
             </EditHabitForm>
           </div>
-          <div className="actions"></div>
+
+          <div className="actions">
+            <ButtonDefault type="button" callback={deleteHabit}>
+              Excluir Hábito
+            </ButtonDefault>
+          </div>
         </div>
       )}
     </StyledPopup>
