@@ -1,3 +1,4 @@
+import { Container, ContainerList, NewGroup, SectionInfo } from "./styles";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../../Components/ButtonDefault";
@@ -25,36 +26,50 @@ const GroupsPage = () => {
   }, [nextAllGroups]);
 
   return (
-    <>
+    <Container>
       <h1>Grupos</h1>
-      <Button>
+      <Button className="changePage">
         <Link to="/groups/subscriptions">Ver seus Grupos</Link>
       </Button>
       <hr />
-      <h3>Todos os grupos</h3>
+      <h2>Todos os grupos</h2>
       <hr />
-      <div>
+      <NewGroup>
         <div>
           <p>+</p>
         </div>
         <p>Criar novo grupo</p>
-      </div>
+      </NewGroup>
 
       {console.log(allGroups)}
 
-      <ul>
+      <ContainerList>
         {allGroups.map((page) =>
           page.map((group) => (
             <li key={group.id}>
               <h2>{group.name}</h2>
-              <p> Objetivos: {group.goals[0]?.title} </p>
-              <p> Atividades: {group.activities[0]?.title} </p>
-              <p> Descrição: {group.description} </p>
+
+              <SectionInfo>
+                <div>
+                  <h3>Objetivos</h3>
+                  <p>{group.goals[0]?.title} </p>
+                </div>
+                <div>
+                  <h3>Atividades</h3>
+                  <p> {group.activities[0]?.title} </p>
+                </div>
+                <div>
+                  <h3>Descrição</h3>
+                  <p> {group.description} </p>
+                </div>
+
+                <Button className="button">Ver mais</Button>
+              </SectionInfo>
             </li>
           ))
         )}
-      </ul>
-    </>
+      </ContainerList>
+    </Container>
   );
 };
 
