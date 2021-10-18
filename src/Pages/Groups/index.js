@@ -6,19 +6,19 @@ import React from "react";
 import CreatingHabitsForm from "../../Components/CreatingHabitsForm";
 import Modal from "../../Components/Modal";
 
+import api from "../../Services/api";
+
 const GroupsPage = () => {
   const [allGroups, setAllGroups] = useState([]);
   const [nextAllGroups, setNextAllGroups] = useState(
     "https://kenzie-habits.herokuapp.com/groups/"
   );
-
   useEffect(() => {
     fetch(nextAllGroups)
       .then((response) => response.json())
       .then((response) => setAllGroups([...allGroups, response.results]))
       .catch((err) => console.log(err));
   }, [nextAllGroups]);
-
   useEffect(() => {
     fetch(nextAllGroups)
       .then((response) => response.json())
@@ -27,7 +27,6 @@ const GroupsPage = () => {
       )
       .catch((err) => console.log(err));
   }, [nextAllGroups]);
-
   return (
     <Container>
       <h1>Grupos</h1>
@@ -43,13 +42,11 @@ const GroupsPage = () => {
         </div>
         <p>Criar novo grupo</p>
       </NewGroup>
-
       <ContainerList>
         {allGroups.map((page) =>
           page.map((group) => (
             <li key={group.id}>
               <h2>{group.name}</h2>
-
               <SectionInfo>
                 <div>
                   <h3>Objetivos</h3>
@@ -63,7 +60,6 @@ const GroupsPage = () => {
                   <h3>Descrição</h3>
                   <p> {group.description} </p>
                 </div>
-
                 <ButtonDefault className="button">Ver mais</ButtonDefault>
               </SectionInfo>
             </li>
