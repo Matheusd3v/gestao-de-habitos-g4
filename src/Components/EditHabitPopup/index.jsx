@@ -164,7 +164,7 @@ const EditHabitPopup = ({ habit, version }) => {
 
               <Slider
                 key="slider"
-                defaultValue={radiusValue}
+                defaultValue={habit.how_much_achieved}
                 onChange={(e) => setRadiusValue(e.target.value)}
                 aria-label="Default"
                 valueLabelDisplay="auto"
