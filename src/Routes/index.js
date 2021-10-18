@@ -7,6 +7,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import Route from "./routes";
 import YourGroupsPages from "../Pages/YourGroups";
+import ProfilePage from "../Pages/Profile";
 
 const Routers = () => {
   return (
@@ -22,6 +23,7 @@ const Routers = () => {
           isPrivate
           component={YourGroupsPages}
         />
+        <Route path="/profile/:id" isPrivate component={ProfilePage} />
       </Switch>
     </>
   );
