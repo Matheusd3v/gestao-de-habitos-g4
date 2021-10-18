@@ -1,3 +1,4 @@
+import { Container, ContainerList, NewGroup, SectionInfo } from "./styles";
 import { useEffect, useState } from "react";
 import api from "../../Services/api";
 import ButtonDefault from "../../Components/ButtonDefault";
@@ -17,7 +18,7 @@ const YourGroupsPages = () => {
   }, []);
 
   return (
-    <>
+    <Container>
       <h1>Grupos</h1>
       <ButtonDefault className="changePage">
         <Link to="/groups">Ver todos os Grupos</Link>
@@ -25,17 +26,17 @@ const YourGroupsPages = () => {
       <hr />
       <h2>Seus grupos</h2>
       <hr />
-      <div>
+      <NewGroup>
         <div>
           <p>+</p>
         </div>
         <p>Criar novo grupo</p>
-      </div>
-      <ul>
+      </NewGroup>
+      <ContainerList>
         {yourGroups.map((group) => (
           <li key={group.id}>
             <h2>{group.name}</h2>
-            <section>
+            <SectionInfo>
               <div>
                 <h3>Objetivos</h3>
                 <p>{group.goals[0]?.title} </p>
@@ -49,11 +50,11 @@ const YourGroupsPages = () => {
                 <p> {group.description} </p>
               </div>
               <ButtonDefault className="button">Ver mais</ButtonDefault>
-            </section>
+            </SectionInfo>
           </li>
         ))}
-      </ul>
-    </>
+      </ContainerList>
+    </Container>
   );
 };
 
