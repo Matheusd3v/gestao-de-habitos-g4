@@ -4,7 +4,7 @@ import { IoIosAdd, IoIosClose } from "react-icons/io";
 import {ButtonAdd, Ancor} from './style.js'
 import { useState } from 'react';
 import ButtonDefault from '../ButtonDefault'
-const Modal = () =>{
+const Modal = ({ children }) =>{
   // onClick={() =>)}
       const callBack = () =>{
         console.log("a")
@@ -23,7 +23,7 @@ const Modal = () =>{
             <IoIosClose/>
           </Ancor>
             <div className="modal">
-             <CreatingHabitsForm/>
+             { children }
             </div>
            
           </Popup>
