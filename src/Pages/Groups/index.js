@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Button from "../../Components/ButtonDefault";
-import api from "../../Services/api";
 
 const GroupsPage = () => {
-  const [isGroups, setIsGroups] = useState(false);
   const [allGroups, setAllGroups] = useState([]);
-  const [nextYourGroups, setNextYourGroups] = useState([]);
   const [nextAllGroups, setNextAllGroups] = useState(
     "https://kenzie-habits.herokuapp.com/groups/"
   );
@@ -29,11 +27,11 @@ const GroupsPage = () => {
   return (
     <>
       <h1>Grupos</h1>
-      <Button onClick={() => setIsGroups(!isGroups)}>
-        {isGroups ? "Ver seus grupos" : "Ver todos os grupos"}
+      <Button>
+        <Link to="/groups/subscriptions">Ver seus Grupos</Link>
       </Button>
       <hr />
-      {isGroups ? <h3>Todos os grupos</h3> : <h3>Seus grupos</h3>}
+      <h3>Todos os grupos</h3>
       <hr />
       <div>
         <div>
@@ -42,13 +40,20 @@ const GroupsPage = () => {
         <p>Criar novo grupo</p>
       </div>
 
-      {isGroups ? (
-        <ul>
-          {allGroups.map((page) =>
-            page.map((group) => <li key={group.id}>{group.name}</li>)
-          )}
-        </ul>
-      ) : null}
+      {console.log(allGroups)}
+
+      <ul>
+        {allGroups.map((page) =>
+          page.map((group) => (
+            <li key={group.id}>
+              <h2>{group.name}</h2>
+              <p> Objetivos: {group.goals[0]?.title} </p>
+              <p> Atividades: {group.activities[0]?.title} </p>
+              <p> Descrição: {group.description} </p>
+            </li>
+          ))
+        )}
+      </ul>
     </>
   );
 };
