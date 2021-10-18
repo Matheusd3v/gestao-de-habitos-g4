@@ -1,9 +1,11 @@
+import NavBar from "./Components/NavBar";
 import Routers from "./Routes";
 
 function App() {
   return (
     <>
-      <Routers/>
+      <NavBar />
+      <Routers />
     </>
   );
 }
