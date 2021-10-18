@@ -26,6 +26,7 @@ export const UserProvider = ({children}) => {
         localStorage.clear();
         setTokenUser('');        
     }
+    
     const callingHabits = () =>{
 
             if(tokenUser){
@@ -38,13 +39,11 @@ export const UserProvider = ({children}) => {
                     setCurrentFilterHabits(response.data)
                 })
                 .catch((err)=>console.log(err))
-            }
-       
-
-            
+            }            
     }
+
     const addingHabit = (wholeHabit) =>{
-        const token = localStorage.getItem('token')
+       
         api.post('/habits/', wholeHabit, {
             headers:{ Authorization: `Bearer ${tokenUser}`}
         })
@@ -53,9 +52,6 @@ export const UserProvider = ({children}) => {
             callingHabits()
         })
         .catch((e) => console.log(e))
-      
-
-
     }
     
     return (
