@@ -15,7 +15,7 @@ export const Container = styled.div`
     width: 90%;
   }
 
-  .changePage {
+  button {
     width: 200px;
     font-size: 20px;
 
@@ -99,7 +99,7 @@ export const SectionInfo = styled.section`
   flex-direction: column;
   margin-bottom: 10px;
 
-  .button {
+  button {
     width: 150px;
     height: 40px;
     font-size: 16px;

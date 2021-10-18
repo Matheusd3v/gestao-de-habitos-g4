@@ -1,7 +1,7 @@
 import { Container, ContainerList, NewGroup, SectionInfo } from "./styles";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Button from "../../Components/ButtonDefault";
+import ButtonDefault from "../../Components/ButtonDefault";
 import React from "react";
 import CreatingHabitsForm from "../../Components/CreatingHabitsForm";
 import Modal from "../../Components/Modal";
@@ -31,9 +31,9 @@ const GroupsPage = () => {
   return (
     <Container>
       <h1>Grupos</h1>
-      <Button className="changePage">
+      <ButtonDefault className="changePage">
         <Link to="/groups/subscriptions">Ver seus Grupos</Link>
-      </Button>
+      </ButtonDefault>
       <hr />
       <h2>Todos os grupos</h2>
       <hr />
@@ -43,8 +43,6 @@ const GroupsPage = () => {
         </div>
         <p>Criar novo grupo</p>
       </NewGroup>
-
-      {console.log(allGroups)}
 
       <ContainerList>
         {allGroups.map((page) =>
@@ -66,7 +64,7 @@ const GroupsPage = () => {
                   <p> {group.description} </p>
                 </div>
 
-                <Button className="button">Ver mais</Button>
+                <ButtonDefault className="button">Ver mais</ButtonDefault>
               </SectionInfo>
             </li>
           ))
