@@ -10,8 +10,9 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { UserContext } from "../../Providers/user";
 import { useHistory } from "react-router";
+import { IoPencil } from "react-icons/io5";
 
-const EditHabitPopup = ({ habit }) => {
+const EditHabitPopup = ({ habit, version }) => {
   const history = useHistory();
   const { callingHabits } = useContext(UserContext);
   toast.configure();
@@ -100,7 +101,15 @@ const EditHabitPopup = ({ habit }) => {
 
   return (
     <StyledPopup
-      trigger={<button className="button"> Open Modal </button>}
+      trigger={
+        version === "desktop" ? (
+          <button className="button"> Editar </button>
+        ) : (
+          <button className="pencil">
+            <IoPencil />
+          </button>
+        )
+      }
       modal
       nested
     >

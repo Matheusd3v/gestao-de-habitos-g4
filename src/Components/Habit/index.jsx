@@ -24,14 +24,14 @@ const Habit = ({ habit }) => {
           labelColor="black"
         />
         {/* <button>Editar Tarefa</button> */}
-        <EditHabitPopup habit={habit} />
+        <EditHabitPopup habit={habit} version={"desktop"} />
       </HabitContainerDesktop>
 
       <HabitContainerMobile>
         <ProgressBarMobile percentage={percentage} />
         <p>{description}</p>
         {percentage === 100 ? <p>Concluído</p> : <p>Não concluído</p>}
-        <IoPencil />
+        <EditHabitPopup habit={habit} version={"mobile"} />
       </HabitContainerMobile>
     </>
   );

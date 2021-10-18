@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const StyledPopup = styled(Popup)`
   // use your custom style for ".popup-overlay"
-
   &-overlay {
     min-width: fit-content;
     padding: 10px;
