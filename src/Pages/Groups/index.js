@@ -5,6 +5,7 @@ import ButtonDefault from "../../Components/ButtonDefault";
 import React from "react";
 import CreatingHabitsForm from "../../Components/CreatingHabitsForm";
 import Modal from "../../Components/Modal";
+import GroupDetails from "../../Components/GroupDetails";
 
 const GroupsPage = () => {
   const [allGroups, setAllGroups] = useState([]);
@@ -64,7 +65,7 @@ const GroupsPage = () => {
                   <p> {group.description} </p>
                 </div>
 
-                <ButtonDefault className="button">Ver mais</ButtonDefault>
+              <Modal><GroupDetails group={group}/></Modal>
               </SectionInfo>
             </li>
           ))
