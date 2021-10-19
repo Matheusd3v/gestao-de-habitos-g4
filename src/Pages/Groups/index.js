@@ -3,11 +3,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ButtonDefault from "../../Components/ButtonDefault";
 import React from "react";
-import CreatingHabitsForm from "../../Components/CreatingHabitsForm";
 import Modal from "../../Components/Modal";
 import GroupDetails from "../../Components/GroupDetails";
-
-import api from "../../Services/api";
+import { AiFillPlusCircle } from "react-icons/ai";
 
 const GroupsPage = () => {
   const [allGroups, setAllGroups] = useState([]);
@@ -18,16 +16,12 @@ const GroupsPage = () => {
     fetch(nextAllGroups)
       .then((response) => response.json())
       .then((response) => setAllGroups([...allGroups, response.results]))
-      .catch((err) => console.log(err));
-  }, [nextAllGroups]);
-  useEffect(() => {
-    fetch(nextAllGroups)
-      .then((response) => response.json())
       .then((response) =>
         response.next ? setNextAllGroups(response.next) : null
       )
       .catch((err) => console.log(err));
   }, [nextAllGroups]);
+
   return (
     <Container>
       <h1>Grupos</h1>
@@ -37,12 +31,7 @@ const GroupsPage = () => {
       <hr />
       <h2>Todos os grupos</h2>
       <hr />
-      <NewGroup>
-        <div>
-          <p>+</p>
-        </div>
-        <p>Criar novo grupo</p>
-      </NewGroup>
+      <Modal type='add'> fdsgfdgfdgfdfd </Modal>
       <ContainerList>
         {allGroups.map((page) =>
           page.map((group) => (

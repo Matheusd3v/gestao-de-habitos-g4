@@ -2,17 +2,24 @@ import styled from "styled-components";
 
 export const Container = styled.main`
   background-color: #98c1d9;
-  width: 80%;
+  width: 65%;
+  max-width: 1000px;
   height: fit-content;
   min-height: 500px;
   margin: 50px auto;
   border-radius: 15px;
-  padding: 10px;
+  padding: 10px 50px;
+  padding-bottom: 40px;
   box-sizing: border-box;
   h2 {
     color: #fff;
     text-align: center;
     margin: 10px;
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 80%;
+    padding: 10px 20px;
   }
 `;
 export const GroupTitle = styled.h1`
@@ -62,3 +69,29 @@ export const GroupCategory = styled.div`
   transition: 0.5s;
   text-align: center;
 `;
+
+export const MemberList = styled.div`
+    width: 100%;
+    height: fit-content;
+    background: #364d79;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 5px 0;
+    box-sizing: border-box;
+    
+    ul {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      min-height: 100px;
+      padding: 15px 40px;
+      box-sizing: border-box;
+    }
+
+    li {
+      margin: 2px 10px;
+    }
+`

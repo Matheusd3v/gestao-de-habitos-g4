@@ -7,6 +7,7 @@ import {
   GroupCategory,
   CarrouselItem,
   ActivitiesList,
+  MemberList,
 } from "./style";
 import CarouselBase from "../../Components/Carousel";
 import GoalsCard from "../../Components/GoalsCard";
@@ -43,6 +44,14 @@ const GroupDetails = () => {
             return <li title={item.title}>{item.title}</li>;
           })}
         </ActivitiesList>
+        <h2>Membros</h2>
+        <MemberList>
+          <ul>
+          {group.users_on_group?.map((user) => (
+            <li key={user.id} >{user.username}</li>
+          ))}
+          </ul>
+        </MemberList>
       </Container>
     </>
   );
