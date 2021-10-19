@@ -16,7 +16,7 @@ const Routers = () => {
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/habits" isPrivate component={HabitsPage} />
-        <Route path="/groups" isPrivate component={GroupsPage} />
+        <Route exact path="/groups" isPrivate component={GroupsPage} />
         <Route
           path="/groups/subscriptions"
           isPrivate
