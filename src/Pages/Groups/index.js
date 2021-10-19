@@ -6,6 +6,7 @@ import React from "react";
 import Modal from "../../Components/Modal";
 import GroupDetails from "../../Components/GroupDetails";
 import { AiFillPlusCircle } from "react-icons/ai";
+import FormCrateGroups from "../../Components/FormCreateGroup";
 
 const GroupsPage = () => {
   const [allGroups, setAllGroups] = useState([]);
@@ -31,7 +32,8 @@ const GroupsPage = () => {
       <hr />
       <h2>Todos os grupos</h2>
       <hr />
-      <Modal type='add'> fdsgfdgfdgfdfd </Modal>
+      <Modal type='add'>  </Modal>
+      <FormCrateGroups/>
       <ContainerList>
         {allGroups.map((page) =>
           page.map((group) => (
