@@ -11,7 +11,8 @@ export const UserProvider = ({ children }) => {
   const [tokenUser, setTokenUser] = useState(
     JSON.parse(localStorage.getItem("token")) || ""
   );
-
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
   const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
@@ -36,10 +37,12 @@ export const UserProvider = ({ children }) => {
         .catch((err) => console.log(err));
     }
   };
+  
   const logOut = () => {
     localStorage.clear();
     setTokenUser("");
   };
+
   const addingHabit = (wholeHabit) => {
     api
       .post("/habits/", wholeHabit, {
@@ -51,6 +54,16 @@ export const UserProvider = ({ children }) => {
       })
       .catch((e) => console.log(e));
   };
+
+  const getNameAndEmail = () => {
+    api
+    .get(`/users/${localStorage.getItem('id')}/`)
+    .then((response) => {
+        setName(response.data.username)
+        setEmail(response.data.email)
+    })
+    .catch((e) => console.log(e))
+  }
 
   return (
     <UserContext.Provider
@@ -67,6 +80,9 @@ export const UserProvider = ({ children }) => {
         newHabit,
         setNewHabit,
         addingHabit,
+        getNameAndEmail,
+        name,
+        email
       }}
     >
       {children}
