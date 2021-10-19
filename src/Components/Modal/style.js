@@ -14,8 +14,10 @@ export const ButtonAdd = styled.button`
 `
 
 export const Ancor = styled.a`
+    
     font-size: 50px;
     cursor: pointer;
     position: absolute;
+    z-index: 2;
     right: 0px;
 `

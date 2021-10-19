@@ -36,6 +36,24 @@ export const UserProvider = ({ children }) => {
         .catch((err) => console.log(err));
     }
   };
+
+
+  const subscribeGroup = (group) =>{
+    console.log(group)
+    api
+    .post(`/groups/${group.id}/subscribe/`,group.id,{
+      headers: { Authorization: `Bearer ${tokenUser}` },
+    })
+      .then((response)=>{
+        toast.success("Inscrição feita com sucesso!")
+      })
+      .catch((err)=>{
+        toast.error("Impossível se inscrever!")
+      })
+  }
+
+
+  
   const logOut = () => {
     localStorage.clear();
     setTokenUser("");
@@ -67,6 +85,7 @@ export const UserProvider = ({ children }) => {
         newHabit,
         setNewHabit,
         addingHabit,
+        subscribeGroup,
       }}
     >
       {children}
