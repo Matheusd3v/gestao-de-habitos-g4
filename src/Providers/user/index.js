@@ -36,10 +36,12 @@ export const UserProvider = ({ children }) => {
         .catch((err) => console.log(err));
     }
   };
+  
   const logOut = () => {
     localStorage.clear();
     setTokenUser("");
   };
+
   const addingHabit = (wholeHabit) => {
     api
       .post("/habits/", wholeHabit, {

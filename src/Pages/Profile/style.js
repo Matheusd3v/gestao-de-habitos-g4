@@ -14,6 +14,10 @@ export const ProfileContainer = styled(motion.div)`
         color: #FFFFFF;
     }
 
+    h3 {
+        margin: 5px 0;
+    }
+
     div {
         background: #FFFFFF;
         display: flex;
@@ -25,6 +29,10 @@ export const ProfileContainer = styled(motion.div)`
         height: 35px;
         font-size: 20px;
         padding: 0;        
+    }
+
+    .save {
+        margin-bottom: 20px;
     }
 
 `

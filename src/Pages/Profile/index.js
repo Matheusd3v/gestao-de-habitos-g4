@@ -9,8 +9,9 @@ import { FormEditProfile, ProfileContainer } from './style'
 import ButtonDefault from '../../Components/ButtonDefault';
 
 const ProfilePage = () => {
-    const [name, setName] = useState('')
-    const [showOne, setShowOne] = useState(true)
+    const [name, setName] = useState('dfsfd')
+    const [email, setEmail] = useState('')
+    const [showOne, setShowOne] = useState(false)
 
     const { id } = useParams()
 
@@ -22,10 +23,12 @@ const ProfilePage = () => {
     useEffect(() => {
         api
             .get(`/users/${id}/`)
-            .then((response) => setName(response.data.username))
+            .then((response) => {
+                setName(response.data.username)
+                setEmail(response.data.email)
+            })
             .catch((e) => console.log(e))
 
-        // api.post()
     }, [])
 
     const { register, handleSubmit, formState: { errors }, } = useForm({
@@ -41,6 +44,11 @@ const ProfilePage = () => {
         changeBtn()
     }
 
+    const mostrar = (e) => {
+        setName(e.target.value)
+        console.log('ooooooo')
+    }
+
     return (
         <ProfileContainer
         // initial={{opacity:0 , x:-300}}
@@ -52,6 +60,7 @@ const ProfilePage = () => {
                 <FormEditProfile onSubmit={handleSubmit(onSubmitFunction)}>
                     <h3>Editar informações</h3>
                     <TextField 
+                        defaultValue={name}
                         label="Nome"
                         margin="normal"
                         variant="outlined"
@@ -72,11 +81,10 @@ const ProfilePage = () => {
                         error={!!errors.email}
                         helperText={errors.email?.message}
                     />
-
                 
-                    {showOne && <ButtonDefault type='submit'>Salvar</ButtonDefault>}
+                    {showOne && <ButtonDefault  className='save' type='submit'>Salvar</ButtonDefault>}
                 </FormEditProfile>
-                {!showOne && <ButtonDefault callback={changeBtn}>Editar</ButtonDefault>}
+                {!showOne && <ButtonDefault  callback={changeBtn}>Editar</ButtonDefault>}
             </div>
         </ProfileContainer>
     )
