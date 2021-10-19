@@ -63,7 +63,8 @@ export const ContainerList = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
+  align-items: center;
   li {
     width: 90%;
     height: 400px;
@@ -97,7 +98,7 @@ export const SectionInfo = styled.section`
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-
+  
   button {
     width: 150px;
     height: 40px;

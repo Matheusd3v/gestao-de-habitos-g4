@@ -39,7 +39,6 @@ export const UserProvider = ({ children }) => {
 
 
   const subscribeGroup = (group) =>{
-    console.log(group)
     api
     .post(`/groups/${group.id}/subscribe/`,group.id,{
       headers: { Authorization: `Bearer ${tokenUser}` },
@@ -48,7 +47,7 @@ export const UserProvider = ({ children }) => {
         toast.success("Inscrição feita com sucesso!")
       })
       .catch((err)=>{
-        toast.error("Impossível se inscrever!")
+        toast.error("Impossível se inscrever")
       })
   }
 

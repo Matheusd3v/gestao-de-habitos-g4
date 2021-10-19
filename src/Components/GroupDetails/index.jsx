@@ -2,10 +2,11 @@ import { GroupDetailsContainer } from './style.js'
 import ButtonDefault from '../ButtonDefault'
 import { useContext } from 'react'
 import { UserContext, UserProvider } from '../../Providers/user/index.js'
+import { AnimatePresence } from 'framer-motion'
 const GroupDetails = ({group}) =>{
-    console.log(group)
     const { subscribeGroup } = useContext(UserContext)
     return(
+        <AnimatePresence>
         <GroupDetailsContainer>
             <div className='info-container'>
                 <h1>{group.name}</h1>
@@ -19,7 +20,7 @@ const GroupDetails = ({group}) =>{
                  (
                     <>
                         <h3>Atividades do grupo</h3>
-                        <p>{group.activities}</p>
+                        {group.activities.map((activitie)=><p key={activitie.id}>{activitie.title}</p>)}
                     </>
                  )
                  :
@@ -27,11 +28,11 @@ const GroupDetails = ({group}) =>{
                     <h3>O grupo não tem atividades</h3>
                  )
                  }
-                {group.goals.length !==0?
+                {group.goals.length !==0 ?
                  (
                     <>
                         <h3>Metas do grupo</h3>
-                        <p>{group.goals}</p>
+                        {group.goals.map((goal)=><p key={goal.id}>{goal.title}</p>)}
                     </>
                  )
                  :
@@ -42,6 +43,7 @@ const GroupDetails = ({group}) =>{
                 <button onClick={()=>subscribeGroup(group)}>Inscrever-se</button>
             </div>
         </GroupDetailsContainer>
+        </AnimatePresence>
     )
 }
 

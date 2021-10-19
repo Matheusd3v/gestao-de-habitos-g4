@@ -1,7 +1,7 @@
 import Popup from 'reactjs-popup'
 import styled from 'styled-components'
-
-export const ButtonAdd = styled.button`
+import { motion } from 'framer-motion'
+export const ButtonAdd = styled(motion.button)`
     cursor: pointer;
         position: fixed;
         right: 5px;
@@ -20,4 +20,6 @@ export const Ancor = styled.a`
     position: absolute;
     z-index: 2;
     right: 0px;
+`
+export const ModalContainer= styled(motion.div)`
 `
