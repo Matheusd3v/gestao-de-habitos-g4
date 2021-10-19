@@ -4,27 +4,20 @@ import { IoIosAdd, IoIosClose } from "react-icons/io";
 import {ButtonAdd, Ancor} from './style.js'
 import { useState } from 'react';
 import ButtonDefault from '../ButtonDefault'
-const Modal = ({ children, type, group }) =>{
-      
+const Modal = ({ children }) =>{
+  // onClick={() =>)}
       const callBack = () =>{
+        console.log("a")
         setOpen(o => !o)
       }
-
       const [open, setOpen] = useState(false);
       const closeModal = () => setOpen(false);
       return (
         <>
-        
-          {type==='add' ?
-           (
-            <ButtonAdd  onClick={callBack}>
-                <IoIosAdd/>
-            </ButtonAdd>
-           ):
-           (
-            <ButtonDefault callback={callBack}>Ver mais</ButtonDefault>
-           )
-        }
+          <ButtonAdd  onClick={callBack}>
+              <IoIosAdd/>
+          </ButtonAdd>
+         
           <Popup open={open} nested closeOnDocumentClick onClose={closeModal}>
           <Ancor className="close" onClick={closeModal}>
             <IoIosClose/>
