@@ -40,6 +40,18 @@ export const NavContainer = styled(motion.nav)`
         display: block;
     }
 
+    .profileBtn {
+        background: transparent;
+        border: none;
+        font-size: 16px;
+
+        :hover {
+            color: #FF715B;
+            text-decoration: underline;
+            transition: 1s;
+        }
+    }
+
     @media (max-width: 800px) {
         position: absolute;
         z-index: 2;

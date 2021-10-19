@@ -8,6 +8,7 @@ import Register from "../Pages/Register";
 import Route from "./routes";
 import YourGroupsPages from "../Pages/YourGroups";
 import GroupDetails from "../Pages/GroupDetails";
+import ProfilePage from "../Pages/Profile";
 
 const Routers = () => {
   return (
@@ -24,6 +25,7 @@ const Routers = () => {
           component={YourGroupsPages}
         />
         <Route exact path="/groups/:id" isPrivate component={GroupDetails} />
+        <Route path="/profile/:id" isPrivate component={ProfilePage} />
       </Switch>
     </>
   );
