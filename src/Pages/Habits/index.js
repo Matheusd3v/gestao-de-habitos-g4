@@ -16,7 +16,7 @@ const HabitsPage = () => {
 
   return (
     <Container>
-      <Modal><CreatingHabitsForm/></Modal>
+      <Modal type='add'><CreatingHabitsForm/></Modal>
       <FilterHabits />
       <HabitsContainer>
         {currentFilterHabits.map((habit, index) => (

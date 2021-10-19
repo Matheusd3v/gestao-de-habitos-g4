@@ -1,13 +1,10 @@
-
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { UserContext } from '../../Providers/user';
-import { NavContainer } from './style';
-
-
-
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { UserContext } from "../../Providers/user";
+import { NavContainer } from "./style";
 
 const MenuList = () => {
+
     const { isLogin, logOut, getNameAndEmail} = useContext(UserContext)
 
     return (
@@ -45,4 +42,4 @@ const MenuList = () => {
     )
 }
 
-export default MenuList
+export default MenuList;
