@@ -7,4 +7,36 @@ export const Container = styled.main`
   min-height: 500px;
   margin: 50px auto;
   border-radius: 15px;
+  padding: 20px;
+  box-sizing: border-box;
+  h2 {
+    text-align: center;
+    margin: 0;
+  }
+`;
+export const GroupTitle = styled.h1`
+  color: #fff;
+  text-align: center;
+  font-size: 42px;
+`;
+export const CarrouselItem = styled.div`
+  height: 160px;
+  color: #fff;
+  background: #364d79;
+  text-align: center;
+`;
+
+export const GroupCategory = styled.div`
+  width: fit-content;
+  margin: 0 auto;
+  background-color: #ff715b;
+  color: white;
+  font-size: 24px;
+  border: none;
+  width: 250px;
+  border-radius: 10px;
+  padding: 15px;
+  cursor: pointer;
+  transition: 0.5s;
+  text-align: center;
 `;
