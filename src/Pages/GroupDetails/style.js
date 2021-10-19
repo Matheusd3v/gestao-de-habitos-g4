@@ -7,11 +7,12 @@ export const Container = styled.main`
   min-height: 500px;
   margin: 50px auto;
   border-radius: 15px;
-  padding: 20px;
+  padding: 10px;
   box-sizing: border-box;
   h2 {
+    color: #fff;
     text-align: center;
-    margin: 0;
+    margin: 10px;
   }
 `;
 export const GroupTitle = styled.h1`
@@ -21,9 +22,30 @@ export const GroupTitle = styled.h1`
 `;
 export const CarrouselItem = styled.div`
   height: 160px;
+  border-radius: 10px;
   color: #fff;
   background: #364d79;
   text-align: center;
+`;
+export const ActivitiesList = styled.ul`
+  background: #364d79;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  list-style-type: none;
+  height: 146px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  li {
+    margin: 10px;
+    text-align: center;
+    max-width: 15ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 `;
 
 export const GroupCategory = styled.div`

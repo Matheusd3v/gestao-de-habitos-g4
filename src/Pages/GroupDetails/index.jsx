@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "../../Services/api";
-import { Container, GroupTitle, GroupCategory, CarrouselItem } from "./style";
+import {
+  Container,
+  GroupTitle,
+  GroupCategory,
+  CarrouselItem,
+  ActivitiesList,
+} from "./style";
 import CarouselBase from "../../Components/Carousel";
 import GoalsCard from "../../Components/GoalsCard";
 
@@ -31,6 +37,12 @@ const GroupDetails = () => {
             </CarrouselItem>
           ))}
         </CarouselBase>
+        <h2>Atividades</h2>
+        <ActivitiesList>
+          {group.activities?.map((item) => {
+            return <li title={item.title}>{item.title}</li>;
+          })}
+        </ActivitiesList>
       </Container>
     </>
   );

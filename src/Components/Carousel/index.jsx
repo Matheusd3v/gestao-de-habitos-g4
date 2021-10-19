@@ -7,6 +7,7 @@ const CarouselBase = ({ children }) => {
     <>
       <Container>
         <Carousel
+          effect="fade"
           autoplay
           arrows
           prevArrow={<IoIosArrowBack />}
