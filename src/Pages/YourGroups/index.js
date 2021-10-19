@@ -2,9 +2,10 @@ import { Container, ContainerList, NewGroup, SectionInfo } from "./styles";
 import { useEffect, useState } from "react";
 import api from "../../Services/api";
 import ButtonDefault from "../../Components/ButtonDefault";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const YourGroupsPages = () => {
+  const history = useHistory();
   const [yourGroups, setYourGroups] = useState([]);
   const token = localStorage.getItem("token");
 
@@ -49,7 +50,12 @@ const YourGroupsPages = () => {
                 <h3>Descrição</h3>
                 <p> {group.description} </p>
               </div>
-              <ButtonDefault className="button">Ver mais</ButtonDefault>
+              <ButtonDefault
+                callback={() => history.push(`/groups/${group.id}`)}
+                className="button"
+              >
+                Ver mais
+              </ButtonDefault>
             </SectionInfo>
           </li>
         ))}
