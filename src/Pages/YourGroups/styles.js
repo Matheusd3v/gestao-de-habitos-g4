@@ -63,6 +63,8 @@ export const ContainerList = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   li {
     width: 90%;
