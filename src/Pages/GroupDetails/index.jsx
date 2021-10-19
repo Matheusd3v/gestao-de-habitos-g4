@@ -10,7 +10,7 @@ import {
 } from "./style";
 import CarouselBase from "../../Components/Carousel";
 import GoalsCard from "../../Components/GoalsCard";
-
+import UserCard from "../../Components/UserCard";
 const GroupDetails = () => {
   const { id } = useParams();
   const [group, setGroup] = useState({});
@@ -43,6 +43,14 @@ const GroupDetails = () => {
             return <li title={item.title}>{item.title}</li>;
           })}
         </ActivitiesList>
+        <h2>Membros</h2>
+        <CarouselBase>
+          {group.users_on_group?.map((item, key) => (
+            <CarrouselItem key={key}>
+              <UserCard user={item} />
+            </CarrouselItem>
+          ))}
+        </CarouselBase>
       </Container>
     </>
   );
