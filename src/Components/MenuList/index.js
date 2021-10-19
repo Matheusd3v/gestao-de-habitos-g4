@@ -8,7 +8,7 @@ import { NavContainer } from './style';
 
 
 const MenuList = () => {
-    const { isLogin, logOut} = useContext(UserContext)
+    const { isLogin, logOut, getNameAndEmail} = useContext(UserContext)
 
     return (
         <>
@@ -23,7 +23,13 @@ const MenuList = () => {
                 <li><Link to='/groups'> Meus grupos </Link> </li>
                 <li><Link to=''> Grupos </Link></li>
                 <li><Link to='/habits'> Hábitos </Link></li>
-                <li><Link to={`/profile/${localStorage.getItem('id')}`}> Editar Perfil</Link></li>
+                <li>
+                  <Link to={`/profile/${localStorage.getItem('id')}`}>
+                    <button onClick={getNameAndEmail} className='profileBtn' >
+                     Editar Perfil
+                    </button>
+                  </Link>
+                </li>
                 <li><button onClick={logOut}>Logout</button></li>
                 </ul>
               ) : (
