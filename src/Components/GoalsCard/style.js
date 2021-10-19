@@ -13,4 +13,5 @@ export const CardContainer = styled.div`
   .progressBarDesktop {
     display: none;
   }
+  
 `;
