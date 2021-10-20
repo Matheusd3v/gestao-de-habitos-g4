@@ -7,6 +7,7 @@ import { useState } from 'react';
 import ButtonDefault from '../ButtonDefault'
 import { AnimatePresence } from 'framer-motion';
 import BtnDefaultSecondary from '../BtnDefaultSecondary';
+import { AiOutlinePlus } from "react-icons/ai";
 const Modal = ({ children, type, group }) =>{
       
       const callBack = () =>{
@@ -17,8 +18,10 @@ const Modal = ({ children, type, group }) =>{
       const closeModal = () => setOpen(false);
       return (
         <>
-                  
-          {type === 'btnSecondary' && <BtnDefaultSecondary onClick={callBack}></BtnDefaultSecondary>}
+           {type === 'seeMore' && <ButtonDefault callback={callBack}>Ver mais</ButtonDefault>}
+           {type === 'add-activities' && <ButtonCreate onClick={callBack}><IoIosAdd/></ButtonCreate>}
+           {type ==='add-goals' && <Button onClick={callBack}> <AiOutlinePlus/> Adicionar Objetivo</Button>}   
+           {type === 'btnSecondary' && <BtnDefaultSecondary onClick={callBack}></BtnDefaultSecondary>}
            {type ==='createForm' && <BtnDefaultSecondary callback={callBack}>Cadastrar</BtnDefaultSecondary>}  
            {type==='add' && <ButtonAdd onClick={callBack}><IoIosAdd/></ButtonAdd>}
            {type==='edit'&& <ButtonEdit onClick={callBack}><IoMdListBox/></ButtonEdit>}

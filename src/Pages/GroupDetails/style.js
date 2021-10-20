@@ -58,6 +58,7 @@ export const ActivitiesList = styled.ul`
   overflow: auto;
   li {
     display: flex;
+
     width: 150px;
     height: 100%;
     margin: 10px;

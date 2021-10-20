@@ -11,7 +11,6 @@ export const ButtonStyled = styled.button`
     justify-content: space-evenly;
     align-items: center;
     border: 1px solid transparent;
-
     svg {
         width: 30px;
         height: 30px;
