@@ -1,10 +1,11 @@
 import "./style.js";
-import { HomeContainer } from "./style.js";
+import { HomeContainer, TextContainer } from "./style.js";
 import img1 from "../../assets/acceptTerms.svg";
 import img2 from "../../assets/addToCart.svg";
 import img3 from "../../assets/coWorking.svg";
 import Button from "../../Components/ButtonDefault/index.js";
 import { motion } from "framer-motion";
+
 const Home = () => {
   return (
     <HomeContainer
@@ -20,12 +21,11 @@ const Home = () => {
           src={img2}
           alt="img-teste"
         />
-        <p>
-          Junte-se com seus amigos em um grupo de desenvolvimento s simply dummy
-          text of the printing and typesetting industry. Lorem Ipsum has been
-          the industry's standard dummy text ever since the 1500s, when an
-          unknown printer took a galley of type and scrambled it to make{" "}
-        </p>
+        <TextContainer>
+          <p>Aqui você pode organizar melhor suas tarefas</p>
+          <p>Crie, edite ou removas suas atividades</p>
+          <p>Junte-se com seus amigos em um grupo de desenvolvimento</p>
+        </TextContainer>
       </section>
       <Button>Cadastre-se</Button>
     </HomeContainer>
