@@ -5,6 +5,8 @@ import img2 from "../../assets/addToCart.svg";
 import img3 from "../../assets/coWorking.svg";
 import Button from "../../Components/ButtonDefault/index.js";
 import { motion } from "framer-motion";
+import { Carousel } from "antd";
+import "antd/dist/antd.css";
 
 const Home = () => {
   return (
@@ -21,10 +23,13 @@ const Home = () => {
           src={img2}
           alt="img-teste"
         />
+
         <TextContainer>
-          <p>Aqui você pode organizar melhor suas tarefas</p>
-          <p>Crie, edite ou removas suas atividades</p>
-          <p>Junte-se com seus amigos em um grupo de desenvolvimento</p>
+          <p>
+            Aqui você pode organizar melhor suas tarefas, Para isso crie, edite
+            ou remova suas atividades e junte-se com seus amigos em um grupo de
+            desenvolvimento
+          </p>
         </TextContainer>
       </section>
       <Button>Cadastre-se</Button>

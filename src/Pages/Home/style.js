@@ -2,15 +2,22 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 export const HomeContainer = styled(motion.div)`
   width: 100%;
-  height: 100vh;
+  min-height: Calc(100vh - 70px);
+  height: fit-content;
   background-color: #293241;
   display: flex;
   flex-direction: column;
   color: white;
   font-family: sans-serif;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 50px;
 
-  img {
-    width: 500px;
+  .info-container img {
+    width: 40%;
+    max-width: 400px;
+    min-width: 250px;
+    box-sizing: border-box;
   }
   .info-container {
     text-align: center;
@@ -22,9 +29,6 @@ export const HomeContainer = styled(motion.div)`
     width: 100%;
   }
 
-  .info-container p {
-    padding: 10px;
-  }
   button {
     margin: 0 auto;
     margin-top: 10px;
@@ -47,15 +51,25 @@ export const HomeContainer = styled(motion.div)`
       flex-direction: row-reverse;
       justify-content: space-evenly;
     }
+    .info-container img {
+      width: 500px;
+    }
   }
 `;
 export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: fit-content;
+  min-width: 250px;
+  max-width: 40%;
+  box-sizing: border-box;
+  margin: 50px 20px 0 20px;
   p {
     width: 100%;
     font-size: 32px;
     margin-bottom: 0;
+  }
+  @media screen and (min-width: 768px) {
+    margin: 0 20px;
   }
 `;
