@@ -11,6 +11,16 @@ export const Container = styled.main`
   padding: 10px 50px;
   padding-bottom: 40px;
   box-sizing: border-box;
+
+
+  .ButtonContainer {
+    display: flex;
+    justify-content: center;
+    button { 
+      margin: 20px
+    }
+  }
+
   h2 {
     color: #fff;
     text-align: center;
@@ -40,12 +50,15 @@ export const ActivitiesList = styled.ul`
   padding: 10px;
   border-radius: 10px;
   list-style-type: none;
-  height: 146px;
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
     margin: 10px;
     text-align: center;
     max-width: 15ch;
@@ -70,28 +83,34 @@ export const GroupCategory = styled.div`
   text-align: center;
 `;
 
-export const MemberList = styled.div`
-    width: 100%;
-    height: fit-content;
-    background: #364d79;
-    color: #ffffff;
-    border-radius: 10px;
-    padding: 5px 0;
-    box-sizing: border-box;
-    
-    ul {
-      width: 100%;
-      margin: 0 auto;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      min-height: 100px;
-      padding: 15px 40px;
-      box-sizing: border-box;
-    }
 
-    li {
-      margin: 2px 10px;
-    }
+export const DescriptionContainer = styled.div`
+  background: #364d79;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  list-style-type: none;
+  height: 146px;
+  p {
+    margin: 10px;
+  }
+`;
+
+export const CreateSomething = styled.button`
+  background-color: #FF715B;
+  width: 200px;
+  color: white;
+  display: block;
+  margin: 0 auto;
+  margin-bottom:10px ;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  span{
+    background-color: #98C1D9;
+    border-radius: 50%;
+    text-align: center;
+    
+  }
 `
+

@@ -1,25 +1,20 @@
 import styled from 'styled-components'
-export const GroupDetailsContainer = styled.div`
 
-background: rgba( 152, 193, 217, 0.05 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 9.5px );
--webkit-backdrop-filter: blur( 9.5px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
-
-    color: white;
-    width:100vw;
-    max-width: 700px;
+export const Container = styled.div`
+    width: 100vw;
+    max-width: 500px;
     height: 840px;
+    border-radius: 5px;
     background-color: #98C1D9;
-    border-radius:5px;
-    .info-container{
-        display:flex;
-        align-items: center;
-        justify-content: space-around;
-        height: 100%;
+    text-align: center;
+    form{
+        margin: 0 auto;
+        width: 200px;
+        display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align:center
     }
     button{
         margin: 0 auto;
@@ -29,14 +24,23 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
         font-size: 24px;
         border: none;
         width: 250px;
+        max-width: 200px;
         border-radius: 10px;
         padding: 15px;
         cursor: pointer;
         box-shadow: 5px 5px rgb(240, 105, 70);
         transition: 0.5s;
         margin-bottom: 10px;
+        display: block;
     }
-    button:hover{     
+    button:hover{
         box-shadow: 1px 3px rgb(255, 113, 70);   
     }
-` 
+    @media screen and (min-width:768px){
+        height: 400px;
+        border: 1px solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+`
