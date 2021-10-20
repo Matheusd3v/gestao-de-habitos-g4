@@ -5,9 +5,11 @@ import { useContext, useState } from 'react'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { UserContext } from '../../Providers/user/index.js'
+import { GroupContext } from '../../Providers/groups/index.js'
 const CreatingGoal = ({ group }) =>{
     const { creatingGoal } = useContext(UserContext)
     const [ currency, setCurrency ] = useState("Fácil")
+    const { callingGroups } = useContext(GroupContext)
     const curriencies = [
         {
             value:"Fácil",
@@ -33,6 +35,7 @@ const CreatingGoal = ({ group }) =>{
         const {description, title} = data
         const requisitionBody = {description, title, difficulty:currency,how_much_achieved:0, group:group.id}
         creatingGoal(requisitionBody)
+        callingGroups()
     }
     return(
         <Container>
