@@ -23,7 +23,7 @@ const Habit = ({ habit }) => {
           labelAlignment="right"
           labelColor="black"
         />
-        {/* <button>Editar Tarefa</button> */}
+        
         <EditHabitPopup habit={habit} version={"desktop"} />
       </HabitContainerDesktop>
 

@@ -2,14 +2,16 @@ import styled from "styled-components";
 
 export const Container = styled.main`
   background-color: #98c1d9;
-  width: 80%;
+  width: 65%;
+  max-width: 1000px;
   height: fit-content;
   min-height: 500px;
   margin: 50px auto;
   border-radius: 15px;
-  padding: 10px;
+  padding: 10px 50px;
+  padding-bottom: 40px;
   box-sizing: border-box;
-<<<<<<< HEAD
+
 
   .ButtonContainer {
     display: flex;
@@ -18,13 +20,16 @@ export const Container = styled.main`
       margin: 20px
     }
   }
-=======
-  
->>>>>>> develop
+
   h2 {
     color: #fff;
     text-align: center;
     margin: 10px;
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 80%;
+    padding: 10px 20px;
   }
 `;
 export const GroupTitle = styled.h1`
@@ -78,7 +83,7 @@ export const GroupCategory = styled.div`
   text-align: center;
 `;
 
-<<<<<<< HEAD
+
 export const DescriptionContainer = styled.div`
   background: #364d79;
   color: #fff;
@@ -90,7 +95,7 @@ export const DescriptionContainer = styled.div`
     margin: 10px;
   }
 `;
-=======
+
 export const CreateSomething = styled.button`
   background-color: #FF715B;
   width: 200px;
@@ -108,4 +113,4 @@ export const CreateSomething = styled.button`
     
   }
 `
->>>>>>> develop
+

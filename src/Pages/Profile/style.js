@@ -100,3 +100,4 @@ export const FormEditProfile = styled.form`
     }
 
 `
+

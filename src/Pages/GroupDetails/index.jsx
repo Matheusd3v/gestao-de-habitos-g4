@@ -9,6 +9,7 @@ import {
   GroupCategory,
   CarrouselItem,
   ActivitiesList,
+  MemberList,
   DescriptionContainer,
   CreateSomething,
 } from "./style";
@@ -96,6 +97,7 @@ const GroupDetails = () => {
         <div className="ButtonContainer">
           <ButtonDefault callback={unsubscribe}>Sair do Grupo</ButtonDefault>
         </div>
+
       </Container>
     </>
   );

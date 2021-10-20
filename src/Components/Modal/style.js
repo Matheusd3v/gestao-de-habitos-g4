@@ -8,6 +8,7 @@ export const ButtonAdd = styled(motion.button)`
         right: 5px;
         height: 70px;
         width: 70px;
+        z-index: 999;
         border-radius: 50%;
     :hover{
         cursor: pointer;

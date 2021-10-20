@@ -3,23 +3,23 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ButtonDefault from "../../Components/ButtonDefault";
 import React from "react";
-import CreatingHabitsForm from "../../Components/CreatingHabitsForm";
 import Modal from "../../Components/Modal";
 import GroupDetails from "../../Components/GroupDetails";
-
-import api from "../../Services/api";
+import FormCrateGroups from "../../Components/FormCreateGroup";
 
 const GroupsPage = () => {
   const [allGroups, setAllGroups] = useState([]);
   const [nextAllGroups, setNextAllGroups] = useState(
     "https://kenzie-habits.herokuapp.com/groups/"
   );
+
   useEffect(() => {
     fetch(nextAllGroups)
       .then((response) => response.json())
       .then((response) => setAllGroups([...allGroups, response.results]))
       .catch((err) => console.log(err));
   }, [nextAllGroups]);
+
   useEffect(() => {
     fetch(nextAllGroups)
       .then((response) => response.json())
@@ -28,6 +28,7 @@ const GroupsPage = () => {
       )
       .catch((err) => console.log(err));
   }, [nextAllGroups]);
+
   return (
     <Container>
       <h1>Grupos</h1>
@@ -37,12 +38,10 @@ const GroupsPage = () => {
       <hr />
       <h2>Todos os grupos</h2>
       <hr />
-      <NewGroup>
-        <div>
-          <p>+</p>
-        </div>
-        <p>Criar novo grupo</p>
-      </NewGroup>
+      <div className='popUpPlus'>
+        <Modal type='createForm' > <FormCrateGroups/> </Modal>
+      </div>
+      
       <ContainerList>
         {allGroups.map((page) =>
           page.map((group) => (

@@ -15,6 +15,9 @@ const Modal = ({ children, type, group }) =>{
       const closeModal = () => setOpen(false);
       return (
         <>
+                  
+        
+           {type ==='createForm' && <ButtonDefault callback={callBack}>Cadastrar</ButtonDefault>}  
            {type==='add' && <ButtonAdd onClick={callBack}><IoIosAdd/></ButtonAdd>}
            {type==='edit'&& <ButtonEdit onClick={callBack}><IoIosArchive/></ButtonEdit>}
            {type==='edit-pencil' && <ButtonEditPencil onClick={callBack}><IoIosArchive/></ButtonEditPencil>}
@@ -28,6 +31,7 @@ const Modal = ({ children, type, group }) =>{
             <ButtonDefault callback={callBack}>Ver mais</ButtonDefault>
            ) 
          */}
+
           <Popup open={open} nested closeOnDocumentClick onClose={closeModal}>
           <Ancor className="close" onClick={closeModal}>
             <IoIosClose/>
