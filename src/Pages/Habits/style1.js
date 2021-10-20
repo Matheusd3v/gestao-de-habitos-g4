@@ -9,6 +9,10 @@ export const Container = styled.div`
         font-size: 40px;
     }
 
+    .mobile {
+        display: none;
+    }
+
     .add-button{
         cursor: pointer;
         position: fixed;
