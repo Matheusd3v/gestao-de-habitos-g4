@@ -20,7 +20,7 @@ import random3 from '../../assets/random3.svg'
 const ProfilePage = () => {
     const { name, email, getNameAndEmail, tokenUser } = useContext(UserContext)
     const { id } = useParams()
-    const [ready, setReady] = useState('true')
+    const [ready] = useState('true')
     const [currentAvatar, setCurrentAvatar] = useState(random1)
     const [allAvatar, setAllAvatar] = useState([
         femAvatar, maleAvatar, random1, random2, random3

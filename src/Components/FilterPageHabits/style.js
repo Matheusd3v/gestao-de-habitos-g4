@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 export const ContainerFilter = styled(motion.div)`
     width: 300px;
-    height:calc(100vh - 75px);
+    min-height:calc(100vh - 70px);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     background: #98c1d9;
@@ -12,7 +12,7 @@ export const ContainerFilter = styled(motion.div)`
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    
     img {
         width: 250px;
         margin-top: auto; 

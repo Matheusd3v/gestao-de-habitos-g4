@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
         padding:0;
         background-color: #293241;
     }
+    
     ul{
         padding: 0px;
     }
