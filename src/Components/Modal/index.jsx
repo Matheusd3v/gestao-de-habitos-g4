@@ -1,7 +1,7 @@
 import Popup from 'reactjs-popup';
 import CreatingHabitsForm from '../CreatingHabitsForm';
-import { IoIosAdd, IoIosClose, IoIosArchive , IoMdListBox} from "react-icons/io";
-import { ButtonAdd, ButtonEdit ,Ancor, ModalContainer, ButtonEditPencil,ButtonEditDescription } from './style.js'
+import { IoIosAdd, IoIosClose, IoMdListBox} from "react-icons/io";
+import { ButtonAdd, ButtonEdit ,Ancor, ModalContainer, ButtonEditPencil,ButtonEditDescription, ButtonCreate,Button } from './style.js'
 import { useState } from 'react';
 
 import ButtonDefault from '../ButtonDefault'
