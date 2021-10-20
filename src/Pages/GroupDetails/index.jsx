@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "../../Services/api";
 import { IoIosAdd } from "react-icons/io";
@@ -23,11 +23,14 @@ import { useHistory } from "react-router-dom";
 import EditGoal from "../../Components/EditGoals";
 import EditActivies from "../../Components/EditActivities";
 import EditingDescription from "../../Components/EditingDescription";
+import { UserContext } from "../../Providers/user";
 
 const GroupDetails = () => {
   const history = useHistory();
   const { id } = useParams();
   const [group, setGroup] = useState({});
+  const { editGoal, editGoals } = useContext(UserContext)
+
   useEffect(() => {
     api
       .get(`/groups/${id}/`)
@@ -35,7 +38,7 @@ const GroupDetails = () => {
         setGroup(response.data);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [editGoals]);
 
   const unsubscribe = () => {
     const token = localStorage.getItem("token");
