@@ -71,7 +71,7 @@ const GroupDetails = () => {
 
         <h2>Atividades</h2>
         <Modal type='add-goals'> 
-                <CreatingActivity/>
+                <CreatingActivity group={group}/>
           </Modal>
         <ActivitiesList>
           {group.activities?.map((item, key) => (

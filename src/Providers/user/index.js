@@ -136,7 +136,18 @@ export const UserProvider = ({ children }) => {
       toast.success("Objetivo criado com sucesso")
     })
   }
-
+  const creatingActivitie = (data) =>{
+    const { title, id } = data
+    const requisitionBody = {title, realization_time:"2020-03-10T15:00:00Z", group:id}
+    console.log(requisitionBody)
+    api
+    .post('/activities/', requisitionBody,{
+      headers: { Authorization: `Bearer ${tokenUser}` },
+    })
+    .then((response)=>{
+      toast.success("Atividade adicionada com sucesso")
+    })
+  }
   return (
     <UserContext.Provider
       value={{
@@ -159,7 +170,8 @@ export const UserProvider = ({ children }) => {
         editGoal,
         editActivie,
         editDescription,
-        creatingGoal
+        creatingGoal,
+        creatingActivitie
       }}
     >
       {children}
