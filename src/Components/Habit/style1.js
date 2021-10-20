@@ -3,15 +3,36 @@ export const HabitContainerDesktop = styled.div`
   background-color: #98c1d9;
   border-radius: 5px;
   margin: 10px;
-  padding: 10px 0px;
+  padding: 10px 5px;
+  box-sizing: border-box;
   display: none;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: column;
   width: 300px;
   height: 300px;
+
   h1 {
     font-size: 20px;
+    text-align: center;
+  }
+
+  .backWhite {
+    background: #FFFFFF;
+    border-radius: 5px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    padding: 5px;
+    height: 90px;
+    margin-bottom: 10px;
+  }
+
+  .backWhite p {
+    margin: 0;
   }
 
   .button {
@@ -34,6 +55,14 @@ export const HabitContainerDesktop = styled.div`
   }
 `;
 
+export const ContainerBlue = styled.div`
+  background-color: #98c1d9;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+`
+
 export const HabitContainerMobile = styled.div`
   width: 90%;
   margin: 10px 0px;
@@ -43,12 +72,24 @@ export const HabitContainerMobile = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: #98c1d9;
+
   .pencil {
     background-color: transparent;
     border: red;
     cursor: pointer;
     width: fit-content;
     height: fit-content;
+  }
+
+  .content {
+    width: 50%;
+    display:flex;
+    flex-direction: column;
+  }
+
+  button {
+    margin: 0;
+    margin-bottom: auto;
   }
 
   h1 {

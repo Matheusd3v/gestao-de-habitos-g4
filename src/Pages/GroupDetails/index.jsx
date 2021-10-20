@@ -29,7 +29,7 @@ const GroupDetails = () => {
   const history = useHistory();
   const { id } = useParams();
   const [group, setGroup] = useState({});
-  const { editGoal, editGoals } = useContext(UserContext)
+  const { editGoals } = useContext(UserContext)
 
   useEffect(() => {
     api
