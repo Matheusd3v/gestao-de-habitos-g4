@@ -9,6 +9,14 @@ export const Container = styled.main`
   border-radius: 15px;
   padding: 10px;
   box-sizing: border-box;
+
+  .ButtonContainer {
+    display: flex;
+    justify-content: center;
+    button { 
+      margin: 20px
+    }
+  }
   h2 {
     color: #fff;
     text-align: center;
@@ -61,4 +69,16 @@ export const GroupCategory = styled.div`
   cursor: pointer;
   transition: 0.5s;
   text-align: center;
+`;
+
+export const DescriptionContainer = styled.div`
+  background: #364d79;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  list-style-type: none;
+  height: 146px;
+  p {
+    margin: 10px;
+  }
 `;
