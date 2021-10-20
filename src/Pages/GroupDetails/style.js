@@ -90,9 +90,12 @@ export const DescriptionContainer = styled.div`
   padding: 10px;
   border-radius: 10px;
   list-style-type: none;
-  height: 146px;
   p {
     margin: 10px;
+  }
+  button{
+    display: block;
+    margin-left: auto;
   }
 `;
 

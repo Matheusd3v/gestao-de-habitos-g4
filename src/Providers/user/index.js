@@ -100,6 +100,7 @@ export const UserProvider = ({ children }) => {
     })
     
   }
+
   const editActivie = (activie) =>{
     console.log(activie)
     const title = activie.title
@@ -114,6 +115,17 @@ export const UserProvider = ({ children }) => {
     .catch((err)=>console.log(err))
   }
 
+  const editDescription = (data) =>{
+      const { description } = data
+      console.log(data.id)
+      api.
+      patch(`/groups/${data.id}/`,{ description },{
+        headers: { Authorization: `Bearer ${tokenUser}` },
+      })
+      .then((response)=>{
+        toast.success('Descrição atualizada com sucesso')
+      })
+  }
 
   return (
     <UserContext.Provider
@@ -135,7 +147,8 @@ export const UserProvider = ({ children }) => {
         name,
         email,
         editGoal,
-        editActivie
+        editActivie,
+        editDescription
       }}
     >
       {children}

@@ -1,7 +1,7 @@
 import Popup from 'reactjs-popup';
 import CreatingHabitsForm from '../CreatingHabitsForm';
-import { IoIosAdd, IoIosClose, IoIosArchive} from "react-icons/io";
-import {ButtonAdd, ButtonEdit ,Ancor, ModalContainer, ButtonEditPencil} from './style.js'
+import { IoIosAdd, IoIosClose, IoIosArchive } from "react-icons/io";
+import { ButtonAdd, ButtonEdit ,Ancor, ModalContainer, ButtonEditPencil,ButtonEditDescription } from './style.js'
 import { useState } from 'react';
 import ButtonDefault from '../ButtonDefault'
 import { AnimatePresence } from 'framer-motion';
@@ -21,6 +21,7 @@ const Modal = ({ children, type, group }) =>{
            {type==='add' && <ButtonAdd onClick={callBack}><IoIosAdd/></ButtonAdd>}
            {type==='edit'&& <ButtonEdit onClick={callBack}><IoIosArchive/></ButtonEdit>}
            {type==='edit-pencil' && <ButtonEditPencil onClick={callBack}><IoIosArchive/></ButtonEditPencil>}
+           {type==='edit-description' && <ButtonEditDescription onClick={callBack}><IoIosArchive/></ButtonEditDescription>}
          {/* {type==='add' ?
            (
             <ButtonAdd  onClick={callBack}>

@@ -40,11 +40,13 @@ export const ButtonEditPencil = styled.button`
     display:inline;
     background: none;
     border: none;
-    color:'red';
     cursor: pointer;
     svg{
         font-size:20px;
     }
+`
+export const ButtonEditDescription = styled.button`
+    color: red;
 `
 export const ModalContainer= styled(motion.div)`
 `
