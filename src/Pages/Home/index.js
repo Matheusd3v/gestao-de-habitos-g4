@@ -1,14 +1,14 @@
 import "./style.js";
 import { HomeContainer, TextContainer } from "./style.js";
-import img1 from "../../assets/acceptTerms.svg";
 import img2 from "../../assets/addToCart.svg";
-import img3 from "../../assets/coWorking.svg";
 import Button from "../../Components/ButtonDefault/index.js";
 import { motion } from "framer-motion";
-import { Carousel } from "antd";
-import "antd/dist/antd.css";
-
+import { useHistory } from "react-router-dom";
 const Home = () => {
+  const history = useHistory();
+  const redirectToRegister = () => {
+    history.push("/register");
+  };
   return (
     <HomeContainer
       initial={{ opacity: 0 }}
@@ -26,13 +26,13 @@ const Home = () => {
 
         <TextContainer>
           <p>
-            Aqui você pode organizar melhor suas tarefas, Para isso crie, edite
+            Aqui você pode organizar melhor suas tarefas. Para isso crie, edite
             ou remova suas atividades e junte-se com seus amigos em um grupo de
             desenvolvimento
           </p>
         </TextContainer>
       </section>
-      <Button>Cadastre-se</Button>
+      <Button onClick={redirectToRegister}>Cadastre-se</Button>
     </HomeContainer>
   );
 };
