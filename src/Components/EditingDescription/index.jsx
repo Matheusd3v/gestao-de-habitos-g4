@@ -17,7 +17,7 @@ const EditingDescription = ({ group }) =>{
            <h1>Atulizar descrição</h1>
            <form onSubmit={handleSubmit(onSubmit)}>
            <TextField
-            placeholder=""
+            label='Editar descrição'
             multiline
             rows={4}
             rowsMax={4}

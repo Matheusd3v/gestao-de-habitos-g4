@@ -35,14 +35,12 @@ export const DescriptionContainer = styled.div`
         box-shadow: 5px 5px rgb(240, 105, 70);
         transition: 0.5s;
         margin-bottom: 10px;
-        display: block;
     }
     button:hover{
         box-shadow: 1px 3px rgb(255, 113, 70);   
     }
     @media screen and (min-width:768px){
         height: 400px;
-        border: 1px solid;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
