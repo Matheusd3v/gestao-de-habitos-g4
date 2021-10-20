@@ -21,7 +21,7 @@ const HabitsPage = () => {
     <Container>
       <Modal type='add'><CreatingHabitsForm/></Modal>
 
-      <FilterBtn variant='outlined' onClick={pushAndPull}>Filtrar <AiFillFilter/> </FilterBtn>
+      <span className='mobile'><FilterBtn variant='outlined' onClick={pushAndPull}>Filtrar <AiFillFilter/> </FilterBtn></span>
 
       <span className='desktop'><FilterHabits/></span>
 
