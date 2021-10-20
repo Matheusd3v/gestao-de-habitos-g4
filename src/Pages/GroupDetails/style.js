@@ -9,6 +9,7 @@ export const Container = styled.main`
   border-radius: 15px;
   padding: 10px;
   box-sizing: border-box;
+<<<<<<< HEAD
 
   .ButtonContainer {
     display: flex;
@@ -17,6 +18,9 @@ export const Container = styled.main`
       margin: 20px
     }
   }
+=======
+  
+>>>>>>> develop
   h2 {
     color: #fff;
     text-align: center;
@@ -41,12 +45,15 @@ export const ActivitiesList = styled.ul`
   padding: 10px;
   border-radius: 10px;
   list-style-type: none;
-  height: 146px;
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
     margin: 10px;
     text-align: center;
     max-width: 15ch;
@@ -71,6 +78,7 @@ export const GroupCategory = styled.div`
   text-align: center;
 `;
 
+<<<<<<< HEAD
 export const DescriptionContainer = styled.div`
   background: #364d79;
   color: #fff;
@@ -82,3 +90,22 @@ export const DescriptionContainer = styled.div`
     margin: 10px;
   }
 `;
+=======
+export const CreateSomething = styled.button`
+  background-color: #FF715B;
+  width: 200px;
+  color: white;
+  display: block;
+  margin: 0 auto;
+  margin-bottom:10px ;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  span{
+    background-color: #98C1D9;
+    border-radius: 50%;
+    text-align: center;
+    
+  }
+`
+>>>>>>> develop

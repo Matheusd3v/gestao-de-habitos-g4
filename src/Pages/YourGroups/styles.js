@@ -62,10 +62,9 @@ export const ContainerList = styled.ul`
   width: 90%;
   list-style: none;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  flex-wrap: wrap;
   li {
     width: 90%;
     height: 400px;

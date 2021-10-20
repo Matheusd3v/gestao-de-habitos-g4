@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "../../Services/api";
+import { IoIosAdd } from "react-icons/io";
+import Modal from "../../Components/Modal";
 import {
   Container,
   GroupTitle,
@@ -8,6 +10,7 @@ import {
   CarrouselItem,
   ActivitiesList,
   DescriptionContainer,
+  CreateSomething,
 } from "./style";
 import ButtonDefault from "../../Components/ButtonDefault";
 import CarouselBase from "../../Components/Carousel";
@@ -16,6 +19,9 @@ import UserCard from "../../Components/UserCard";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useHistory } from "react-router-dom";
+import EditGoal from "../../Components/EditGoals";
+import EditActivies from "../../Components/EditActivities";
+
 const GroupDetails = () => {
   const history = useHistory();
   const { id } = useParams();
@@ -61,9 +67,14 @@ const GroupDetails = () => {
         <h2>Atividades</h2>
 
         <ActivitiesList>
-          {group.activities?.map((item) => {
-            return <li title={item.title}>{item.title}</li>;
-          })}
+          {group.activities?.map((item, key) => (
+            <li key={key} title={item.title}>
+              <p>{item.title}</p>
+              <Modal type="edit-pencil">
+                <EditActivies acitivities={item} />
+              </Modal>
+            </li>
+          ))}
         </ActivitiesList>
 
         <h2>Membros</h2>
