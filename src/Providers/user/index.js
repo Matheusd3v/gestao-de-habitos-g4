@@ -11,10 +11,10 @@ export const UserProvider = ({ children }) => {
   const [tokenUser, setTokenUser] = useState(
     JSON.parse(localStorage.getItem("token")) || ""
   );
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [isLogin, setIsLogin] = useState(false);
-  const [editGoals, setEditGoals] = useState(false)
+  const [editGoals, setEditGoals] = useState(false);
 
   useEffect(() => {
     if (tokenUser) {
@@ -39,22 +39,19 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-
-
-  const subscribeGroup = (group) =>{
+  const subscribeGroup = (group) => {
     api
-    .post(`/groups/${group.id}/subscribe/`,group.id,{
-      headers: { Authorization: `Bearer ${tokenUser}` },
-    })
-      .then((response)=>{
-        toast.success("Inscrição feita com sucesso!")
+      .post(`/groups/${group.id}/subscribe/`, group.id, {
+        headers: { Authorization: `Bearer ${tokenUser}` },
       })
-      .catch((err)=>{
-        toast.error("Impossível se inscrever")
+      .then((response) => {
+        toast.success("Inscrição feita com sucesso!");
       })
-  }
+      .catch((err) => {
+        toast.error("Impossível se inscrever");
+      });
+  };
 
-  
   const logOut = () => {
     localStorage.clear();
     setTokenUser("");
@@ -74,82 +71,90 @@ export const UserProvider = ({ children }) => {
 
   const getNameAndEmail = () => {
     api
-    .get(`/users/${localStorage.getItem('id')}/`)
-    .then((response) => {
-        setName(response.data.username)
-        setEmail(response.data.email)
-    })
-    .catch((e) => console.log(e))
-  }
-  const editGoal = (data) =>{
-    const {id, how_much_achieved} = data
-  
-    const trueOrFalse = () =>{
-      if(data.how_much_achieved <100){
-        return false
+      .get(`/users/${localStorage.getItem("id")}/`)
+      .then((response) => {
+        setName(response.data.username);
+        setEmail(response.data.email);
+      })
+      .catch((e) => console.log(e));
+  };
+  const editGoal = (data) => {
+    const { id, how_much_achieved } = data;
+
+    const trueOrFalse = () => {
+      if (data.how_much_achieved < 100) {
+        return false;
       }
-      return true
-    }
-    const requisitionBody = {how_much_achieved, achivied:trueOrFalse()}
-    console.log(requisitionBody)
-    api.
-    patch(`/goals/${id}/`, requisitionBody,{
-      headers: { Authorization: `Bearer ${tokenUser}` },
-    })
-    .then((response)=>{
-      toast.success("Objetivo editado com sucesso")
-    })
-console.log('test')
-    setEditGoals(!editGoals)    
-  }
-
-  const editActivie = (activie) =>{
-    console.log(activie)
-    const title = activie.title
-    const realization_time = "2020-03-10T15:00:00Z"
-    const requisitionBody = { title, realization_time  }
-    console.log(requisitionBody)
-    api.
-    patch(`/activities/${activie.id}/`, requisitionBody,{
-      headers: { Authorization: `Bearer ${tokenUser}` },
-    })
-    .then((response)=>console.log(response))
-    .catch((err)=>console.log(err))
-  }
-
-  const editDescription = (data) =>{
-      const { description } = data
-      console.log(data.id)
-      api.
-      patch(`/groups/${data.id}/`,{ description },{
+      return true;
+    };
+    const requisitionBody = { how_much_achieved, achivied: trueOrFalse() };
+    console.log(requisitionBody);
+    api
+      .patch(`/goals/${id}/`, requisitionBody, {
         headers: { Authorization: `Bearer ${tokenUser}` },
       })
-      .then((response)=>{
-        toast.success('Descrição atualizada com sucesso')
-      })
-  }
+      .then((response) => {
+        toast.success("Objetivo editado com sucesso");
+      });
+    console.log("test");
+    setEditGoals(!editGoals);
+  };
 
-  const creatingGoal = (data) =>{
+  const editActivie = (activie) => {
+    console.log(activie);
+    const title = activie.title;
+    const realization_time = "2020-03-10T15:00:00Z";
+    const requisitionBody = { title, realization_time };
+    console.log(requisitionBody);
     api
-    .post('/goals/', data,{
-      headers: { Authorization: `Bearer ${tokenUser}` },
-    })
-    .then((response)=>{
-      toast.success("Objetivo criado com sucesso")
-    })
-  }
-  const creatingActivitie = (data) =>{
-    const { title, id } = data
-    const requisitionBody = {title, realization_time:"2020-03-10T15:00:00Z", group:id}
-    console.log(requisitionBody)
+      .patch(`/activities/${activie.id}/`, requisitionBody, {
+        headers: { Authorization: `Bearer ${tokenUser}` },
+      })
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
+  };
+
+  const editDescription = (data) => {
+    const { description } = data;
+    console.log(data.id);
     api
-    .post('/activities/', requisitionBody,{
-      headers: { Authorization: `Bearer ${tokenUser}` },
-    })
-    .then((response)=>{
-      toast.success("Atividade adicionada com sucesso")
-    })
-  }
+      .patch(
+        `/groups/${data.id}/`,
+        { description },
+        {
+          headers: { Authorization: `Bearer ${tokenUser}` },
+        }
+      )
+      .then((response) => {
+        toast.success("Descrição atualizada com sucesso");
+      });
+  };
+
+  const creatingGoal = (data) => {
+    api
+      .post("/goals/", data, {
+        headers: { Authorization: `Bearer ${tokenUser}` },
+      })
+      .then((response) => {
+        toast.success("Objetivo criado com sucesso");
+      });
+  };
+  const creatingActivitie = (data) => {
+    const { title, id } = data;
+    const requisitionBody = {
+      title,
+      realization_time: "2020-03-10T15:00:00Z",
+      group: id,
+    };
+    console.log(requisitionBody);
+    api
+      .post("/activities/", requisitionBody, {
+        headers: { Authorization: `Bearer ${tokenUser}` },
+      })
+      .then((response) => {
+        toast.success("Atividade adicionada com sucesso");
+      });
+  };
   return (
     <UserContext.Provider
       value={{
@@ -174,10 +179,9 @@ console.log('test')
         editDescription,
 
         creatingGoal,
-        creatingActivitie
+        creatingActivitie,
 
-        editGoals
-
+        editGoals,
       }}
     >
       {children}
