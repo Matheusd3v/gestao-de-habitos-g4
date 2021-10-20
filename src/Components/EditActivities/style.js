@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 export const EditActiviesContainer = styled.div`
     
-    background: #98C1D9;
     height: 840px;
     h2{
         color: white;
@@ -10,7 +9,7 @@ export const EditActiviesContainer = styled.div`
     max-width: 500px;
     height: 840px;
     border-radius: 5px;
-    background-color: #98C1D9;
+    background-color: #fff;
     text-align: center;
     form{
         margin: 0 auto;

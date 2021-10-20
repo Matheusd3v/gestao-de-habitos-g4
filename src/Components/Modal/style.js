@@ -32,11 +32,16 @@ export const ButtonEdit = styled(motion.button)`
     right: 0px;
     top: 0px;
     margin: 10px;
-   
     border: none;
     background: none;
     svg{
         font-size:40px;
+    }
+    @media screen and (max-width:768px){
+        margin: 0;
+        svg{
+            font-size: 30px;
+        }
     }
 `
 export const ButtonCreate = styled.button`
@@ -66,7 +71,12 @@ export const ButtonEditPencil = styled.button`
     }
 `
 export const ButtonEditDescription = styled.button`
-    color: red;
+    border: none;
+    background: none;
+    cursor: pointer;
+    svg{
+        font-size: 50px;
+    }
 `
 export const ModalContainer= styled(motion.div)`
 `

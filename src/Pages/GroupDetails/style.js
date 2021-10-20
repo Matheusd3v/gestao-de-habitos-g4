@@ -51,20 +51,23 @@ export const ActivitiesList = styled.ul`
   border-radius: 10px;
   list-style-type: none;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   align-items: center;
+  overflow: auto;
   li {
     display: flex;
-    align-items: center;
-    justify-content: center;
+
+    width: 150px;
     height: 100%;
     margin: 10px;
     text-align: center;
-    
+   
   }
-  li p{
+  p{
     max-width: 15ch;
-    width: 150px;
+    width: 100px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -97,9 +100,10 @@ export const DescriptionContainer = styled.div`
     margin: 10px;
   }
   button{
-    display: block;
-    margin-left: auto;
+    position: relative;
+    left: 88%;
   }
+  
 `;
 
 export const CreateSomething = styled.button`

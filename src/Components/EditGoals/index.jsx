@@ -1,3 +1,4 @@
+
 import { Container } from "./style";
 import { Slider } from "@material-ui/core";
 import { toast } from "react-toastify";
@@ -50,3 +51,4 @@ const EditGoal = ({ goal }) => {
   );
 };
 export default EditGoal;
+
