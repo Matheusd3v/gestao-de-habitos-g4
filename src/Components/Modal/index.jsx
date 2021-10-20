@@ -1,11 +1,12 @@
 import Popup from 'reactjs-popup';
 import CreatingHabitsForm from '../CreatingHabitsForm';
 import { IoIosAdd, IoIosClose, IoIosArchive } from "react-icons/io";
-import { ButtonAdd, ButtonEdit ,Ancor, ModalContainer, ButtonEditPencil,ButtonEditDescription } from './style.js'
+import { ButtonCreate,ButtonAdd, ButtonEdit ,Ancor, ModalContainer, ButtonEditPencil,ButtonEditDescription, Button } from './style.js'
 import { useState } from 'react';
 import ButtonDefault from '../ButtonDefault'
 import { AnimatePresence } from 'framer-motion';
 import BtnDefaultSecondary from '../BtnDefaultSecondary';
+import { AiOutlinePlus } from "react-icons/ai";
 const Modal = ({ children, type, group }) =>{
       
       const callBack = () =>{
@@ -16,8 +17,9 @@ const Modal = ({ children, type, group }) =>{
       const closeModal = () => setOpen(false);
       return (
         <>
-                  
-          {type === 'btnSecondary' && <BtnDefaultSecondary onClick={callBack}></BtnDefaultSecondary>}
+           {type === 'add-activities' && <ButtonCreate onClick={callBack}><IoIosAdd/></ButtonCreate>}
+           {type ==='add-goals' && <Button onClick={callBack}> <AiOutlinePlus/> Adicionar Objetivo</Button>}   
+           {type === 'btnSecondary' && <BtnDefaultSecondary onClick={callBack}></BtnDefaultSecondary>}
            {type ==='createForm' && <BtnDefaultSecondary callback={callBack}>Cadastrar</BtnDefaultSecondary>}  
            {type==='add' && <ButtonAdd onClick={callBack}><IoIosAdd/></ButtonAdd>}
            {type==='edit'&& <ButtonEdit onClick={callBack}><IoIosArchive/></ButtonEdit>}

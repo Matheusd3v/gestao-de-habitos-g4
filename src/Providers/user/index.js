@@ -127,6 +127,16 @@ export const UserProvider = ({ children }) => {
       })
   }
 
+  const creatingGoal = (data) =>{
+    api
+    .post('/goals/', data,{
+      headers: { Authorization: `Bearer ${tokenUser}` },
+    })
+    .then((response)=>{
+      toast.success("Objetivo criado com sucesso")
+    })
+  }
+
   return (
     <UserContext.Provider
       value={{
@@ -148,7 +158,8 @@ export const UserProvider = ({ children }) => {
         email,
         editGoal,
         editActivie,
-        editDescription
+        editDescription,
+        creatingGoal
       }}
     >
       {children}
