@@ -17,6 +17,7 @@ const Modal = ({ children, type, group }) =>{
       const closeModal = () => setOpen(false);
       return (
         <>
+           {type === 'seeMore' && <ButtonDefault callback={callBack}>Ver mais</ButtonDefault>}
            {type === 'add-activities' && <ButtonCreate onClick={callBack}><IoIosAdd/></ButtonCreate>}
            {type ==='add-goals' && <Button onClick={callBack}> <AiOutlinePlus/> Adicionar Objetivo</Button>}   
            {type === 'btnSecondary' && <BtnDefaultSecondary onClick={callBack}></BtnDefaultSecondary>}
