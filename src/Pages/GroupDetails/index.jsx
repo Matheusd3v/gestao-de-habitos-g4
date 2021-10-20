@@ -22,6 +22,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useHistory } from "react-router-dom";
 import EditGoal from "../../Components/EditGoals";
 import EditActivies from "../../Components/EditActivities";
+import EditingDescription from "../../Components/EditingDescription";
 
 const GroupDetails = () => {
   const history = useHistory();
@@ -91,6 +92,7 @@ const GroupDetails = () => {
         <h2>Descrição</h2>
 
         <DescriptionContainer>
+          <Modal type='edit-description'><EditingDescription group={group}/></Modal>
           <p>{group.description}</p>
         </DescriptionContainer>
 
