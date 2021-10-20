@@ -3,14 +3,16 @@ import { useForm } from 'react-hook-form'
 import { TextField } from '@material-ui/core';
 import { useContext } from 'react';
 import { UserContext } from '../../Providers/user/index.js';
+import { GroupContext } from '../../Providers/groups/index.js';
 const EditingDescription = ({ group }) =>{
-    const { editDescription } = useContext(UserContext)
+    const { callingGroups, editDescription } = useContext(GroupContext)
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) =>{
         const { description } = data
         const id = group.id
         const idAndDescription = {description, id}
         editDescription(idAndDescription)
+        callingGroups()
     }
     return(
        <DescriptionContainer>

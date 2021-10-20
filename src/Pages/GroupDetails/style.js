@@ -103,6 +103,15 @@ export const DescriptionContainer = styled.div`
     position: relative;
     left: 88%;
   }
+
+  @media (max-width: 700px) {
+    button {
+      position: static;
+      display: flex;
+      margin-left: auto;
+      width: 45px;
+    }
+  }
   
 `;
 

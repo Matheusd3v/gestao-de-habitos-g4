@@ -5,8 +5,9 @@ import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useContext } from 'react';
 import { UserContext } from '../../Providers/user';
+import { GroupContext } from '../../Providers/groups';
 const CreatingActivity = ({ group }) =>{
-    const { creatingActivitie } = useContext(UserContext)
+    const { callingGroups, creatingActivitie  } = useContext(GroupContext)
     const schema = yup.object().shape({
         title:yup.string().required("Titulo obrigatório")
     })
@@ -18,6 +19,7 @@ const CreatingActivity = ({ group }) =>{
         const { title } = data
         const requisitionBody = {id, title }
         creatingActivitie(requisitionBody)
+        callingGroups()
     }
     return (
         <Container>
