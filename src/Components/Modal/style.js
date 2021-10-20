@@ -4,14 +4,26 @@ import { motion } from 'framer-motion'
 import { style } from '@material-ui/system'
 export const ButtonAdd = styled(motion.button)`
     cursor: pointer;
-        position: fixed;
-        right: 5px;
-        height: 70px;
-        width: 70px;
-        z-index: 999;
-        border-radius: 50%;
+    position: fixed;
+    top: 80px;
+    right: 25px;
+    height: 50px;
+    width: 50px;
+    z-index: 999;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     :hover{
         cursor: pointer;
+        color: rgb(255, 113, 91);
+    }
+
+    @media screen and (max-width: 750px) {
+        position: fixed;
+        bottom: 0;
     }
 `
 export const ButtonEdit = styled(motion.button)`

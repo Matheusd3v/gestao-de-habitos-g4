@@ -6,10 +6,15 @@ export const Container = styled.div`
     flex-direction: row;    
 
     svg{
-        font-size: 40px;
+
+        font-size: 30px;
     }
 
     .mobile {
+        display: none;
+    }
+
+    .btnMobile {
         display: none;
     }
 
@@ -25,12 +30,18 @@ export const Container = styled.div`
     @media screen and (max-width: 750px) {
         flex-direction: column;
         align-items: center;
+        box-sizing: border-box;
 
         .desktop {
             display: none;
         }
 
+        .btnMobile {
+            display: block;
+        } 
+
         .mobile {
+            display: block;
             position: absolute;
             top: 180px;
         }
@@ -47,6 +58,8 @@ export const HabitsContainer = styled.div`
     margin: 0 auto;
 
     @media screen and (max-width:750px){
+        width: 100%;
+        max-width: 500px;
         justify-content: center;
         align-items: center;
         flex-direction: column;
