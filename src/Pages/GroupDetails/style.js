@@ -55,13 +55,16 @@ export const ActivitiesList = styled.ul`
   align-items: center;
   li {
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;
+    justify-content: center;
     height: 100%;
     margin: 10px;
     text-align: center;
+    
+  }
+  li p{
     max-width: 15ch;
+    width: 150px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

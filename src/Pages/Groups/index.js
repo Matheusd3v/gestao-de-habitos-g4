@@ -61,7 +61,7 @@ const GroupsPage = () => {
                   <p> {group.description} </p>
                 </div>
 
-              <Modal key={group.id}><GroupDetails group={group}/></Modal>
+              <Modal key={group.id} type='seeMore'><GroupDetails group={group}/></Modal>
 
               </SectionInfo>
             </li>
