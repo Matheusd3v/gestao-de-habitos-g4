@@ -5,6 +5,7 @@ import { ButtonAdd, ButtonEdit ,Ancor, ModalContainer, ButtonEditPencil,ButtonEd
 import { useState } from 'react';
 import ButtonDefault from '../ButtonDefault'
 import { AnimatePresence } from 'framer-motion';
+import BtnDefaultSecondary from '../BtnDefaultSecondary';
 const Modal = ({ children, type, group }) =>{
       
       const callBack = () =>{
@@ -16,8 +17,8 @@ const Modal = ({ children, type, group }) =>{
       return (
         <>
                   
-        
-           {type ==='createForm' && <ButtonDefault callback={callBack}>Cadastrar</ButtonDefault>}  
+          {type === 'btnSecondary' && <BtnDefaultSecondary onClick={callBack}></BtnDefaultSecondary>}
+           {type ==='createForm' && <BtnDefaultSecondary callback={callBack}>Cadastrar</BtnDefaultSecondary>}  
            {type==='add' && <ButtonAdd onClick={callBack}><IoIosAdd/></ButtonAdd>}
            {type==='edit'&& <ButtonEdit onClick={callBack}><IoIosArchive/></ButtonEdit>}
            {type==='edit-pencil' && <ButtonEditPencil onClick={callBack}><IoIosArchive/></ButtonEditPencil>}
