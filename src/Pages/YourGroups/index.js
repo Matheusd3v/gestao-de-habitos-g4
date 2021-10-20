@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import api from "../../Services/api";
 import ButtonDefault from "../../Components/ButtonDefault";
 import { Link, useHistory } from "react-router-dom";
+import BtnDefaultSecondary from "../../Components/BtnDefaultSecondary";
+import { Modal } from "antd";
+import { FormCreatingHabit } from "../../Components/CreatingHabitsForm/style";
 
 const YourGroupsPages = () => {
   const history = useHistory();
@@ -27,12 +30,7 @@ const YourGroupsPages = () => {
       <hr />
       <h2>Seus grupos</h2>
       <hr />
-      <NewGroup>
-        <div>
-          <p>+</p>
-        </div>
-        <p>Criar novo grupo</p>
-      </NewGroup>
+
       <ContainerList>
         {yourGroups.map((group) => (
           <li key={group.id}>
