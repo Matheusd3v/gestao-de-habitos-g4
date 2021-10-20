@@ -34,12 +34,15 @@ export const ActivitiesList = styled.ul`
   padding: 10px;
   border-radius: 10px;
   list-style-type: none;
-  height: 146px;
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
     margin: 10px;
     text-align: center;
     max-width: 15ch;

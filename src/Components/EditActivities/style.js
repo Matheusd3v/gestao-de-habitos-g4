@@ -1,7 +1,12 @@
 import styled from 'styled-components'
-
-export const Container = styled.div`
-    width: 100vw;
+export const EditActiviesContainer = styled.div`
+    
+    background: #98C1D9;
+    height: 840px;
+    h2{
+        color: white;
+        font-size: 27px;
+    }  width: 100vw;
     max-width: 500px;
     height: 840px;
     border-radius: 5px;

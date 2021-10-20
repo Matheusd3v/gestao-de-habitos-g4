@@ -1,7 +1,7 @@
 import Popup from 'reactjs-popup';
 import CreatingHabitsForm from '../CreatingHabitsForm';
-import { IoIosAdd, IoIosClose } from "react-icons/io";
-import {ButtonAdd, Ancor, ModalContainer} from './style.js'
+import { IoIosAdd, IoIosClose, IoIosArchive} from "react-icons/io";
+import {ButtonAdd, ButtonEdit ,Ancor, ModalContainer, ButtonEditPencil} from './style.js'
 import { useState } from 'react';
 import ButtonDefault from '../ButtonDefault'
 import { AnimatePresence } from 'framer-motion';
@@ -15,8 +15,10 @@ const Modal = ({ children, type, group }) =>{
       const closeModal = () => setOpen(false);
       return (
         <>
-        
-          {type==='add' ?
+           {type==='add' && <ButtonAdd onClick={callBack}><IoIosAdd/></ButtonAdd>}
+           {type==='edit'&& <ButtonEdit onClick={callBack}><IoIosArchive/></ButtonEdit>}
+           {type==='edit-pencil' && <ButtonEditPencil onClick={callBack}><IoIosArchive/></ButtonEditPencil>}
+         {/* {type==='add' ?
            (
             <ButtonAdd  onClick={callBack}>
                 <IoIosAdd/>
@@ -24,8 +26,8 @@ const Modal = ({ children, type, group }) =>{
            ):
            (
             <ButtonDefault callback={callBack}>Ver mais</ButtonDefault>
-           )
-        }
+           ) 
+         */}
           <Popup open={open} nested closeOnDocumentClick onClose={closeModal}>
           <Ancor className="close" onClick={closeModal}>
             <IoIosClose/>
