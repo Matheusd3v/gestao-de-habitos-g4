@@ -174,8 +174,7 @@ console.log('test')
         editDescription,
 
         creatingGoal,
-        creatingActivitie
-
+        creatingActivitie,
         editGoals
 
       }}

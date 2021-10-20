@@ -19,9 +19,10 @@ const HabitsPage = () => {
 
   return (
     <Container>
+      
       <Modal type='add'><CreatingHabitsForm/></Modal>
 
-      <span className='mobile'><FilterBtn variant='outlined' onClick={pushAndPull}>Filtrar <AiFillFilter/> </FilterBtn></span>
+      <span className='btnMobile'><FilterBtn variant='outlined' onClick={pushAndPull}>Filtrar <AiFillFilter/> </FilterBtn></span>
 
       <span className='desktop'><FilterHabits/></span>
 
