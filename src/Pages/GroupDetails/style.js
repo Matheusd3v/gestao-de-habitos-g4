@@ -9,7 +9,18 @@ export const Container = styled.main`
   border-radius: 15px;
   padding: 10px;
   box-sizing: border-box;
+<<<<<<< HEAD
+
+  .ButtonContainer {
+    display: flex;
+    justify-content: center;
+    button { 
+      margin: 20px
+    }
+  }
+=======
   
+>>>>>>> develop
   h2 {
     color: #fff;
     text-align: center;
@@ -67,6 +78,19 @@ export const GroupCategory = styled.div`
   text-align: center;
 `;
 
+<<<<<<< HEAD
+export const DescriptionContainer = styled.div`
+  background: #364d79;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  list-style-type: none;
+  height: 146px;
+  p {
+    margin: 10px;
+  }
+`;
+=======
 export const CreateSomething = styled.button`
   background-color: #FF715B;
   width: 200px;
@@ -84,3 +108,4 @@ export const CreateSomething = styled.button`
     
   }
 `
+>>>>>>> develop
