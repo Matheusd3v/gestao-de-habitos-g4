@@ -5,7 +5,6 @@ import ButtonDefault from "../../Components/ButtonDefault";
 import React from "react";
 import Modal from "../../Components/Modal";
 import GroupDetails from "../../Components/GroupDetails";
-import { AiFillPlusCircle } from "react-icons/ai";
 import FormCrateGroups from "../../Components/FormCreateGroup";
 
 const GroupsPage = () => {
@@ -13,10 +12,17 @@ const GroupsPage = () => {
   const [nextAllGroups, setNextAllGroups] = useState(
     "https://kenzie-habits.herokuapp.com/groups/"
   );
+
   useEffect(() => {
     fetch(nextAllGroups)
       .then((response) => response.json())
       .then((response) => setAllGroups([...allGroups, response.results]))
+      .catch((err) => console.log(err));
+  }, [nextAllGroups]);
+
+  useEffect(() => {
+    fetch(nextAllGroups)
+      .then((response) => response.json())
       .then((response) =>
         response.next ? setNextAllGroups(response.next) : null
       )
@@ -32,8 +38,10 @@ const GroupsPage = () => {
       <hr />
       <h2>Todos os grupos</h2>
       <hr />
-      <Modal type='add'>  </Modal>
-      <FormCrateGroups/>
+      <div className='popUpPlus'>
+        <Modal type='createForm' > <FormCrateGroups/> </Modal>
+      </div>
+      
       <ContainerList>
         {allGroups.map((page) =>
           page.map((group) => (

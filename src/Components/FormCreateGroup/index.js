@@ -1,28 +1,54 @@
 
 import { TextField } from '@material-ui/core'
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
+import { FormGroupCreate } from './style';
+import ButtonDefault from '../ButtonDefault';
+import api from '../../Services/api';
+import { UserContext } from '../../Providers/user';
+import { toast } from "react-toastify";
 
 const FormCrateGroups = () => {
+    const { tokenUser } = useContext(UserContext);
     
     const formSchema = yup.object().shape({
-        name: yup.string(),
-        description: yup.string()
+        name: yup.string().required('Campo obrigatório!'),
+        description: yup.string().required('Campo obrigatório!'),
+        category: yup.string().required('Campo obrigatório!')
     })
 
     const { register, handleSubmit, reset, formState: { errors }, } = useForm({
         resolver: yupResolver(formSchema)
     });
 
-    const onSubmitFunction = () => {
-    
+    const onSubmitFunction = (data) => {
+        api.post('/groups/', data, {
+            headers: { Authorization: `Bearer ${tokenUser}` },
+        })
+        .then(
+            toast("Grupo criado com sucesso!", {
+                type: "success",
+        }))
+        .catch((e) => console.log(e))
+        
+        reset();
     }
 
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmitFunction)}>
+            <FormGroupCreate onSubmit={handleSubmit(onSubmitFunction)}
+                initial={{ scale: 0 }}
+                animate={{ rotate: 360, scale: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 40
+                }}
+            >
+                <h2>Cadastre Novos Grupos</h2>
+
                 <TextField 
                     label="Nome"
                     margin="normal"
@@ -55,7 +81,9 @@ const FormCrateGroups = () => {
                     error={!!errors.category}
                     helperText={errors.category?.message}
                 />
-            </form>
+
+                <ButtonDefault> Cadastrar </ButtonDefault>
+            </FormGroupCreate>
         </>
     )
 }

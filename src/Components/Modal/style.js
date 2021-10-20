@@ -7,6 +7,7 @@ export const ButtonAdd = styled.button`
         right: 5px;
         height: 70px;
         width: 70px;
+        z-index: 999;
         border-radius: 50%;
     :hover{
         cursor: pointer;
@@ -17,5 +18,7 @@ export const Ancor = styled.a`
     font-size: 50px;
     cursor: pointer;
     position: absolute;
+    z-index: 999;
+    top:0;
     right: 0px;
 `

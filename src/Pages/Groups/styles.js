@@ -25,6 +25,15 @@ export const Container = styled.div`
       font-weight: 700;
     }
   }
+
+  .popUpPlus {
+    margin-bottom: 25px;
+
+    button {
+      padding: 0;
+      height: 50px;
+    }
+  }
 `;
 
 export const NewGroup = styled.button`

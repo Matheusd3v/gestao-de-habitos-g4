@@ -15,16 +15,16 @@ const Modal = ({ children, type, group }) =>{
       return (
         <>
         
-          {type==='add' ?
-           (
+          {type==='add' && 
+          (
             <ButtonAdd  onClick={callBack}>
                 <IoIosAdd/>
             </ButtonAdd>
-           ):
-           (
-            <ButtonDefault callback={callBack}>Ver mais</ButtonDefault>
-           )
-        }
+           ) 
+          }
+
+          {type ==='createForm' && <ButtonDefault callback={callBack}>Cadastrar</ButtonDefault>}           
+        
           <Popup open={open} nested closeOnDocumentClick onClose={closeModal}>
           <Ancor className="close" onClick={closeModal}>
             <IoIosClose/>
