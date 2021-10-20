@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 const EditGoal = ({ goal }) =>{
     const { editGoal } = useContext(UserContext)
     const [ achiviedPercentage, setAchiviedPercentage ] = useState(goal.how_much_achieved)
-    
+    console.log(goal)
     const { register, handleSubmit } = useForm()
     const onSubmit = (data) =>{
         const id = goal.id
