@@ -15,9 +15,9 @@ export const ButtonAdd = styled(motion.button)`
     display: flex;
     justify-content: center;
     align-items: center;
-
+    cursor: pointer;
     :hover{
-        cursor: pointer;
+        
         color: rgb(255, 113, 91);
     }
 
