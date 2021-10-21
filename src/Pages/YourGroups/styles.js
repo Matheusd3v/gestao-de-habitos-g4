@@ -9,6 +9,7 @@ export const Container = styled.div`
   h1,
   h2 {
     color: white;
+    margin: 5px 0;
   }
 
   hr {
@@ -60,20 +61,23 @@ export const NewGroup = styled.button`
 
 export const ContainerList = styled.ul`
   width: 90%;
+  max-width: 1370px;
   list-style: none;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  margin: 0 auto;
+
   li {
-    width: 90%;
+    width: 300px;
     height: 400px;
     background: #98c1d9;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 20px;
+    margin: 20px;
     border-radius: 8px;
 
     h2 {
@@ -82,12 +86,11 @@ export const ContainerList = styled.ul`
     }
   }
 
-  @media (min-width: 450px) {
+  @media (max-width: 450px) {
     flex-flow: row wrap;
     justify-content: space-around;
 
     li {
-      width: 300px;
       margin: 0px 10px 20px;
     }
   }
@@ -103,5 +106,12 @@ export const SectionInfo = styled.section`
     width: 150px;
     height: 40px;
     font-size: 16px;
+  }
+
+  .backgroundDesc {
+    background: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
   }
 `;
