@@ -7,6 +7,7 @@ import CreatingHabitsForm from "../../Components/CreatingHabitsForm";
 import Modal from "../../Components/Modal";
 import GroupDetails from "../../Components/GroupDetails";
 import FormCrateGroups from '../../Components/FormCreateGroup'
+import { motion } from "framer-motion"
 
 import api from "../../Services/api";
 
@@ -44,15 +45,21 @@ const GroupsPage = () => {
               <SectionInfo>
                 <div>
                   <h3>Objetivos</h3>
-                  <p>{group.goals[0]?.title} </p>
+                  <div className='backgroundDesc'>
+                    <p>{group.goals[0]?.title} </p>
+                  </div>
                 </div>
                 <div>
                   <h3>Atividades</h3>
-                  <p> {group.activities[0]?.title} </p>
+                  <div className='backgroundDesc'>
+                    <p> {group.activities[0]?.title} </p>
+                  </div>
                 </div>
                 <div>
                   <h3>Descrição</h3>
-                  <p> {group.description} </p>
+                  <div className='backgroundDesc'>
+                    <p> {group.description} </p>
+                  </div>
                 </div>
 
 

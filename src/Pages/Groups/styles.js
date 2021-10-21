@@ -9,6 +9,7 @@ export const Container = styled.div`
   h1,
   h2 {
     color: white;
+    margin: 5px 0;
   }
 
   hr {
@@ -68,15 +69,18 @@ export const NewGroup = styled.button`
 `;
 
 export const ContainerList = styled.ul`
-  width: 90%;
+  width: 88%;
+  max-width: 1370px;
   list-style: none;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+
   li {
     width: 90%;
-    height: 400px;
+    min-height: 400px;
     background: #98c1d9;
     display: flex;
     flex-direction: column;
@@ -89,6 +93,20 @@ export const ContainerList = styled.ul`
       text-align: center;
       margin-bottom: 0;
     }
+
+
+  }
+
+  @media screen and (max-width: 1560px) {
+    max-width: 1020px;
+  }
+
+  @media screen and (max-width: 1174px) {
+    max-width: 680px;
+  }
+
+  @media screen and (max-width: 790px) {
+    justify-content: center;
   }
 
   @media (min-width: 450px) {
@@ -112,5 +130,16 @@ export const SectionInfo = styled.section`
     width: 150px;
     height: 40px;
     font-size: 16px;
+  }
+
+  .backgroundDesc {
+    background: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+
+    p {
+      word-break: break-all;
+    }
   }
 `;
