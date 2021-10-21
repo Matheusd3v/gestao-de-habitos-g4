@@ -1,48 +1,47 @@
-
-import React, { useState } from 'react'
-import { ContainerFilter, FilterBtn, OptionsFilterBtn } from './style'
-import health from '../../assets/health.svg';
+import React, { useState } from "react";
+import { ContainerFilter, FilterBtn, OptionsFilterBtn } from "./style";
+import health from "../../assets/health.svg";
 import { AiFillFilter } from "react-icons/ai";
-import  { useContext } from 'react'
-import { UserContext } from '../../Providers/user'
-const FilterHabits = () => {
-    const { userHabits, setCurrentFilterHabits } = useContext(UserContext)
-    const [showFilter, setShowFilter] = useState(false)
-    
-    const pushAndPull = () => {
-        setShowFilter(!showFilter)
-    }
-    const filterAchieved = () =>{
-        const achieved = userHabits.filter((habit)=> habit.achieved) 
-        setCurrentFilterHabits(achieved)
-    }
-    const filterInProgress = () =>{
-        const inProgress = userHabits.filter((habit)=> !habit.achieved)
-        setCurrentFilterHabits(inProgress)
-    }
-    const allHabits = () =>{
-        setCurrentFilterHabits(userHabits)
-    }
+import { useContext } from "react";
+import { UserContext } from "../../Providers/user";
+import InputSearch from "../InputSearch";
+const FilterHabits = ({ showMob, setShowMob }) => {
+  const { userHabits, setCurrentFilterHabits, getFilteredHabits } =
+    useContext(UserContext);
+  const [showFilter, setShowFilter] = useState(false);
 
-    return (
-        <>
-            <FilterBtn variant='outlined' onClick={pushAndPull}>Filtrar <AiFillFilter/> </FilterBtn>
-            
+  const filterAchieved = () => {
+    const achieved = userHabits.filter((habit) => habit.achieved);
+    setCurrentFilterHabits(achieved);
+  };
 
-            {showFilter && <ContainerFilter
-                 initial={{opacity:0 , x:-300}}
-                 transition={{ duration: 1}}
-                 animate={{opacity:1, x: 0}} 
-                >
-                <OptionsFilterBtn onClick={filterAchieved} >Alcançados</OptionsFilterBtn>
-                <OptionsFilterBtn onClick={filterInProgress} >Em progresso</OptionsFilterBtn>
-                 <OptionsFilterBtn onClick={allHabits}>Todos</OptionsFilterBtn>
+  const filterInProgress = () => {
+    const inProgress = userHabits.filter((habit) => !habit.achieved);
+    setCurrentFilterHabits(inProgress);
+  };
 
-                <img src={health} alt='Heath Habit' />
+  const allHabits = () => {
+    setCurrentFilterHabits(userHabits);
+  };
 
-            </ContainerFilter>}
-        </>
-    )
-}
+  return (
+    <>
+      <ContainerFilter
+        initial={{ opacity: 0, x: -300 }}
+        transition={{ duration: 1 }}
+        animate={{ opacity: 1, x: 0 }}
+      >
+        <InputSearch callback={" "} placeholder={"Procure por um hábito"} />
+        <OptionsFilterBtn onClick={filterAchieved}>Alcançados</OptionsFilterBtn>
+        <OptionsFilterBtn onClick={filterInProgress}>
+          Em progresso
+        </OptionsFilterBtn>
+        <OptionsFilterBtn onClick={allHabits}>Todos</OptionsFilterBtn>
 
-export default FilterHabits
+        <img src={health} alt="Heath Habit" />
+      </ContainerFilter>
+    </>
+  );
+};
+
+export default FilterHabits;

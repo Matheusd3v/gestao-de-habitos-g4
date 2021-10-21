@@ -5,26 +5,26 @@ import MenuList from '../MenuList';
 
 
 const NavBar = () => {
-    const [menuMobile, setMenuMobile] = useState(false)    
+  const [menuMobile, setMenuMobile] = useState(false)    
 
-    const showMenu = () => {
-      setMenuMobile(!menuMobile)
-    }
+  const showMenu = () => {
+    setMenuMobile(!menuMobile)
+  }
 
-    return (      
-      <HeaderBar >
-        <NameContainer>
-          <h1>Gestão de Hábitos</h1>
-        </NameContainer>
+  return (      
+    <HeaderBar >
+      <NameContainer>
+        <h1>Gestão de Hábitos</h1>
+      </NameContainer>
 
-        <button className='btn' onClick={showMenu} > <AiOutlineMenu/> </button> 
+      <button className='btn' onClick={showMenu} > <AiOutlineMenu/> </button> 
 
-        <span className='notShowMob'>{!menuMobile && <MenuList/>}</span>   
+      <span className='notShowMob'>{!menuMobile && <MenuList/>}</span>   
 
-        {menuMobile && <MenuList/>}       
-      </HeaderBar>
-      
-    )
+      {menuMobile && <MenuList/>}       
+    </HeaderBar>
+    
+  )
 }
 
 export default NavBar

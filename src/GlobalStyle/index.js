@@ -4,9 +4,16 @@ const GlobalStyle = createGlobalStyle`
     body {
         margin: 0;
         padding:0;
-        background-color: #293241;
+        background-color: #293241;        
     }
 
+     
+    
+    ul{
+        padding: 0px;
+    }
+
+   
     
 `
 

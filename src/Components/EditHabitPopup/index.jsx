@@ -164,22 +164,27 @@ const EditHabitPopup = ({ habit, version }) => {
 
               <Slider
                 key="slider"
-                defaultValue={radiusValue}
+                defaultValue={habit.how_much_achieved}
                 onChange={(e) => setRadiusValue(e.target.value)}
                 aria-label="Default"
                 valueLabelDisplay="auto"
                 {...register("how_much_achieved")}
               />
 
-              <ButtonDefault type="submit">Salvar alterações</ButtonDefault>
+              <ButtonDefault type="submit" className="button">
+                Salvar alterações
+              </ButtonDefault>
+              <ButtonDefault
+                type="button"
+                callback={deleteHabit}
+                className="button"
+              >
+                Excluir Hábito
+              </ButtonDefault>     
             </EditHabitForm>
           </div>
 
-          <div className="actions">
-            <ButtonDefault type="button" callback={deleteHabit}>
-              Excluir Hábito
-            </ButtonDefault>
-          </div>
+         
         </div>
       )}
     </StyledPopup>
