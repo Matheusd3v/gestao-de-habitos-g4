@@ -33,17 +33,12 @@ import { UserContext } from "../../Providers/user";
 const GroupDetails = () => {
   const history = useHistory();
   const { id } = useParams();
-  const [group, setGroup] = useState({});
-  const { editGoals } = useContext(UserContext)
+ 
+  const { editGoals, getSpecificGroup, group } = useContext(UserContext)
 
   useEffect(() => {
-    api
-      .get(`/groups/${id}/`)
-      .then((response) => {
-        setGroup(response.data);
-      })
-      .catch((error) => console.log(error));
-  }, [editGoals]);
+    getSpecificGroup(id)
+  }, [group]);
 
 
   const unsubscribe = () => {
@@ -77,7 +72,7 @@ const GroupDetails = () => {
         </CarouselBase>
 
         <h2>Atividades</h2>
-        <Modal type='add-goals'> 
+        <Modal type='add-actitivies'> 
                 <CreatingActivity group={group}/>
           </Modal>
         <ActivitiesList>
