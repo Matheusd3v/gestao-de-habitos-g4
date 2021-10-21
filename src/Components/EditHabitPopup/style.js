@@ -4,6 +4,8 @@ import styled from "styled-components";
 export const StyledPopup = styled(Popup)`
   // use your custom style for ".popup-overlay"
   &-overlay {
+    display: flex;
+    justify-content: center;
     padding: 10px;
     width: 280px;
     background-color: #fff;
@@ -27,9 +29,14 @@ export const StyledPopup = styled(Popup)`
       border-bottom: 1px solid gray;
       font-size: 18px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       padding: 5px;
+      margin: 0 auto;
     }
     .modal > .content {
+      margin: 0 auto;
       width: 100%;
       padding: 10px 5px;
     }
@@ -55,12 +62,18 @@ export const StyledPopup = styled(Popup)`
       margin-top: 5px;
       margin-right: 15px;
     }
+    @media (min-width: 500px) {
+      .modal > .close {
+        margin-right: -45px;
+      }
+    }
   }
 `;
 export const EditHabitForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: auto;
 
   button {
     font-size: 16px;
