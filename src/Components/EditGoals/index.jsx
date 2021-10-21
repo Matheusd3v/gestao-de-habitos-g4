@@ -6,7 +6,6 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../Providers/user";
 import { useForm } from "react-hook-form";
 import api from "../../Services/api";
-import { GroupContext } from "../../Providers/groups";
 
 const EditGoal = ({ goal }) => {
   const { editGoal } = useContext(UserContext);
@@ -14,7 +13,6 @@ const EditGoal = ({ goal }) => {
     goal.how_much_achieved
   );
   const token = localStorage.getItem("token");
-  const { callingGroups } = useContext(GroupContext)
   const { register, handleSubmit } = useForm();
 
   const deleteGoal = (id) => {
@@ -31,12 +29,10 @@ const EditGoal = ({ goal }) => {
     const how_much_achieved = Number(data.how_much_achieved);
     const idAndAchivied = { how_much_achieved, id };
     editGoal(idAndAchivied);
-    callingGroups()
   };
 
   const deleteGoals = () => {
     deleteGoal(goal.id)
-    callingGroups()
   }
 
   return (

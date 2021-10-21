@@ -9,7 +9,6 @@ import ButtonDefault from '../ButtonDefault'
 import { AnimatePresence } from 'framer-motion';
 import BtnDefaultSecondary from '../BtnDefaultSecondary';
 import { AiOutlinePlus } from "react-icons/ai";
-import { GroupContext } from '../../Providers/groups';
 const Modal = ({ children, type, group }) =>{
 
       
