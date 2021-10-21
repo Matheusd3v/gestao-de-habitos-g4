@@ -7,6 +7,8 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext, useState } from "react";
 import { UserContext } from "../../Providers/user/index.js";
+import ButtonDefault from '../ButtonDefault'
+
 const CreatingHabitsForm = () => {
     const { newHabit, setNewHabit, addingHabit } = useContext(UserContext);
     const [currency, setCurrency] = useState("Fácil");
@@ -53,6 +55,7 @@ const CreatingHabitsForm = () => {
    
     return (
         <FormCreatingHabit onSubmit={handleSubmit(onSubmit)}>
+          <h2>Cadastre Novos Hábitos</h2>
           <TextField
             id="outlined-basic"
             label="Título"
@@ -98,7 +101,7 @@ const CreatingHabitsForm = () => {
             helperText={errors.frequency?.message}
             sx={{ width: "80%" }}
           />
-          <Button type="submit">Criar Hábito</Button>
+          <ButtonDefault>Cadastrar</ButtonDefault>
           </FormCreatingHabit>
   );
 }
