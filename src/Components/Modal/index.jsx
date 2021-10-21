@@ -71,16 +71,6 @@ const Modal = ({ children, type, group }) => {
           <IoMdListBox />
         </ButtonEditDescription>
       )}
-      {/* {type==='add' ?
-           (
-            <ButtonAdd  onClick={callBack}>
-                <IoIosAdd/>
-            </ButtonAdd>
-           ):
-           (
-            <ButtonDefault callback={callBack}>Ver mais</ButtonDefault>
-           ) 
-         */}
 
       <Popup open={open} nested closeOnDocumentClick onClose={closeModal}>
         <Ancor className="close" onClick={closeModal}>

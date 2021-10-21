@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 export const EditActiviesContainer = styled.div`
-    
+
     height: 840px;
     h2{
         color: white;
@@ -42,7 +42,6 @@ export const EditActiviesContainer = styled.div`
     }
     @media screen and (min-width:768px){
         height: 400px;
-        border: 1px solid;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;

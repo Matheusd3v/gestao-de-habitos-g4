@@ -14,7 +14,7 @@ export const UserProvider = ({ children }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isLogin, setIsLogin] = useState(false);
-  const [editGoals, setEditGoals] = useState(false);
+  const [editGroup, setEditGroup] = useState(false);
 
   useEffect(() => {
     if (tokenUser) {
@@ -96,8 +96,6 @@ export const UserProvider = ({ children }) => {
       .then((response) => {
         toast.success("Objetivo editado com sucesso");
       });
-    console.log("test");
-    setEditGoals(!editGoals);
   };
 
   const editActivie = (activie) => {
@@ -189,8 +187,10 @@ export const UserProvider = ({ children }) => {
         editDescription,
         getFilteredHabits,
         creatingGoal,
+        editDescription,
         creatingActivitie,
-        editGoals,
+        editGroup,
+        setEditGroup,
       }}
     >
       {children}

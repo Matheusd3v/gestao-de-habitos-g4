@@ -6,6 +6,7 @@ import React from "react";
 import CreatingHabitsForm from "../../Components/CreatingHabitsForm";
 import Modal from "../../Components/Modal";
 import GroupDetails from "../../Components/GroupDetails";
+import FormCrateGroups from '../../Components/FormCreateGroup'
 
 import api from "../../Services/api";
 
@@ -37,12 +38,7 @@ const GroupsPage = () => {
       <hr />
       <h2>Todos os grupos</h2>
       <hr />
-      <NewGroup>
-        <div>
-          <p>+</p>
-        </div>
-        <p>Criar novo grupo</p>
-      </NewGroup>
+      <Modal type='createForm'><FormCrateGroups/> </Modal>
       <ContainerList>
         {allGroups.map((page) =>
           page.map((group) => (
