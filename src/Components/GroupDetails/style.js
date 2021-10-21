@@ -10,7 +10,7 @@ export const GroupDetailsContainer = styled.div`
     color: white;
     width:100vw;
     max-width: 600px;
-    height: 540px;
+    height: 640px;
     overflow: auto;
     background-color: #98C1D9;
     border-radius:5px;
@@ -31,7 +31,7 @@ export const GroupDetailsContainer = styled.div`
         padding: 10px 50px;
         box-sizing: border-box;
         overflow: auto;
-        height: 300px;
+        min-height: 80px;
     } 
 
     .info-container .goalsDiv ul, li {
