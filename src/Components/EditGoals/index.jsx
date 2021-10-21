@@ -1,4 +1,3 @@
-
 import { Container } from "./style";
 import { Slider } from "@material-ui/core";
 import { toast } from "react-toastify";
@@ -9,9 +8,7 @@ import api from "../../Services/api";
 
 const EditGoal = ({ goal }) => {
   const { editGoal } = useContext(UserContext);
-  const [achiviedPercentage, setAchiviedPercentage] = useState(
-    goal.how_much_achieved
-  );
+  const [setAchiviedPercentage] = useState(goal.how_much_achieved);
   const token = localStorage.getItem("token");
   const { register, handleSubmit } = useForm();
 
@@ -32,8 +29,8 @@ const EditGoal = ({ goal }) => {
   };
 
   const deleteGoals = () => {
-    deleteGoal(goal.id)
-  }
+    deleteGoal(goal.id);
+  };
 
   return (
     <Container>
@@ -55,4 +52,3 @@ const EditGoal = ({ goal }) => {
   );
 };
 export default EditGoal;
-

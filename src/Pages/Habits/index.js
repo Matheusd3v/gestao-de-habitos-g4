@@ -10,8 +10,7 @@ import { FilterBtn } from "../../Components/FilterPageHabits/style.js";
 import { AiFillFilter } from "react-icons/ai";
 
 const HabitsPage = () => {
-  const { callingHabits, currentFilterHabits, tokenUser } =
-    useContext(UserContext);
+  const { currentFilterHabits } = useContext(UserContext);
   const [showMob, setShowMob] = useState(false);
 
   const pushAndPull = () => {
