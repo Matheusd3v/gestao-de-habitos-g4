@@ -10,15 +10,18 @@ const CreatingActivity = ({ group }) =>{
     const schema = yup.object().shape({
         title:yup.string().required("Titulo obrigatório")
     })
+    
     const { register, handleSubmit, formState:{ errors } } = useForm({
         resolver:yupResolver(schema)
     });
+
     const onSubmit = (data) =>{
         const { id } = group 
         const { title } = data
         const requisitionBody = {id, title }
         creatingActivitie(requisitionBody)
     }
+
     return (
         <Container>
             <form onSubmit={handleSubmit(onSubmit)}>

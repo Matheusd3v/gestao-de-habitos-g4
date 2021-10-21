@@ -3,8 +3,8 @@ import { motion } from 'framer-motion'
 
 export const FormGroupCreate = styled(motion.form)`
     background: #FFFFFF;
-    width: 300px;
-    height: 350px;
+    width: 350px;
+    height: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;

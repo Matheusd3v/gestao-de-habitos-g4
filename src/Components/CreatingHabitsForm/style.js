@@ -8,6 +8,10 @@ export const FormCreatingHabit = styled.form`
   background-color: white;
   padding: 20px 0;
   margin-top: 10px;
+  height: 500px;
+
+  
+
   @media (min-width: 500px) {
     width: 400px;
   }
