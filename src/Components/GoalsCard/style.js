@@ -15,15 +15,14 @@ export const CardContainer = styled.div`
     width: 180px;
     margin: 0;
     font-size: 20px;
-
   }
   p{
     font-size: 17px;
   }
-  
   .progressBarDesktop {
     display: none;
   }
+
   @media screen and (max-width:768px){
     flex-direction: column;
     justify-content: space-around;

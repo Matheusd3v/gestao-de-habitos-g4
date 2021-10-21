@@ -6,9 +6,6 @@ import React from "react";
 import CreatingHabitsForm from "../../Components/CreatingHabitsForm";
 import Modal from "../../Components/Modal";
 import GroupDetails from "../../Components/GroupDetails";
-import CreatingHabitsForm from "../../Components/CreatingHabitsForm";
-import FormCrateGroups from '../../Components/FormCreateGroup'
-import api from "../../Services/api";
 
 import api from "../../Services/api";
 

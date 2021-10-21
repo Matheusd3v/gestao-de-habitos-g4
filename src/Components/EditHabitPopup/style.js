@@ -6,13 +6,12 @@ export const StyledPopup = styled(Popup)`
   &-overlay {
     min-width: fit-content;
     padding: 10px;
-    width: 90vh;
+    width: 90vw;
     background-color: #fff;
     position: absolute;
     height: fit-content;
     display: block;
-
-    margin: 80 auto;
+    margin: 80px auto;
     border-radius: 10px;
 
     @media (min-width: 500px) {

@@ -42,14 +42,8 @@ export const ButtonEdit = styled(motion.button)`
     svg {
       font-size: 30px;
     }
-    @media screen and (max-width:768px){
-        margin: 0;
-        svg{
-            font-size: 30px;
-        }
-    }
-`
-
+  }
+`;
 export const ButtonCreate = styled.button`
   color: red;
   border: none;
@@ -67,26 +61,23 @@ export const Ancor = styled.a`
   right: 0px;
 `;
 export const ButtonEditPencil = styled.button`
-    display:inline;
-    background: none;
-    border: none;
-    cursor: pointer;
-    svg{
-        font-size:20px;
-    }
-    
-`
+  display: inline;
+  background: none;
+  border: none;
+  cursor: pointer;
+  svg {
+    font-size: 20px;
+  }
+`;
 export const ButtonEditDescription = styled.button`
-    border: none;
-    background: none;
-    cursor: pointer;
-    svg{
-        font-size: 50px;
-    }
-`
-export const ModalContainer= styled(motion.div)`
-`
-
+  border: none;
+  background: none;
+  cursor: pointer;
+  svg {
+    font-size: 50px;
+  }
+`;
+export const ModalContainer = styled(motion.div)``;
 export const Button = styled.button`
   height: 50px;
   border-radius: 5px;

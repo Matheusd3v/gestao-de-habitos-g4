@@ -180,11 +180,9 @@ const EditHabitPopup = ({ habit, version }) => {
                 className="button"
               >
                 Excluir Hábito
-              </ButtonDefault>     
+              </ButtonDefault>
             </EditHabitForm>
           </div>
-
-         
         </div>
       )}
     </StyledPopup>
