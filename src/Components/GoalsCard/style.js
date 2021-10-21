@@ -4,19 +4,20 @@ export const CardContainer = styled.div`
   align-items: center;
   height: 100%;
   justify-content: space-around;
+  
   h2 {
     color: #fff;
     text-transform: capitalize;
     margin-top: 10px;
-    margin: 0 auto;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 180px;
     margin: 0;
     font-size: 20px;
-
+    text-align: center;
   }
+
   p{
     font-size: 17px;
   }
@@ -24,7 +25,7 @@ export const CardContainer = styled.div`
   .progressBarDesktop {
     display: none;
   }
-  @media screen and (max-width:768px){
+  @media screen and (max-width:500px){
     flex-direction: column;
     justify-content: space-around;
 

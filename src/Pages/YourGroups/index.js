@@ -24,9 +24,6 @@ const YourGroupsPages = () => {
   return (
     <Container>
       <h1>Grupos</h1>
-      <ButtonDefault className="changePage">
-        <Link to="/groups">Ver todos os Grupos</Link>
-      </ButtonDefault>
       <hr />
       <h2>Seus grupos</h2>
       <hr />
