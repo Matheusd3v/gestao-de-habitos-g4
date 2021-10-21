@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <HomeContainer
       initial={{ opacity: 0 }}
-      transition={{ duration: 3 }}
+      transition={{ duration: 2 }}
       animate={{ opacity: 1 }}
     >
       <section className="info-container">
@@ -38,7 +38,9 @@ const Home = () => {
           </motion.p>
         </TextContainer>
       </section>
-      <ButtonDefault callback={redirectToRegister}>Cadastre-se</ButtonDefault>
+      <ButtonDefault animation={true} callback={redirectToRegister}>
+        Cadastre-se
+      </ButtonDefault>
     </HomeContainer>
   );
 };
