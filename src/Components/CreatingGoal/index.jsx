@@ -22,22 +22,26 @@ const CreatingGoal = ({ group }) =>{
             label:"Dificil"
         }
     ]
+
     const schema = yup.object().shape({
         title: yup.string().required("Titulo obrigatório"),
         description:yup.string().required("Descrição obrigatória")
     })
+
     const { register, handleSubmit, formState:{ errors }} = useForm({
         resolver: yupResolver(schema)
     })
+
     const onSubmit = (data) =>{
         const {description, title} = data
         const requisitionBody = {description, title, difficulty:currency,how_much_achieved:0, group:group.id}
         creatingGoal(requisitionBody)
     }
+
     return(
-        <Container>
-            
+        <Container>            
             <form onSubmit={handleSubmit(onSubmit)}>
+            <h2>Crie Objetivos</h2>
             <TextField
                 id="outlined-basic" 
                 label="Título" 

@@ -40,7 +40,9 @@ const GroupsPage = () => {
       <ContainerList>
         {allGroups.map((page) =>
           page.map((group) => (
-            <li key={group.id}>
+            <motion.li key={group.id}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}>
               <h2>{group.name}</h2>
               <SectionInfo>
                 <div>
@@ -67,7 +69,7 @@ const GroupsPage = () => {
 
 
               </SectionInfo>
-            </li>
+            </motion.li>
           ))
         )}
       </ContainerList>
