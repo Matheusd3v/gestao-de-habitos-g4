@@ -4,19 +4,19 @@ import styled from "styled-components";
 export const StyledPopup = styled(Popup)`
   // use your custom style for ".popup-overlay"
   &-overlay {
-    min-width: fit-content;
     padding: 10px;
-    width: 90vh;
+    width: 280px;
     background-color: #fff;
     position: absolute;
     height: fit-content;
     display: block;
 
-    margin: 80 auto;
+    margin: auto;
     border-radius: 10px;
 
     @media (min-width: 500px) {
-      margin-top: 80px;
+      margin: auto;
+
       width: 400px;
     }
   }
@@ -53,6 +53,7 @@ export const StyledPopup = styled(Popup)`
       border-radius: 18px;
       border: 1px solid #cfcece;
       margin-top: 5px;
+      margin-right: 15px;
     }
   }
 `;
