@@ -42,11 +42,7 @@ export const ButtonEdit = styled(motion.button)`
     svg {
       font-size: 30px;
     }
-    @media screen and (max-width:768px){
-        margin: 0;
-        svg{
-            font-size: 30px;
-        }
+    
     }
 `
 
