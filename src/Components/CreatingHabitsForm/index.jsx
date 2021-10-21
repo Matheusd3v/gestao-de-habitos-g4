@@ -1,3 +1,5 @@
+
+import "./style.js";
 import { Button, TextField, MenuItem } from "@material-ui/core";
 import { FormCreatingHabit } from "./style.js";
 import { useForm } from "react-hook-form";

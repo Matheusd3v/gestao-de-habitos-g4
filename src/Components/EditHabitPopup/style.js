@@ -11,8 +11,10 @@ export const StyledPopup = styled(Popup)`
     position: absolute;
     height: fit-content;
     display: block;
+
     margin: 80 auto;
     border-radius: 10px;
+
     @media (min-width: 500px) {
       margin-top: 80px;
       width: 400px;
@@ -58,11 +60,13 @@ export const EditHabitForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+
   button {
     font-size: 16px;
     height: 35px;
     padding: 0;
   }
+
   @media (min-width: 750px) {
     button {
       font-size: 24px;

@@ -15,6 +15,7 @@ export const CardContainer = styled.div`
     width: 180px;
     margin: 0;
     font-size: 20px;
+
   }
   p{
     font-size: 17px;
@@ -26,6 +27,7 @@ export const CardContainer = styled.div`
   @media screen and (max-width:768px){
     flex-direction: column;
     justify-content: space-around;
+
     h2{
       width: 140px;
     }

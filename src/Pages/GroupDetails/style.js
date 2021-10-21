@@ -51,16 +51,20 @@ export const ActivitiesList = styled.ul`
   border-radius: 10px;
   list-style-type: none;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  overflow: auto;
   li {
     display: flex;
+
     width: 150px;
     height: 100%;
     margin: 10px;
     text-align: center;
-    
+   
   }
   p{
     max-width: 15ch;
@@ -99,7 +103,18 @@ export const DescriptionContainer = styled.div`
   button{
     position: relative;
     left: 88%;
+
   }
+
+  @media (max-width: 700px) {
+    button {
+      position: static;
+      display: flex;
+      margin-left: auto;
+      width: 45px;
+    }
+  }
+  
 `;
 
 export const CreateSomething = styled.button`

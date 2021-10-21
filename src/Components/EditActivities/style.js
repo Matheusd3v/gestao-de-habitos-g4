@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 export const EditActiviesContainer = styled.div`
+
     height: 840px;
     h2{
         color: white;

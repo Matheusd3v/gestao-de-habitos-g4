@@ -14,7 +14,7 @@ export const UserProvider = ({ children }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isLogin, setIsLogin] = useState(false);
-  const [editGoals, setEditGoals] = useState(false);
+  const [editGroup, setEditGroup] = useState(false);
 
   useEffect(() => {
     if (tokenUser) {
@@ -78,6 +78,7 @@ export const UserProvider = ({ children }) => {
       })
       .catch((e) => console.log(e));
   };
+
   const editGoal = (data) => {
     const { id, how_much_achieved } = data;
 
@@ -87,8 +88,10 @@ export const UserProvider = ({ children }) => {
       }
       return true;
     };
+
     const requisitionBody = { how_much_achieved, achivied: trueOrFalse() };
     console.log(requisitionBody);
+
     api
       .patch(`/goals/${id}/`, requisitionBody, {
         headers: { Authorization: `Bearer ${tokenUser}` },
@@ -96,8 +99,8 @@ export const UserProvider = ({ children }) => {
       .then((response) => {
         toast.success("Objetivo editado com sucesso");
       });
-    console.log("test");
-    setEditGoals(!editGoals);
+   
+    setEditGroup(!editGroup);
   };
 
   const editActivie = (activie) => {
@@ -112,23 +115,10 @@ export const UserProvider = ({ children }) => {
       })
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
+      setEditGroup(!editGroup);
   };
 
-  const editDescription = (data) => {
-    const { description } = data;
-    console.log(data.id);
-    api
-      .patch(
-        `/groups/${data.id}/`,
-        { description },
-        {
-          headers: { Authorization: `Bearer ${tokenUser}` },
-        }
-      )
-      .then((response) => {
-        toast.success("Descrição atualizada com sucesso");
-      });
-  };
+  
 
   const creatingGoal = (data) => {
     api
@@ -138,7 +128,9 @@ export const UserProvider = ({ children }) => {
       .then((response) => {
         toast.success("Objetivo criado com sucesso");
       });
+      setEditGroup(!editGroup);
   };
+
   const creatingActivitie = (data) => {
     const { title, id } = data;
     const requisitionBody = {
@@ -155,6 +147,9 @@ export const UserProvider = ({ children }) => {
         toast.success("Atividade adicionada com sucesso");
       });
   };
+
+
+
   return (
     <UserContext.Provider
       value={{
@@ -176,12 +171,10 @@ export const UserProvider = ({ children }) => {
         email,
         editGoal,
         editActivie,
-        editDescription,
-
         creatingGoal,
         creatingActivitie,
-
-        editGoals,
+        editGroup,
+        setEditGroup
       }}
     >
       {children}
