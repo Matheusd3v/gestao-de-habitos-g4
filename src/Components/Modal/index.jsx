@@ -45,6 +45,12 @@ const Modal = ({ children, type, group }) => {
           <AiOutlinePlus /> Adicionar Objetivo
         </Button>
       )}
+      {type === "add-actitivies" && (
+        <Button onClick={callBack}>
+          {" "}
+          <AiOutlinePlus /> Adicionar Atividade
+        </Button>
+      )}
       {type === "btnSecondary" && (
         <BtnDefaultSecondary onClick={callBack}></BtnDefaultSecondary>
       )}

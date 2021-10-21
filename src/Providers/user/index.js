@@ -8,6 +8,7 @@ export const UserProvider = ({ children }) => {
   const [currentFilterHabits, setCurrentFilterHabits] = useState([]);
   const [newHabit, setNewHabit] = useState([]);
   const [userHabits, setUserHabits] = useState([]);
+  const [group, setGroup] = useState({});
   const [tokenUser, setTokenUser] = useState(
     JSON.parse(localStorage.getItem("token")) || ""
   );
@@ -38,7 +39,15 @@ export const UserProvider = ({ children }) => {
         .catch((err) => console.log(err));
     }
   };
-
+  const getSpecificGroup = (id) =>{
+    console.log('aa')
+    api
+      .get(`/groups/${id}/`)
+      .then((response) => {
+        setGroup(response.data);
+      })
+      .catch((error) => console.log(error));
+  }
   const subscribeGroup = (group) => {
     api
       .post(`/groups/${group.id}/subscribe/`, group.id, {
@@ -95,6 +104,7 @@ export const UserProvider = ({ children }) => {
       })
       .then((response) => {
         toast.success("Objetivo editado com sucesso");
+        getSpecificGroup()
       });
   };
 
@@ -108,7 +118,9 @@ export const UserProvider = ({ children }) => {
       .patch(`/activities/${activie.id}/`, requisitionBody, {
         headers: { Authorization: `Bearer ${tokenUser}` },
       })
-      .then((response) => console.log(response))
+      .then((response) => {
+        getSpecificGroup()
+      })
       .catch((err) => console.log(err));
   };
 
@@ -125,6 +137,7 @@ export const UserProvider = ({ children }) => {
       )
       .then((response) => {
         toast.success("Descrição atualizada com sucesso");
+        getSpecificGroup()
       });
   };
 
@@ -191,6 +204,9 @@ export const UserProvider = ({ children }) => {
         creatingActivitie,
         editGroup,
         setEditGroup,
+        group,
+        setGroup,
+        getSpecificGroup
       }}
     >
       {children}
