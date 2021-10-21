@@ -9,21 +9,22 @@ export const ButtonAdd = styled(motion.button)`
   right: 25px;
   height: 50px;
   width: 50px;
-  z-index: 999;
+  z-index: 1;
   border-radius: 50%;
-  border: none;
+  border: 1px solid transparent;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgb(255, 113, 91);
+  color: #fff;
+  transition: 0.3s;
 
   :hover {
+    background-color: #fff;
     cursor: pointer;
     color: rgb(255, 113, 91);
-  }
-
-  @media screen and (min-width: 750px) {
-    position: absolute;
-    top: 80px;
+    border: 1px solid rgb(255, 113, 91);
+    transition: 0.3s;
   }
 `;
 export const ButtonEdit = styled(motion.button)`
