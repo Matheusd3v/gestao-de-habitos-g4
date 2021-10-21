@@ -28,17 +28,22 @@ import CreatingGoal from "../../Components/CreatingGoal";
 import CreatingActivity from "../../Components/CreatingActivity";
 
 import { UserContext } from "../../Providers/user";
-import { GroupContext } from "../../Providers/groups";
+
 
 const GroupDetails = () => {
   const history = useHistory();
   const { id } = useParams();
-  const { idGroup, setIdGroup, group, callingGroups } = useContext(GroupContext)
+  const [group, setGroup] = useState({});
+  const { editGoals } = useContext(UserContext)
 
   useEffect(() => {
-    setIdGroup(id)
-    callingGroups()
-  }, [idGroup]);
+    api
+      .get(`/groups/${id}/`)
+      .then((response) => {
+        setGroup(response.data);
+      })
+      .catch((error) => console.log(error));
+  }, [editGoals]);
 
 
   const unsubscribe = () => {

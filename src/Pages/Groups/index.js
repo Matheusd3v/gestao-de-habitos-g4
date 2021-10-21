@@ -38,12 +38,7 @@ const GroupsPage = () => {
       <hr />
       <h2>Todos os grupos</h2>
       <hr />
-      <NewGroup>
-        <div>
-          <p>+</p>
-        </div>
-        <p>Criar novo grupo</p>
-      </NewGroup>
+      <Modal type='createForm'><FormCrateGroups/> </Modal>
       <ContainerList>
         {allGroups.map((page) =>
           page.map((group) => (

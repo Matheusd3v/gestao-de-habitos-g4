@@ -148,6 +148,22 @@ export const UserProvider = ({ children }) => {
       });
   };
 
+  const editDescription = (data) => {
+    const { description } = data;
+    console.log(data.id);
+    api
+      .patch(
+        `/groups/${data.id}/`,
+        { description },
+        {
+          headers: { Authorization: `Bearer ${tokenUser}` },
+        }
+      )
+      .then((response) => {
+        toast.success("Descrição atualizada com sucesso");
+      });
+  };
+
 
 
   return (
@@ -172,6 +188,7 @@ export const UserProvider = ({ children }) => {
         editGoal,
         editActivie,
         creatingGoal,
+        editDescription,
         creatingActivitie,
         editGroup,
         setEditGroup
