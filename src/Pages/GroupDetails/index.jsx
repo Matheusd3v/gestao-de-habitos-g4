@@ -23,12 +23,12 @@ import { useHistory } from "react-router-dom";
 import EditGoal from "../../Components/EditGoals";
 import EditActivies from "../../Components/EditActivities";
 import EditingDescription from "../../Components/EditingDescription";
-
 import BtnDefaultSecondary from '../../Components/BtnDefaultSecondary'
 import CreatingGoal from "../../Components/CreatingGoal";
 import CreatingActivity from "../../Components/CreatingActivity";
 
 import { UserContext } from "../../Providers/user";
+
 
 const GroupDetails = () => {
   const history = useHistory();
@@ -44,6 +44,7 @@ const GroupDetails = () => {
       })
       .catch((error) => console.log(error));
   }, [editGoals]);
+
 
   const unsubscribe = () => {
     const token = localStorage.getItem("token");

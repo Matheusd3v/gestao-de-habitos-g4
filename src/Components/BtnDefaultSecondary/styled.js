@@ -11,6 +11,10 @@ export const ButtonStyled = styled.button`
     justify-content: space-evenly;
     align-items: center;
     border: 1px solid transparent;
+    margin: 15px 0;
+    box-shadow: 5px 5px #73b3d9;
+    transition: 0.5s;
+
     svg {
         width: 30px;
         height: 30px;
@@ -21,5 +25,6 @@ export const ButtonStyled = styled.button`
 
     :hover{
         cursor: pointer;
+        box-shadow: 1px 3px #73b3d9; 
     }
 `

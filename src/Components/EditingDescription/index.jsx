@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { TextField } from '@material-ui/core';
 import { useContext } from 'react';
 import { UserContext } from '../../Providers/user/index.js';
+
 const EditingDescription = ({ group }) =>{
     const { editDescription } = useContext(UserContext)
     const { register, handleSubmit } = useForm();

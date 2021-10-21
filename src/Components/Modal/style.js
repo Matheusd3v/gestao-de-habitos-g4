@@ -44,6 +44,7 @@ export const ButtonEdit = styled(motion.button)`
     }
   }
 `;
+
 export const ButtonCreate = styled.button`
   color: red;
   border: none;
@@ -77,9 +78,7 @@ export const ButtonEditDescription = styled.button`
     font-size: 50px;
   }
 `;
-export const ModalContainer = styled(motion.div)`
-  margin-bottom: 60px;
-`;
+export const ModalContainer = styled(motion.div)``;
 
 export const Button = styled.button`
   height: 50px;

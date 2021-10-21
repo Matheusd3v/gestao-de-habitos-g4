@@ -10,24 +10,36 @@ import { FilterBtn } from "../../Components/FilterPageHabits/style.js";
 import { AiFillFilter } from "react-icons/ai";
 
 const HabitsPage = () => {
-  const { callingHabits, currentFilterHabits, tokenUser } = useContext(UserContext);
-  const [showMob, setShowMob] = useState(false)
+  const { callingHabits, currentFilterHabits, tokenUser } =
+    useContext(UserContext);
+  const [showMob, setShowMob] = useState(false);
 
   const pushAndPull = () => {
-    setShowMob(!showMob)
-  }
+    setShowMob(!showMob);
+  };
 
   return (
     <Container>
-      
-      <Modal type='add'><CreatingHabitsForm/></Modal>
+      <Modal type="add">
+        <CreatingHabitsForm />
+      </Modal>
 
-      <span className='btnMobile'><FilterBtn variant='outlined' onClick={pushAndPull}>Filtrar <AiFillFilter/> </FilterBtn></span>
+      <span className="btnMobile">
+        <FilterBtn variant="outlined" onClick={pushAndPull}>
+          Filtrar <AiFillFilter />{" "}
+        </FilterBtn>
+      </span>
 
-      <span className='desktop'><FilterHabits/></span>
+      <span className="desktop">
+        <FilterHabits />
+      </span>
 
-      {showMob && <span className='mobile'><FilterHabits showMob={showMob} setShowMob={setShowMob}/></span>}
-      
+      {showMob && (
+        <span className="mobile">
+          <FilterHabits showMob={showMob} setShowMob={setShowMob} />
+        </span>
+      )}
+
       <HabitsContainer>
         {currentFilterHabits.map((habit, index) => (
           <Habit key={index} habit={habit} />
