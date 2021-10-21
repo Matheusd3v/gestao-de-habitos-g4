@@ -6,7 +6,8 @@ import { useContext } from "react";
 import { UserContext } from "../../Providers/user";
 import InputSearch from "../InputSearch";
 const FilterHabits = ({ showMob, setShowMob }) => {
-  const { userHabits, setCurrentFilterHabits } = useContext(UserContext);
+  const { userHabits, setCurrentFilterHabits, getFilteredHabits } =
+    useContext(UserContext);
   const [showFilter, setShowFilter] = useState(false);
 
   const filterAchieved = () => {

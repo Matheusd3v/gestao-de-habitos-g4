@@ -10,9 +10,8 @@ export const Input = styled.input`
   transition: 0.3s;
 
   :focus {
-    border: 2px solid black;
+    border: 1px solid black;
     border-right: none;
-    padding: 4px;
     outline: none;
     transition: 0.3s;
   }
@@ -23,7 +22,6 @@ export const Container = styled.div`
   justify-content: center;
   margin: 10px;
   button {
-    cursor: pointer;
     padding: 0 6px 0 0;
     border-radius: 0 8px 8px 0;
     height: 35px;
@@ -36,9 +34,8 @@ export const Container = styled.div`
     text-align: center;
   }
   input:focus + button {
-    border: 2px solid black;
+    border: 1px solid black;
     border-left: none;
-    padding: 4px;
     outline: none;
     transition: 0.3s;
   }
