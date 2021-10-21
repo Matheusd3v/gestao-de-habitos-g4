@@ -12,6 +12,8 @@ export const HomeContainer = styled(motion.div)`
   align-items: center;
   justify-content: center;
   padding-bottom: 50px;
+  font-family: 'Indie Flower', cursive;
+
 
   .info-container img {
     width: 40%;
@@ -42,6 +44,7 @@ export const HomeContainer = styled(motion.div)`
     cursor: pointer;
     box-shadow: 5px 5px rgb(240, 105, 70);
     transition: 1s;
+    text-shadow: 1px 1px 1px black;
   }
   button:hover {
     box-shadow: 1px 3px rgb(255, 113, 70);
@@ -68,6 +71,7 @@ export const TextContainer = styled.div`
     width: 100%;
     font-size: 32px;
     margin-bottom: 0;
+    
   }
   @media screen and (min-width: 768px) {
     margin: 0 20px;

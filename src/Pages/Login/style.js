@@ -72,6 +72,7 @@ export const FormContainer = styled.div`
     font-size: 32px;
     text-align: center;
     align-self: flex-start;
+    font-family: 'Forum', cursive;
   }
 
   @media (min-width: 768px) {
