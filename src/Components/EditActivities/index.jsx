@@ -20,6 +20,9 @@ const EditActivies = ({ acitivities }) =>{
             <form onSubmit={handleSubmit(onSubmit)}>
                 <TextField
                     defaultValue={acitivities.title}
+                    label='Insira o novo titulo'
+                    valueLabelDisplay="auto"
+                    key="slider"
                     {...register("title")}
                 /> 
                 <button type='submit'>Enviar</button>

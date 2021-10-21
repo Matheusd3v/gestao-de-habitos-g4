@@ -5,7 +5,7 @@ export const Container = styled.div`
     max-width: 500px;
     height: 840px;
     border-radius: 5px;
-    background-color: #98C1D9;
+    background-color: #fff;
     text-align: center;
     form{
         margin: 0 auto;
@@ -38,7 +38,6 @@ export const Container = styled.div`
     }
     @media screen and (min-width:768px){
         height: 400px;
-        border: 1px solid;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;

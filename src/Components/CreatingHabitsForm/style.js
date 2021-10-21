@@ -6,5 +6,10 @@ export const FormCreatingHabit = styled.form`
     justify-content: center;
     width: 400px;
     background-color: white;
+    padding: 20px 0;
+    margin-top: 10px;
+    @media (min-width: 500px) {
+        width: 400px;
+    }
 `
 

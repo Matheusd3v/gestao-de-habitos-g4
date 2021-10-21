@@ -5,8 +5,9 @@ import ButtonDefault from "../../Components/ButtonDefault";
 import React from "react";
 import Modal from "../../Components/Modal";
 import GroupDetails from "../../Components/GroupDetails";
-import FormCrateGroups from "../../Components/FormCreateGroup";
-
+import CreatingHabitsForm from "../../Components/CreatingHabitsForm";
+import FormCrateGroups from '../../Components/FormCreateGroup'
+import api from "../../Services/api";
 const GroupsPage = () => {
   const [allGroups, setAllGroups] = useState([]);
   const [nextAllGroups, setNextAllGroups] = useState(

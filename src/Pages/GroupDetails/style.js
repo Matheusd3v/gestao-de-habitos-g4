@@ -52,19 +52,19 @@ export const ActivitiesList = styled.ul`
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   li {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 150px;
     height: 100%;
     margin: 10px;
     text-align: center;
     
   }
-  li p{
+  p{
     max-width: 15ch;
-    width: 150px;
+    width: 100px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -97,8 +97,8 @@ export const DescriptionContainer = styled.div`
     margin: 10px;
   }
   button{
-    display: block;
-    margin-left: auto;
+    position: relative;
+    left: 88%;
   }
 `;
 

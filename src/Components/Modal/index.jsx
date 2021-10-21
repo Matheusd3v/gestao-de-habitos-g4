@@ -1,6 +1,6 @@
 import Popup from 'reactjs-popup';
 import CreatingHabitsForm from '../CreatingHabitsForm';
-import { IoIosAdd, IoIosClose, IoIosArchive } from "react-icons/io";
+import { IoIosAdd, IoIosClose, IoIosArchive, IoMdListBox } from "react-icons/io";
 import { ButtonCreate,ButtonAdd, ButtonEdit ,Ancor, ModalContainer, ButtonEditPencil,ButtonEditDescription, Button } from './style.js'
 import { useState } from 'react';
 import ButtonDefault from '../ButtonDefault'
@@ -23,19 +23,10 @@ const Modal = ({ children, type, group }) =>{
            {type === 'btnSecondary' && <BtnDefaultSecondary onClick={callBack}></BtnDefaultSecondary>}
            {type ==='createForm' && <BtnDefaultSecondary callback={callBack}>Cadastrar</BtnDefaultSecondary>}  
            {type==='add' && <ButtonAdd onClick={callBack}><IoIosAdd/></ButtonAdd>}
-           {type==='edit'&& <ButtonEdit onClick={callBack}><IoIosArchive/></ButtonEdit>}
-           {type==='edit-pencil' && <ButtonEditPencil onClick={callBack}><IoIosArchive/></ButtonEditPencil>}
-           {type==='edit-description' && <ButtonEditDescription onClick={callBack}><IoIosArchive/></ButtonEditDescription>}
-         {/* {type==='add' ?
-           (
-            <ButtonAdd  onClick={callBack}>
-                <IoIosAdd/>
-            </ButtonAdd>
-           ):
-           (
-            <ButtonDefault callback={callBack}>Ver mais</ButtonDefault>
-           ) 
-         */}
+           {type==='edit'&& <ButtonEdit onClick={callBack}><IoMdListBox/></ButtonEdit>}
+           {type==='edit-pencil' && <ButtonEditPencil onClick={callBack}><IoMdListBox/></ButtonEditPencil>}
+           {type==='edit-description' && <ButtonEditDescription onClick={callBack}><IoMdListBox/></ButtonEditDescription>}
+        
 
           <Popup open={open} nested closeOnDocumentClick onClose={closeModal}>
           <Ancor className="close" onClick={closeModal}>
