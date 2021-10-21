@@ -78,7 +78,6 @@ export const UserProvider = ({ children }) => {
       })
       .catch((e) => console.log(e));
   };
-
   const editGoal = (data) => {
     const { id, how_much_achieved } = data;
 
@@ -88,10 +87,8 @@ export const UserProvider = ({ children }) => {
       }
       return true;
     };
-
     const requisitionBody = { how_much_achieved, achivied: trueOrFalse() };
     console.log(requisitionBody);
-
     api
       .patch(`/goals/${id}/`, requisitionBody, {
         headers: { Authorization: `Bearer ${tokenUser}` },
@@ -99,8 +96,6 @@ export const UserProvider = ({ children }) => {
       .then((response) => {
         toast.success("Objetivo editado com sucesso");
       });
-   
-    setEditGroup(!editGroup);
   };
 
   const editActivie = (activie) => {
@@ -115,37 +110,6 @@ export const UserProvider = ({ children }) => {
       })
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
-      setEditGroup(!editGroup);
-  };
-
-  
-
-  const creatingGoal = (data) => {
-    api
-      .post("/goals/", data, {
-        headers: { Authorization: `Bearer ${tokenUser}` },
-      })
-      .then((response) => {
-        toast.success("Objetivo criado com sucesso");
-      });
-      setEditGroup(!editGroup);
-  };
-
-  const creatingActivitie = (data) => {
-    const { title, id } = data;
-    const requisitionBody = {
-      title,
-      realization_time: "2020-03-10T15:00:00Z",
-      group: id,
-    };
-    console.log(requisitionBody);
-    api
-      .post("/activities/", requisitionBody, {
-        headers: { Authorization: `Bearer ${tokenUser}` },
-      })
-      .then((response) => {
-        toast.success("Atividade adicionada com sucesso");
-      });
   };
 
   const editDescription = (data) => {
@@ -164,8 +128,41 @@ export const UserProvider = ({ children }) => {
       });
   };
 
+  const creatingGoal = (data) => {
+    api
+      .post("/goals/", data, {
+        headers: { Authorization: `Bearer ${tokenUser}` },
+      })
+      .then((response) => {
+        toast.success("Objetivo criado com sucesso");
+      });
+  };
+  const creatingActivitie = (data) => {
+    const { title, id } = data;
+    const requisitionBody = {
+      title,
+      realization_time: "2020-03-10T15:00:00Z",
+      group: id,
+    };
+    console.log(requisitionBody);
+    api
+      .post("/activities/", requisitionBody, {
+        headers: { Authorization: `Bearer ${tokenUser}` },
+      })
+      .then((response) => {
+        toast.success("Atividade adicionada com sucesso");
+      });
+  };
 
+  const getFilteredHabits = (searchStr) => {
+    if (!searchStr) return setCurrentFilterHabits(userHabits);
 
+    const searchStrLowerCase = searchStr.toLowerCase();
+    const filteredHabits = userHabits.filter((item) =>
+      item.title.toLowerCase().includes(searchStrLowerCase)
+    );
+    setCurrentFilterHabits(filteredHabits);
+  };
   return (
     <UserContext.Provider
       value={{
@@ -187,11 +184,13 @@ export const UserProvider = ({ children }) => {
         email,
         editGoal,
         editActivie,
+        editDescription,
+        getFilteredHabits,
         creatingGoal,
         editDescription,
         creatingActivitie,
         editGroup,
-        setEditGroup
+        setEditGroup,
       }}
     >
       {children}
