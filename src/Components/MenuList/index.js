@@ -27,7 +27,7 @@ const MenuList = () => {
                 </button>
               </Link>
             </li>
-            <li><button onClick={logOut}>Logout</button></li>
+            <li><button className='logoutBtn' onClick={logOut}>Logout</button></li>
             </ul>
           ) : (
             <ul className='logout'>
