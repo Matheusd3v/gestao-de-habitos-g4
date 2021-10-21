@@ -18,13 +18,14 @@ const Login = () => {
     username: yup.string().required("Username Obrigatório"),
     password: yup.string().required("Senha Obrigatória"),
   });
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, formState:{errors} } = useForm({
     resolver: yupResolver(formSchema),
   });
 
   const { setTokenUser } = useContext(UserContext)
 
   const onSubmitFunction = (data) => {
+    console.log(data)
     toast.configure()
     api
       .post("/sessions/", data)
@@ -52,19 +53,25 @@ const Login = () => {
       <FormContainer>
         <h2>Faça seu Login e comece seu dia de forma produtiva !</h2>
         <form onSubmit={handleSubmit(onSubmitFunction)}>
+        <TextField
+              label="Username"
+              variant="outlined"
+              size="small"
+              color="primary"
+              {...register("username")}
+              error={!!errors.username}
+              helperText={errors.username?.message}
+            />
           <TextField
-            required
-            label="Usuário"
-            size="small"
-            {...register("username")}
-          />
-          <TextField
-            required
-            label="Senha"
-            type="password"
-            size="small"
-            {...register("password")}
-          />
+              label="Password"
+              variant="outlined"
+              size="small"
+              color="primary"
+              type="password"
+              {...register("password")}
+              error={!!errors.password}
+              helperText={errors.password?.message}
+            />
           <ButtonDefault type="submit">Logar</ButtonDefault>
         </form>{" "}
       </FormContainer>
