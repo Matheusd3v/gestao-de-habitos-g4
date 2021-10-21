@@ -36,7 +36,8 @@ export const Container = styled.div`
     button:hover{
         box-shadow: 1px 3px rgb(255, 113, 70);   
     }
-    @media screen and (min-width:768px){
+    @media screen and (min-width:768px){        
+        box-sizing: border-box;
         height: 400px;
         display: flex;
         flex-direction: column;
