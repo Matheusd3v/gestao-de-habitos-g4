@@ -37,37 +37,6 @@ export const Container = styled.div`
   }
 `;
 
-export const NewGroup = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #98c1d9;
-  border-radius: 8px;
-  margin: 0 auto;
-  border: none;
-
-  div {
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
-
-    p {
-      font-size: 30px;
-      font-weight: 700;
-    }
-  }
-
-  p {
-    font-size: 16px;
-    font-weight: 700;
-  }
-`;
-
 export const ContainerList = styled.ul`
   width: 88%;
   max-width: 1370px;
@@ -94,8 +63,6 @@ export const ContainerList = styled.ul`
       text-align: center;
       margin-bottom: 0;
     }
-
-
   }
 
   @media screen and (max-width: 1560px) {
@@ -126,7 +93,7 @@ export const SectionInfo = styled.section`
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-  
+
   button {
     width: 150px;
     height: 40px;
@@ -134,7 +101,7 @@ export const SectionInfo = styled.section`
   }
 
   .backgroundDesc {
-    background: #FFFFFF;
+    background: #ffffff;
     padding: 5px 10px;
     border-radius: 5px;
     margin-bottom: 10px;

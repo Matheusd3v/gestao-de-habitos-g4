@@ -1,14 +1,11 @@
-import React, { useState } from "react";
-import { ContainerFilter, FilterBtn, OptionsFilterBtn } from "./style";
+import React from "react";
+import { ContainerFilter, OptionsFilterBtn } from "./style";
 import health from "../../assets/health.svg";
-import { AiFillFilter } from "react-icons/ai";
 import { useContext } from "react";
 import { UserContext } from "../../Providers/user";
 import InputSearch from "../InputSearch";
 const FilterHabits = ({ showMob, setShowMob }) => {
-  const { userHabits, setCurrentFilterHabits, getFilteredHabits } =
-    useContext(UserContext);
-  const [showFilter, setShowFilter] = useState(false);
+  const { userHabits, setCurrentFilterHabits } = useContext(UserContext);
 
   const filterAchieved = () => {
     const achieved = userHabits.filter((habit) => habit.achieved);
