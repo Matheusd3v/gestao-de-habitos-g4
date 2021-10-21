@@ -38,11 +38,12 @@ export const GroupTitle = styled.h1`
   font-size: 42px;
 `;
 export const CarrouselItem = styled.div`
-  height: 160px;
+  height: 220px;
   border-radius: 10px;
   color: #fff;
   background: #364d79;
   text-align: center;
+  padding: 10px 5px;
 `;
 export const ActivitiesList = styled.ul`
   background: #364d79;
@@ -78,14 +79,12 @@ export const ActivitiesList = styled.ul`
 export const GroupCategory = styled.div`
   width: fit-content;
   margin: 0 auto;
-  background-color: #ff715b;
   color: white;
   font-size: 24px;
   border: none;
   width: 250px;
   border-radius: 10px;
   padding: 15px;
-  cursor: pointer;
   transition: 0.5s;
   text-align: center;
 `;

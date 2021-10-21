@@ -22,7 +22,7 @@ export const Container = styled.div`
   .ant-carousel .slick-dots {
     display: none !important;
   }
-  @media screen and (max-width:768px){
+  @media screen and (max-width:500px){
     .slick-arrow {
       width: 40px;
     }
