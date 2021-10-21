@@ -27,8 +27,8 @@ const Home = () => {
         <TextContainer>
           <p>
             Aqui você pode organizar melhor suas tarefas. Para isso crie, edite
-            ou remova suas atividades e junte-se com seus amigos em um grupo de
-            desenvolvimento
+            ou remova suas atividades e junte-se aos seus amigos em um grupo de
+            desenvolvimento.
           </p>
         </TextContainer>
       </section>
