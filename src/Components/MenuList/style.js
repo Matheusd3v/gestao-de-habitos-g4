@@ -23,13 +23,16 @@ export const NavContainer = styled(motion.nav)`
 
     ul a:hover {
         color: #FF715B;
-        text-decoration: underline;
         transition: 1s;
     }
 
     .logout {
         width: 300px;
         margin-left: auto;
+    }
+
+    .logout:hover {
+
     }
 
     button {
@@ -43,11 +46,21 @@ export const NavContainer = styled(motion.nav)`
     .profileBtn {
         background: transparent;
         border: none;
-        font-size: 16px;
+        font-size: 18px;
+        margin: 0;
+        padding: 0;
 
         :hover {
             color: #FF715B;
-            text-decoration: underline;
+            transition: 1s;
+        }
+    }
+
+    .logoutBtn {
+        padding: 0px;
+
+        :hover {
+            color: #FF715B;
             transition: 1s;
         }
     }
@@ -75,6 +88,10 @@ export const NavContainer = styled(motion.nav)`
             height: 35px;
             padding: 0 25px;
             display: block;
+        }
+
+        .logoutBtn {
+            padding: 0 15px;
         }
     }
 
