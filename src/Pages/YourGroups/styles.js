@@ -60,7 +60,7 @@ export const NewGroup = styled.button`
 `;
 
 export const ContainerList = styled.ul`
-  width: 90%;
+  width: 88%;
   max-width: 1370px;
   list-style: none;
   display: flex;
@@ -84,6 +84,18 @@ export const ContainerList = styled.ul`
       text-align: center;
       margin-bottom: 0;
     }
+  }
+
+  @media screen and (max-width: 1560px) {
+    max-width: 1020px;
+  }
+
+  @media screen and (max-width: 1174px) {
+    max-width: 680px;
+  }
+
+  @media screen and (max-width: 790px) {
+    justify-content: center;
   }
 
   @media (max-width: 450px) {
