@@ -5,7 +5,9 @@ function App() {
   return (
     <>
       <NavBar />
+
       <ion-icon name="create-outline"/>
+
       <Routers />
     </>
   );

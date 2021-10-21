@@ -23,27 +23,23 @@ import { useHistory } from "react-router-dom";
 import EditGoal from "../../Components/EditGoals";
 import EditActivies from "../../Components/EditActivities";
 import EditingDescription from "../../Components/EditingDescription";
-
 import BtnDefaultSecondary from '../../Components/BtnDefaultSecondary'
 import CreatingGoal from "../../Components/CreatingGoal";
 import CreatingActivity from "../../Components/CreatingActivity";
 
 import { UserContext } from "../../Providers/user";
+import { GroupContext } from "../../Providers/groups";
 
 const GroupDetails = () => {
   const history = useHistory();
   const { id } = useParams();
-  const [group, setGroup] = useState({});
-  const { editGoals } = useContext(UserContext)
+  const { idGroup, setIdGroup, group, callingGroups } = useContext(GroupContext)
 
   useEffect(() => {
-    api
-      .get(`/groups/${id}/`)
-      .then((response) => {
-        setGroup(response.data);
-      })
-      .catch((error) => console.log(error));
-  }, [editGoals]);
+    setIdGroup(id)
+    callingGroups()
+  }, [idGroup]);
+
 
   const unsubscribe = () => {
     const token = localStorage.getItem("token");

@@ -3,15 +3,18 @@ import { TextField } from '@material-ui/core'
 import { useForm } from 'react-hook-form'
 import { useContext } from 'react'
 import { UserContext } from '../../Providers/user/index.js'
+import { GroupContext } from '../../Providers/groups/index.js'
 const EditActivies = ({ acitivities }) =>{
     const { editActivie } = useContext(UserContext)
     const { register, handleSubmit } = useForm()
+    const { callingGroups } = useContext(GroupContext)
     const onSubmit = (data)=>{
         const { title } = data
         const id = acitivities.id
         const idAndTitle = { title, id }
         console.log(idAndTitle)
         editActivie(idAndTitle)
+        callingGroups()
     }
     return(
         <EditActiviesContainer>

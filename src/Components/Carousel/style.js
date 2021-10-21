@@ -1,14 +1,18 @@
 import styled from "styled-components";
 export const Container = styled.div`
   .slick-arrow {
-    color: #fff;
+
+    color: #ffff;
+
     width: 50px;
     height: 50px;
     border-radius: 50%;
     z-index: 2;
   }
   .slick-arrow:hover {
-    color: #fff;
+
+
+    color: #ffff;
     width: 50px;
     height: 50px;
     border-radius: 50%;
