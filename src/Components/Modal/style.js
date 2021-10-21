@@ -77,7 +77,10 @@ export const ButtonEditDescription = styled.button`
     font-size: 50px;
   }
 `;
-export const ModalContainer = styled(motion.div)``;
+export const ModalContainer = styled(motion.div)`
+  margin-bottom: 60px;
+`;
+
 export const Button = styled.button`
   height: 50px;
   border-radius: 5px;
