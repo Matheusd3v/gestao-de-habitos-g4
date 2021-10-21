@@ -1,7 +1,7 @@
 import "./style.js";
 import { HomeContainer, TextContainer } from "./style.js";
 import img2 from "../../assets/addToCart.svg";
-import Button from "../../Components/ButtonDefault/index.js";
+import ButtonDefault from "../../Components/ButtonDefault/index.js";
 import { motion } from "framer-motion";
 import { useHistory } from "react-router-dom";
 const Home = () => {
@@ -25,14 +25,20 @@ const Home = () => {
         />
 
         <TextContainer>
-          <p>
+          <motion.p
+            initial={{ opacity: 0, x: -200 }}
+            transition={{ duration: 2 }}
+            animate={{ opacity: 1, y: 0, x: 0 }}
+            src={img2}
+            alt="img-teste"
+          >
             Aqui você pode organizar melhor suas tarefas. Para isso crie, edite
             ou remova suas atividades e junte-se aos seus amigos em um grupo de
             desenvolvimento.
-          </p>
+          </motion.p>
         </TextContainer>
       </section>
-      <Button onClick={redirectToRegister}>Cadastre-se</Button>
+      <ButtonDefault callback={redirectToRegister}>Cadastre-se</ButtonDefault>
     </HomeContainer>
   );
 };
