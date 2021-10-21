@@ -54,6 +54,7 @@ export const ActivitiesList = styled.ul`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   overflow: auto;
   li {
@@ -102,6 +103,7 @@ export const DescriptionContainer = styled.div`
   button{
     position: relative;
     left: 88%;
+
   }
 
   @media (max-width: 700px) {
