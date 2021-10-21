@@ -45,6 +45,12 @@ const Modal = ({ children, type, group }) => {
           <AiOutlinePlus /> Adicionar Objetivo
         </Button>
       )}
+      {type === "add-actitivies" && (
+        <Button onClick={callBack}>
+          {" "}
+          <AiOutlinePlus /> Adicionar Atividade
+        </Button>
+      )}
       {type === "btnSecondary" && (
         <BtnDefaultSecondary onClick={callBack}></BtnDefaultSecondary>
       )}
@@ -90,17 +96,5 @@ const Modal = ({ children, type, group }) => {
     </>
   );
 
-  //   <AnimatePresence>
-  //   {isVisible && (
-  //     <motion.h2
-  //       exit={{y:-1000}}
-  //       initial={{ scale: 0, opacity:0, x:-50, y:-50 }}
-  //       animate={{ scale: 1, opacity:1, x:0, y:0 }}
-  //       transition={{duration:1.2}}
-  //     >
-  //       Teste
-  //     </motion.h2>
-  //   )}
-  // </AnimatePresence>
 };
 export default Modal;

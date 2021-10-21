@@ -10,7 +10,7 @@ export const Container = styled.main`
     display: none;
   }
   form {
-    background: rgba(152, 193, 217, 0.7);
+    background: white;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12);
     backdrop-filter: blur(16.5px);
     -webkit-backdrop-filter: blur(16.5px);
@@ -19,7 +19,7 @@ export const Container = styled.main`
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    height: 200px;
+    height: 300px;
     border-radius: 10px;
     align-items: center;
     justify-content: space-around;
@@ -72,6 +72,7 @@ export const FormContainer = styled.div`
     font-size: 32px;
     text-align: center;
     align-self: flex-start;
+    font-family: 'Forum', cursive;
   }
 
   @media (min-width: 768px) {

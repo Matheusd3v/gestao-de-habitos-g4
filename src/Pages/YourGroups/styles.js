@@ -79,6 +79,7 @@ export const ContainerList = styled.ul`
     align-items: center;
     margin: 20px;
     border-radius: 8px;
+    transition: 0.7s;
 
     h2 {
       text-align: center;

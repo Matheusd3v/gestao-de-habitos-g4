@@ -1,30 +1,32 @@
-import React, {useState } from 'react';
-import { HeaderBar, NameContainer} from './style';
+import React, { useState } from "react";
+import { HeaderBar, NameContainer } from "./style";
 import { AiOutlineMenu } from "react-icons/ai";
-import MenuList from '../MenuList';
-
+import MenuList from "../MenuList";
+import logo from "../../assets/logo.png";
 
 const NavBar = () => {
-  const [menuMobile, setMenuMobile] = useState(false)    
+  const [menuMobile, setMenuMobile] = useState(false);
 
   const showMenu = () => {
-    setMenuMobile(!menuMobile)
-  }
+    setMenuMobile(!menuMobile);
+  };
 
-  return (      
-    <HeaderBar >
+  return (
+    <HeaderBar>
       <NameContainer>
-        <h1>Gestão de Hábitos</h1>
+        <img alt="Site Logo" src={logo} />
       </NameContainer>
 
-      <button className='btn' onClick={showMenu} > <AiOutlineMenu/> </button> 
+      <button className="btn" onClick={showMenu}>
+        {" "}
+        <AiOutlineMenu />{" "}
+      </button>
 
-      <span className='notShowMob'>{!menuMobile && <MenuList/>}</span>   
+      <span className="notShowMob">{!menuMobile && <MenuList />}</span>
 
-      {menuMobile && <MenuList/>}       
+      {menuMobile && <MenuList />}
     </HeaderBar>
-    
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
