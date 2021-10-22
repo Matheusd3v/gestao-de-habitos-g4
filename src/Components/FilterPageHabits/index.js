@@ -4,6 +4,7 @@ import health from "../../assets/health.svg";
 import { useContext } from "react";
 import { UserContext } from "../../Providers/user";
 import InputSearch from "../InputSearch";
+import { IoIosClose } from "react-icons/io";
 const FilterHabits = ({ showMob, setShowMob }) => {
   const { userHabits, setCurrentFilterHabits } = useContext(UserContext);
 
@@ -28,6 +29,10 @@ const FilterHabits = ({ showMob, setShowMob }) => {
         transition={{ duration: 1 }}
         animate={{ opacity: 1, x: 0 }}
       >
+        <IoIosClose
+          className="closePopup"
+          onClick={() => setShowMob(!showMob)}
+        />
         <InputSearch callback={" "} placeholder={"Procure por um hábito"} />
         <OptionsFilterBtn onClick={filterAchieved}>Alcançados</OptionsFilterBtn>
         <OptionsFilterBtn onClick={filterInProgress}>

@@ -17,6 +17,9 @@ export const ContainerFilter = styled(motion.div)`
     width: 250px;
     margin-top: auto;
   }
+  .closePopup {
+    display: none;
+  }
 
   @media (max-width: 768px) {
     position: static;
@@ -24,6 +27,14 @@ export const ContainerFilter = styled(motion.div)`
     height: 500px;
     padding: 50px 0;
     border-radius: 10px;
+    .closePopup {
+      font-size: 50px;
+      color: #fff;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      display: block;
+    }
   }
 `;
 
