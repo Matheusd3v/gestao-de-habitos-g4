@@ -53,12 +53,16 @@ export const ButtonCreate = styled.button`
   }
 `;
 
-export const Ancor = styled.a`
+export const Ancor = styled(motion.a)`
   font-size: 50px;
   cursor: pointer;
   position: absolute;
   z-index: 2;
   right: 0px;
+  transition: 1s;
+  :hover{
+    color:red
+  }
 `;
 export const ButtonEditPencil = styled.button`
   display: inline;
