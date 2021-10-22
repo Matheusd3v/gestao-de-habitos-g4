@@ -1,5 +1,6 @@
 import styled from "styled-components";
-export const HabitContainerDesktop = styled.div`
+import { motion } from 'framer-motion'
+export const HabitContainerDesktop = styled(motion.div)`
   background-color: #98c1d9;
   border-radius: 5px;
   margin: 10px;
@@ -37,18 +38,18 @@ export const HabitContainerDesktop = styled.div`
 
   .button {
     margin-top: 20px;
-    background-color: #3d5a80;
+    background-color: rgb(255,113,91);
     color: white;
     border: 0;
     padding: 5px 15px;
     font-size: 20px;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 5px 5px #2d5a70;
+    box-shadow: 5px 5px rgb(240, 105, 70);
     transition: 0.5s;
   }
   .button:hover {
-    box-shadow: 1px 2px #2d5a70;
+    box-shadow: 1px 3px rgb(255, 113, 70);
   }
   @media screen and (min-width: 768px) {
     display: flex;
@@ -63,7 +64,7 @@ export const ContainerBlue = styled.div`
   box-sizing: border-box;
 `
 
-export const HabitContainerMobile = styled.div`
+export const HabitContainerMobile = styled(motion.div)`
   width: 90%;
   margin: 10px 0px;
   padding: 5px;
