@@ -21,10 +21,7 @@ const YourGroupsPages = () => {
 
   return (
     <Container>
-      <h1>Grupos</h1>
-      <hr />
-      <h2>Seus grupos</h2>
-      <hr />
+      <h2 className="pageTitle">Seus grupos</h2>
 
       <ContainerList>
         {yourGroups.map((group) => (
@@ -33,8 +30,9 @@ const YourGroupsPages = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
-            <h2>{group.name}</h2>
             <SectionInfo>
+              <h2>{group.name}</h2>
+
               <div>
                 <h3>Objetivos</h3>
                 <div className="backgroundDesc">
@@ -49,7 +47,7 @@ const YourGroupsPages = () => {
               </div>
               <div>
                 <h3>Descrição</h3>
-                <div className="backgroundDesc">
+                <div className="backgroundDesc description">
                   <p> {group.description} </p>
                 </div>
               </div>
