@@ -7,18 +7,21 @@ export const Container = styled.div`
   justify-content: center;
 
   h1,
-  h2 {
+  .pageTitle {
+    font-size: 28px;
     color: white;
-    margin: 5px 0;
-  }
-
-  hr {
+    margin: 0;
+    padding: 50px;
     width: 90%;
+    text-align: center;
+    border-bottom: 1px solid #fff;
   }
 
   button {
     width: 200px;
     font-size: 20px;
+    margin: 30px auto;
+    padding: 10px 0;
 
     a {
       text-decoration: none;
@@ -50,7 +53,7 @@ export const ContainerList = styled.ul`
   overflow: auto;
   li {
     width: 90%;
-    min-height: 400px;
+    height: 500px;
     background: #98c1d9;
     display: flex;
     flex-direction: column;
@@ -59,6 +62,8 @@ export const ContainerList = styled.ul`
     margin-bottom: 20px;
     border-radius: 8px;
     transition: 0.7s;
+    width: 300px;
+    margin: 0px 10px 20px;
 
     h2 {
       text-align: center;
@@ -81,11 +86,6 @@ export const ContainerList = styled.ul`
   @media (min-width: 450px) {
     flex-flow: row wrap;
     justify-content: space-around;
-
-    li {
-      width: 300px;
-      margin: 0px 10px 20px;
-    }
   }
 `;
 
@@ -94,21 +94,32 @@ export const SectionInfo = styled.section`
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-
+  box-sizing: border-box;
+  h2 {
+    color: #fff;
+  }
   button {
+    margin: 10px auto;
     width: 150px;
     height: 40px;
     font-size: 16px;
   }
 
   .backgroundDesc {
+    height: 68px;
     background: #ffffff;
     padding: 5px 10px;
     border-radius: 5px;
     margin-bottom: 10px;
+    overflow: auto;
 
     p {
-      word-break: break-all;
+      margin: auto;
+      word-break: normal;
     }
+  }
+  .description {
+    height: 120px;
+    overflow: auto;
   }
 `;
