@@ -24,6 +24,19 @@ export const StyledPopup = styled(Popup)`
   }
   // use your custom style for ".popup-content"
   &-content {
+    button {
+      font-size: 16px;
+      height: 35px;
+      padding: 0;
+    }
+
+    @media (min-width: 750px) {
+      button {
+        font-size: 24px;
+        height: 70px;
+        padding: 0;
+      }
+    }
     .modal > .header {
       width: 100%;
       border-bottom: 1px solid gray;

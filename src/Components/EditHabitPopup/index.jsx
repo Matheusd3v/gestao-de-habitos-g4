@@ -84,7 +84,8 @@ const EditHabitPopup = ({ habit, version }) => {
       .delete(`/habits/${id}/`, {
         headers: { Authorization: `Bearer ${JSON.parse(token)}` },
       })
-      .then(() => {
+      .then((response) => {
+        console.log(response);
         callingHabits();
         history.push({ pathname: "/empty" });
         history.replace({ pathname: "/habits" });
@@ -92,7 +93,8 @@ const EditHabitPopup = ({ habit, version }) => {
           type: "success",
         });
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err);
         toast("Falha ao deletar hábito", {
           type: "error",
         });
@@ -174,14 +176,14 @@ const EditHabitPopup = ({ habit, version }) => {
               <ButtonDefault type="submit" className="button">
                 Salvar alterações
               </ButtonDefault>
-              <ButtonDefault
-                type="button"
-                callback={deleteHabit}
-                className="button"
-              >
-                Excluir Hábito
-              </ButtonDefault>
             </EditHabitForm>
+            <ButtonDefault
+              type="button"
+              callback={deleteHabit}
+              className="button"
+            >
+              Excluir Hábito
+            </ButtonDefault>
           </div>
         </div>
       )}
