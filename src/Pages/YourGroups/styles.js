@@ -40,7 +40,7 @@ export const ContainerList = styled.ul`
   margin: 0 auto;
   height: 600px;
   overflow: auto;
-
+  margin-top: 20px;
   li {
     width: 90%;
     height: 500px;
