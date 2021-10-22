@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 export const HomeContainer = styled(motion.div)`
+  overflow-x: hidden;
+  overflow-y: hidden;
   width: 100%;
   min-height: Calc(100vh - 70px);
   height: fit-content;
@@ -12,8 +14,7 @@ export const HomeContainer = styled(motion.div)`
   align-items: center;
   justify-content: center;
   padding-bottom: 50px;
-  font-family: 'Indie Flower', cursive;
-
+  font-family: "Indie Flower", cursive;
 
   .info-container img {
     width: 40%;
@@ -71,7 +72,6 @@ export const TextContainer = styled.div`
     width: 100%;
     font-size: 32px;
     margin-bottom: 0;
-    
   }
   @media screen and (min-width: 768px) {
     margin: 0 20px;
