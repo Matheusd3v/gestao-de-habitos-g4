@@ -21,6 +21,7 @@ export const Container = styled.div`
     width: 200px;
     font-size: 20px;
     margin: 30px auto;
+    padding: 10px 0;
 
     a {
       text-decoration: none;
@@ -118,5 +119,6 @@ export const SectionInfo = styled.section`
   }
   .description {
     height: 120px;
+    overflow: auto;
   }
 `;
