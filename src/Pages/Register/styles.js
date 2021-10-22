@@ -2,39 +2,47 @@ import styled, { keyframes } from "styled-components";
 import RegisterImage from "../../assets/register.svg";
 import { motion } from 'framer-motion'
 export const Container = styled.div`
-  box-sizing:border-box;
-  height: calc(100vh - 70px);
-  width: 100%;
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  flex-direction: row-reverse;
-  background: #ffffff;
-    background: -moz-linear-gradient(
-      left,
-      #ffffff 0%,
-      #3d5a80 49%,
-      #293241 74%
-    );
-    background: -webkit-linear-gradient(
-      left,
-      #ffffff 0%,
-      #3d5a80 49%,
-      #293241 74%
-    );
-    background: linear-gradient(to left, #ffffff 0%, #3d5a80 49%, #293241 74%) ;
+      img{
+        display: none;
+      }
+      margin: 0 auto;
+    @media screen and (min-width:768px){
+      
+      box-sizing:border-box;
+      height: calc(100vh - 70px);
+      width: 100%;
+      display: flex;
+      align-items: stretch;
+      justify-content: space-around;
+      flex-direction: row-reverse;
+      background: #ffffff;
+      background: -moz-linear-gradient(
+        left,
+        #ffffff 0%,
+        #3d5a80 49%,
+        #293241 74%
+      );
+      background: -webkit-linear-gradient(
+        left,
+        #ffffff 0%,
+        #3d5a80 49%,
+        #293241 74%
+      );
+      background: linear-gradient(to left, #ffffff 0%, #3d5a80 49%, #293241 74%) ;
+      overflow: hidden;
+      position: relative;
+      
+      img {
+      display: initial;
+      width: 50%;
+      min-width:500px;
+    }
+    }
+    
+    
 `;
 
-export const Background = styled(motion.div)`
- 
-  @media (min-width: 800px) {
-    width: 50%;
-    margin-top: 1%;
-    background: url(${RegisterImage}) no-repeat;
-    background-size: contain;
-    
-  }
-`;
+
 
 export const Content = styled.div`
   display: flex;
@@ -52,6 +60,9 @@ export const AnimationContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  margin: 50px;
+
 `;
 
 export const FormContainer = styled(motion.form)`
