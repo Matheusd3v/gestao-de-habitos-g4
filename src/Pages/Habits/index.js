@@ -8,10 +8,8 @@ import Modal from "../../Components/Modal";
 import CreatingHabitsForm from "../../Components/CreatingHabitsForm/index.jsx";
 import { FilterBtn } from "../../Components/FilterPageHabits/style.js";
 import { AiFillFilter } from "react-icons/ai";
-
 const HabitsPage = () => {
-  const { callingHabits, currentFilterHabits, tokenUser } =
-    useContext(UserContext);
+  const { currentFilterHabits } = useContext(UserContext);
   const [showMob, setShowMob] = useState(false);
 
   const pushAndPull = () => {
@@ -42,7 +40,7 @@ const HabitsPage = () => {
 
       <HabitsContainer>
         {currentFilterHabits.map((habit, index) => (
-          <Habit key={index} habit={habit} />
+          <Habit key={index} habit={habit}/>
         ))}
       </HabitsContainer>
     </Container>

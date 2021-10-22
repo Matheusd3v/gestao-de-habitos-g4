@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Input = styled.input`
   width: 150px;
+  height: 40px;
   border-radius: 8px 0 0 8px;
   padding: 5px;
   border: 1px solid black;
@@ -18,7 +19,7 @@ export const Input = styled.input`
 `;
 export const Container = styled.div`
   display: flex;
-  width: 210px;
+  width: 100%;
   justify-content: center;
   margin: 10px;
   button {

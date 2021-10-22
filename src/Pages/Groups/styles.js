@@ -7,18 +7,21 @@ export const Container = styled.div`
   justify-content: center;
 
   h1,
-  h2 {
+  .pageTitle {
+    font-size: 28px;
     color: white;
-    margin: 5px 0;
-  }
-
-  hr {
+    margin: 0;
+    padding: 50px;
     width: 90%;
+    text-align: center;
+    border-bottom: 1px solid #fff;
   }
 
   button {
     width: 200px;
     font-size: 20px;
+    margin: 30px auto;
+    padding: 10px 0;
 
     a {
       text-decoration: none;
@@ -37,37 +40,6 @@ export const Container = styled.div`
   }
 `;
 
-export const NewGroup = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #98c1d9;
-  border-radius: 8px;
-  margin: 0 auto;
-  border: none;
-
-  div {
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
-
-    p {
-      font-size: 30px;
-      font-weight: 700;
-    }
-  }
-
-  p {
-    font-size: 16px;
-    font-weight: 700;
-  }
-`;
-
 export const ContainerList = styled.ul`
   width: 88%;
   max-width: 1370px;
@@ -77,10 +49,11 @@ export const ContainerList = styled.ul`
   align-items: center;
   flex-wrap: wrap;
   margin: 0 auto;
-
+  height:650px;
+  overflow: auto;
   li {
     width: 90%;
-    min-height: 400px;
+    height: 500px;
     background: #98c1d9;
     display: flex;
     flex-direction: column;
@@ -89,13 +62,13 @@ export const ContainerList = styled.ul`
     margin-bottom: 20px;
     border-radius: 8px;
     transition: 0.7s;
+    width: 300px;
+    margin: 0px 10px 20px;
 
     h2 {
       text-align: center;
       margin-bottom: 0;
     }
-
-
   }
 
   @media screen and (max-width: 1560px) {
@@ -113,11 +86,6 @@ export const ContainerList = styled.ul`
   @media (min-width: 450px) {
     flex-flow: row wrap;
     justify-content: space-around;
-
-    li {
-      width: 300px;
-      margin: 0px 10px 20px;
-    }
   }
 `;
 
@@ -126,21 +94,32 @@ export const SectionInfo = styled.section`
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-  
+  box-sizing: border-box;
+  h2 {
+    color: #fff;
+  }
   button {
+    margin: 10px auto;
     width: 150px;
     height: 40px;
     font-size: 16px;
   }
 
   .backgroundDesc {
-    background: #FFFFFF;
+    height: 68px;
+    background: #ffffff;
     padding: 5px 10px;
     border-radius: 5px;
     margin-bottom: 10px;
+    overflow: auto;
 
     p {
-      word-break: break-all;
+      margin: auto;
+      word-break: normal;
     }
+  }
+  .description {
+    height: 120px;
+    overflow: auto;
   }
 `;

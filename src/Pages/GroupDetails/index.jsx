@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import api from "../../Services/api";
-import { IoIosAdd } from "react-icons/io";
 import Modal from "../../Components/Modal";
 import {
   Container,
@@ -9,9 +8,7 @@ import {
   GroupCategory,
   CarrouselItem,
   ActivitiesList,
-  MemberList,
   DescriptionContainer,
-  CreateSomething,
 } from "./style";
 import ButtonDefault from "../../Components/ButtonDefault";
 import CarouselBase from "../../Components/Carousel";
@@ -20,26 +17,22 @@ import UserCard from "../../Components/UserCard";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useHistory } from "react-router-dom";
-import EditGoal from "../../Components/EditGoals";
 import EditActivies from "../../Components/EditActivities";
 import EditingDescription from "../../Components/EditingDescription";
-import BtnDefaultSecondary from '../../Components/BtnDefaultSecondary'
 import CreatingGoal from "../../Components/CreatingGoal";
 import CreatingActivity from "../../Components/CreatingActivity";
 
 import { UserContext } from "../../Providers/user";
 
-
 const GroupDetails = () => {
   const history = useHistory();
   const { id } = useParams();
- 
-  const { editGoals, getSpecificGroup, group } = useContext(UserContext)
+
+  const { getSpecificGroup, group } = useContext(UserContext);
 
   useEffect(() => {
-    getSpecificGroup(id)
+    getSpecificGroup(id);
   }, [group]);
-
 
   const unsubscribe = () => {
     const token = localStorage.getItem("token");
@@ -61,8 +54,10 @@ const GroupDetails = () => {
       <GroupCategory>{group.category}</GroupCategory>
       <Container>
         <h2>Objetivos</h2>
-       
-        <Modal type='add-goals'><CreatingGoal group={group}/></Modal>
+
+        <Modal type="add-goals">
+          <CreatingGoal group={group} />
+        </Modal>
         <CarouselBase>
           {group.goals?.map((item, key) => (
             <CarrouselItem key={key}>
@@ -72,9 +67,9 @@ const GroupDetails = () => {
         </CarouselBase>
 
         <h2>Atividades</h2>
-        <Modal type='add-actitivies'> 
-                <CreatingActivity group={group}/>
-          </Modal>
+        <Modal type="add-actitivies">
+          <CreatingActivity group={group} />
+        </Modal>
         <ActivitiesList>
           {group.activities?.map((item, key) => (
             <li key={key} title={item.title}>
@@ -82,7 +77,6 @@ const GroupDetails = () => {
               <Modal type="edit-pencil">
                 <EditActivies acitivities={item} />
               </Modal>
-              
             </li>
           ))}
         </ActivitiesList>
@@ -100,14 +94,15 @@ const GroupDetails = () => {
         <h2>Descrição</h2>
 
         <DescriptionContainer>
-          <Modal type='edit-description'><EditingDescription group={group}/></Modal>
+          <Modal type="edit-description">
+            <EditingDescription group={group} />
+          </Modal>
           <p>{group.description}</p>
         </DescriptionContainer>
 
         <div className="ButtonContainer">
           <ButtonDefault callback={unsubscribe}>Sair do Grupo</ButtonDefault>
         </div>
-
       </Container>
     </>
   );

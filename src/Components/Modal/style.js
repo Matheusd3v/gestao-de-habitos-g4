@@ -1,7 +1,5 @@
-import Popup from "reactjs-popup";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { style } from "@material-ui/system";
 export const ButtonAdd = styled(motion.button)`
   cursor: pointer;
   position: fixed;
@@ -55,12 +53,16 @@ export const ButtonCreate = styled.button`
   }
 `;
 
-export const Ancor = styled.a`
+export const Ancor = styled(motion.a)`
   font-size: 50px;
   cursor: pointer;
   position: absolute;
   z-index: 2;
   right: 0px;
+  transition: 1s;
+  :hover{
+    color:red
+  }
 `;
 export const ButtonEditPencil = styled.button`
   display: inline;
