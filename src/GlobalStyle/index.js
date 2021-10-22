@@ -8,7 +8,20 @@ const GlobalStyle = createGlobalStyle`
              
     }
 
-     
+    ::-webkit-scrollbar {
+        width: 10px;
+        margin:10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+    
+        border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #FF715B;
+    }
     
     ul{
         padding: 0px;
