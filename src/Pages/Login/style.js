@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { motion } from "framer-motion";
 export const Container = styled.main`
   margin: 0;
   min-height: 100vh;
@@ -25,15 +25,7 @@ export const Container = styled.main`
     justify-content: space-around;
     width: fit-content;
     padding: 15px;
-    /* fieldset {
-      border-color: #fff;
-    }
-    input:hover {
-      border-color: red;
-    }
-    label {
-      color: #fff;
-    } */
+    
   }
   Button {
     width: 150px;
@@ -52,7 +44,8 @@ export const Container = styled.main`
       #3d5a80 49%,
       #293241 74%
     );
-    background: linear-gradient(to right, #ffffff 0%, #3d5a80 49%, #293241 74%);
+    background: linear-gradient(to right, #ffffff 0%, #3d5a80 49%, #293241 74%) ;
+    
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#293241',GradientType=1 );
     img {
       display: initial;
@@ -61,7 +54,8 @@ export const Container = styled.main`
   }
 `;
 
-export const FormContainer = styled.div`
+export const FormContainer = styled(motion.div)`
+
   display: flex;
   flex-direction: column;
   height: 100%;

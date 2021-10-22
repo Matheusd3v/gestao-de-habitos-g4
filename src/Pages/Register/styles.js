@@ -1,19 +1,38 @@
 import styled, { keyframes } from "styled-components";
 import RegisterImage from "../../assets/register.svg";
-
+import { motion } from 'framer-motion'
 export const Container = styled.div`
-  height: 100vh;
-  max-height: 700px;
+  box-sizing:border-box;
+  height: calc(100vh - 70px);
+  width: 100%;
   display: flex;
   align-items: stretch;
-  justify-content: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  background: #ffffff;
+    background: -moz-linear-gradient(
+      left,
+      #ffffff 0%,
+      #3d5a80 49%,
+      #293241 74%
+    );
+    background: -webkit-linear-gradient(
+      left,
+      #ffffff 0%,
+      #3d5a80 49%,
+      #293241 74%
+    );
+    background: linear-gradient(to left, #ffffff 0%, #3d5a80 49%, #293241 74%) ;
 `;
 
-export const Background = styled.div`
+export const Background = styled(motion.div)`
+ 
   @media (min-width: 800px) {
-    flex: 1;
-    background: url(${RegisterImage}) no-repeat center, #3d5a80;
+    width: 50%;
+    margin-top: 1%;
+    background: url(${RegisterImage}) no-repeat;
     background-size: contain;
+    
   }
 `;
 
@@ -26,28 +45,16 @@ export const Content = styled.div`
   max-width: 600px;
 `;
 
-const appearFromRigth = keyframes`
 
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0px)
-    }
-`;
 
 export const AnimationContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: ${appearFromRigth} 1s;
 `;
 
-export const FormContainer = styled.form`
+export const FormContainer = styled(motion.form)`
   display: flex;
   flex-direction: column;
   align-items: center;

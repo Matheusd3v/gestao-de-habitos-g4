@@ -12,6 +12,7 @@ import { useHistory } from "react-router";
 import jwtDecode from "jwt-decode";
 import { useContext } from "react";
 import { UserContext } from "../../Providers/user";
+import { motion } from 'framer-motion'
 const Login = () => {
   const history = useHistory()
   const formSchema = yup.object().shape({
@@ -25,7 +26,6 @@ const Login = () => {
   const { setTokenUser } = useContext(UserContext)
 
   const onSubmitFunction = (data) => {
-    console.log(data)
     toast.configure()
     api
       .post("/sessions/", data)
@@ -49,8 +49,30 @@ const Login = () => {
   };
   return (
     <Container>
-      <img src={loginImage} alt="login representation" />
-      <FormContainer>
+      <motion.img 
+      initial={{x:-200,  opacity:0}}
+      transition={{duration:2}}
+      animate={{
+       x: 0,
+       y: 0,
+       scale: 1,
+       rotate: 0,
+       opacity:1
+     }}
+      src={loginImage}
+      alt="login representation"
+       />
+      <FormContainer
+            initial={{x:200,  opacity:0}}
+           transition={{duration:2}}
+           animate={{
+            x: 0,
+            y: 0,
+            scale: 1,
+            rotate: 0,
+            opacity:1
+          }}
+      >
         <h2>Faça seu Login e comece seu dia de forma produtiva !</h2>
         <form onSubmit={handleSubmit(onSubmitFunction)}>
         <TextField
