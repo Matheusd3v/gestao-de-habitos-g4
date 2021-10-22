@@ -27,7 +27,6 @@ export const Container = styled.main`
     justify-content: space-around;
     width: fit-content;
     padding: 15px;
-    
   }
   Button {
     width: 150px;
@@ -48,8 +47,8 @@ export const Container = styled.main`
       #3d5a80 49%,
       #293241 74%
     );
-    background: linear-gradient(to right, #ffffff 0%, #3d5a80 49%, #293241 74%) ;
-    
+    background: linear-gradient(to right, #ffffff 0%, #3d5a80 49%, #293241 74%);
+
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#293241',GradientType=1 );
     img {
       display: initial;
@@ -59,7 +58,6 @@ export const Container = styled.main`
 `;
 
 export const FormContainer = styled(motion.div)`
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -72,7 +70,7 @@ export const FormContainer = styled(motion.div)`
     font-size: 32px;
     text-align: center;
     align-self: flex-start;
-    font-family: 'Forum', cursive;
+    font-family: "Forum", cursive;
   }
 
   @media (min-width: 768px) {
