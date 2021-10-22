@@ -1,13 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-    body {
-        margin: 0;
-        padding:0;
-        background-color: #293241;   
-             
-    }
-
     ::-webkit-scrollbar {
         width: 10px;
         margin:10px;
@@ -22,6 +15,14 @@ const GlobalStyle = createGlobalStyle`
         border-radius: 10px;
         background-color: #FF715B;
     }
+    body {
+        margin: 0;
+        padding:0;
+        background-color: #293241;   
+             
+    }
+
+   
     
     ul{
         padding: 0px;
