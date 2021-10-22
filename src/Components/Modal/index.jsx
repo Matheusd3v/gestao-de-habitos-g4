@@ -73,7 +73,11 @@ const Modal = ({ children, type, group }) => {
       )}
 
       <Popup open={open} nested closeOnDocumentClick onClose={closeModal}>
-        <Ancor className="close" onClick={closeModal}>
+        <Ancor className="close" onClick={closeModal}
+          initial={{opacity:0, y:-10}}
+          transition={{duration:3}}
+          animate={{opacity:1, x:0}}
+        >
           <IoIosClose />
         </Ancor>
         <AnimatePresence>
