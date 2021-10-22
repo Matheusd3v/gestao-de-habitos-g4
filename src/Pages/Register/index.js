@@ -58,10 +58,31 @@ const Register = () => {
 
   return (
     <Container>
-      <Background />
+      <Background 
+         initial={{x:200, opacity:0}}
+         transition={{duration:2}}
+         animate={{
+          x: 0,
+          y: 0,
+          scale: 1,
+          rotate: 0,
+          opacity:1
+        }}
+      />
       <Content>
         <AnimationContainer>
-          <FormContainer onSubmit={handleSubmit(onSubmit)}>
+          <FormContainer onSubmit={handleSubmit(onSubmit)}
+           initial={{x:-200,  opacity:0}}
+           transition={{duration:2}}
+           animate={{
+            x: 0,
+            y: 0,
+            scale: 1,
+            rotate: 0,
+            opacity:1
+          }}
+          
+          >
             <h1>Cadastre-se</h1>
             <TextField
               label="Username"
