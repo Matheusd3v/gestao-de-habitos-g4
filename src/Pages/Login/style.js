@@ -2,10 +2,12 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 export const Container = styled.main`
   margin: 0;
-  min-height: 100vh;
+  height: calc(100vh - 70px);
   display: flex;
+  justify-content: center;
   align-items: center;
   background-color: #293241;
+
   img {
     display: none;
   }
@@ -31,6 +33,8 @@ export const Container = styled.main`
     width: 150px;
   }
   @media (min-width: 768px) {
+    overflow: hidden;
+    position: relative;
     background: #ffffff;
     background: -moz-linear-gradient(
       left,
@@ -58,6 +62,8 @@ export const FormContainer = styled(motion.div)`
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: cente
   height: 100%;
   width: 90%;
   margin: 0 auto;

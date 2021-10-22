@@ -1,6 +1,5 @@
 import {
   AnimationContainer,
-  Background,
   Container,
   Content,
   FormContainer,
@@ -14,7 +13,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import ButtonDefault from "../../Components/ButtonDefault";
-
+import RegisterImage from "../../assets/register.svg";
+import { motion } from 'framer-motion'
 const Register = () => {
   const history = useHistory();
 
@@ -58,7 +58,7 @@ const Register = () => {
 
   return (
     <Container>
-      <Background 
+      <motion.img src={RegisterImage}
          initial={{x:200, opacity:0}}
          transition={{duration:2}}
          animate={{
