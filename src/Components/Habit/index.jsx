@@ -1,5 +1,5 @@
-import "./style1.js";
-import { HabitContainerDesktop, HabitContainerMobile } from "./style1.js";
+import "./style.js";
+import { HabitContainerDesktop, HabitContainerMobile } from "./style.js";
 import ProgressBarMobile from "../ProgressBar";
 import ProgressBar from "@ramonak/react-progress-bar";
 import EditHabitPopup from "../EditHabitPopup";
@@ -9,7 +9,12 @@ const Habit = ({ habit }) => {
   const percentage = habit.how_much_achieved;
   return (
     <>
-      <HabitContainerDesktop>
+      <HabitContainerDesktop
+        initial={{ opacity: 0}}
+        exit={{ opacity: 0 }}
+        animate={{ opacity: 1, x: 0}}
+        transition={{ duration: 1.2 }}
+      >
         <h1>{title}</h1>
         <span className="backWhite">
           <p>
@@ -34,10 +39,15 @@ const Habit = ({ habit }) => {
           labelColor="black"
         />
 
-        <EditHabitPopup habit={habit} version={"desktop"} />
+      <EditHabitPopup habit={habit} version={"desktop"} />
       </HabitContainerDesktop>
 
-      <HabitContainerMobile>
+      <HabitContainerMobile
+        initial={{ opacity: 0}}
+        exit={{ opacity: 0 }}
+        animate={{ opacity: 1}}
+        transition={{ duration: 1.2 }}
+      >
         <ProgressBarMobile percentage={percentage} />
         <div className="content">
           <h3>{title}</h3>

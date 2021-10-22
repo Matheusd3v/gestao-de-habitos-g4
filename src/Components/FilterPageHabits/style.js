@@ -67,13 +67,14 @@ export const OptionsFilterBtn = styled.button`
   height: 60px;
   border: 2px solid transparent;
   border-radius: 7px;
-  background: #c4c4c4;
+  background: rgb(255,113,91);
   font-size: 20px;
-  color: #293241;
-
+  color: #fff;
+  box-shadow: 5px 5px rgb(240, 105, 70);
+  transition: 1s;
+  cursor: pointer;
   :hover {
-    border: 2px solid #ffffff;
-    transition: 0.4s;
-    cursor: pointer;
+  box-shadow: 1px 3px rgb(255, 113, 70);
   }
+  
 `;
