@@ -1,6 +1,20 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+    ::-webkit-scrollbar {
+        width: 10px;
+        margin:10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+    
+        border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #FF715B;
+    }
     body {
         margin: 0;
         padding:0;
@@ -8,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
              
     }
 
-     
+   
     
     ul{
         padding: 0px;
