@@ -37,7 +37,9 @@ export const ContainerList = styled.ul`
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  margin: 20px auto;
+  margin: 0 auto;
+  height: 600px;
+  overflow: auto;
 
   li {
     width: 90%;
