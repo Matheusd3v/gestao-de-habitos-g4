@@ -9,14 +9,14 @@ const UserCard = ({ user }) => {
   let min = 0;
   let max = 4;
   let random = Math.floor(Math.random() * (max - min + 1)) + min;
-  const [allAvatar, setAllAvatar] = useState([
+  const [allAvatar] = useState([
     femAvatar,
     maleAvatar,
     random1,
     random2,
     random3,
   ]);
-  const [currentAvatar, setCurrentAvatar] = useState(allAvatar[random]);
+  const [currentAvatar] = useState(allAvatar[random]);
 
   return (
     <Container>

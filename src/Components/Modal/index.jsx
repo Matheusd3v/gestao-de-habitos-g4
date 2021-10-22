@@ -1,11 +1,5 @@
 import Popup from "reactjs-popup";
-import CreatingHabitsForm from "../CreatingHabitsForm";
-import {
-  IoIosAdd,
-  IoIosClose,
-  IoIosArchive,
-  IoMdListBox,
-} from "react-icons/io";
+import { IoIosAdd, IoIosClose, IoMdListBox } from "react-icons/io";
 import {
   ButtonAdd,
   ButtonEdit,
@@ -55,7 +49,7 @@ const Modal = ({ children, type, group }) => {
         <BtnDefaultSecondary onClick={callBack}></BtnDefaultSecondary>
       )}
       {type === "createForm" && (
-        <BtnDefaultSecondary callback={callBack}>Cadastrar</BtnDefaultSecondary>
+        <ButtonDefault callback={callBack}>Cadastrar</ButtonDefault>
       )}
       {type === "add" && (
         <ButtonAdd onClick={callBack}>
@@ -95,6 +89,5 @@ const Modal = ({ children, type, group }) => {
       </Popup>
     </>
   );
-
 };
 export default Modal;

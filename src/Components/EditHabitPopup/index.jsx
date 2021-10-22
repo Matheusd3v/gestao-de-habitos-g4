@@ -19,7 +19,7 @@ const EditHabitPopup = ({ habit, version }) => {
   const { category, difficulty, frequency, how_much_achieved, id, title } =
     habit;
   const [currency, setCurrency] = useState(difficulty);
-  const [radiusValue, setRadiusValue] = useState(how_much_achieved);
+  const [setRadiusValue] = useState(how_much_achieved);
 
   const curriencies = [
     {
@@ -180,11 +180,9 @@ const EditHabitPopup = ({ habit, version }) => {
                 className="button"
               >
                 Excluir Hábito
-              </ButtonDefault>     
+              </ButtonDefault>
             </EditHabitForm>
           </div>
-
-         
         </div>
       )}
     </StyledPopup>

@@ -1,27 +1,24 @@
-import { Container, ContainerList, NewGroup, SectionInfo } from "./styles";
+import { Container, ContainerList, SectionInfo } from "./styles";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import ButtonDefault from "../../Components/ButtonDefault";
 import React from "react";
-import CreatingHabitsForm from "../../Components/CreatingHabitsForm";
 import Modal from "../../Components/Modal";
 import GroupDetails from "../../Components/GroupDetails";
-import FormCrateGroups from '../../Components/FormCreateGroup'
-import { motion } from "framer-motion"
-
-import api from "../../Services/api";
+import FormCrateGroups from "../../Components/FormCreateGroup";
+import { motion } from "framer-motion";
 
 const GroupsPage = () => {
   const [allGroups, setAllGroups] = useState([]);
   const [nextAllGroups, setNextAllGroups] = useState(
     "https://kenzie-habits.herokuapp.com/groups/"
   );
+
   useEffect(() => {
     fetch(nextAllGroups)
       .then((response) => response.json())
       .then((response) => setAllGroups([...allGroups, response.results]))
       .catch((err) => console.log(err));
   }, [nextAllGroups]);
+
   useEffect(() => {
     fetch(nextAllGroups)
       .then((response) => response.json())
@@ -32,42 +29,42 @@ const GroupsPage = () => {
   }, [nextAllGroups]);
   return (
     <Container>
-      <h1>Grupos</h1>
-      <hr />
-      <h2>Todos os grupos</h2>
-      <hr />
-      <Modal type='createForm'><FormCrateGroups/> </Modal>
+      <h2 className="pageTitle">Todos os grupos</h2>
+      <Modal type="createForm">
+        <FormCrateGroups />
+      </Modal>
       <ContainerList>
         {allGroups.map((page) =>
           page.map((group) => (
-            <motion.li key={group.id}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}>
-              <h2>{group.name}</h2>
+            <motion.li
+              key={group.id}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
               <SectionInfo>
+                <h2>{group.name}</h2>
                 <div>
                   <h3>Objetivos</h3>
-                  <div className='backgroundDesc'>
+                  <div className="backgroundDesc">
                     <p>{group.goals[0]?.title} </p>
                   </div>
                 </div>
                 <div>
                   <h3>Atividades</h3>
-                  <div className='backgroundDesc'>
+                  <div className="backgroundDesc">
                     <p> {group.activities[0]?.title} </p>
                   </div>
                 </div>
                 <div>
                   <h3>Descrição</h3>
-                  <div className='backgroundDesc'>
+                  <div className="backgroundDesc description">
                     <p> {group.description} </p>
                   </div>
                 </div>
 
-
-              <Modal key={group.id} type='seeMore'><GroupDetails group={group}/></Modal>
-
-
+                <Modal key={group.id} type="seeMore">
+                  <GroupDetails group={group} />
+                </Modal>
               </SectionInfo>
             </motion.li>
           ))

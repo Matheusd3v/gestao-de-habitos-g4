@@ -1,7 +1,5 @@
-import Popup from "reactjs-popup";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { style } from "@material-ui/system";
 export const ButtonAdd = styled(motion.button)`
   cursor: pointer;
   position: fixed;
