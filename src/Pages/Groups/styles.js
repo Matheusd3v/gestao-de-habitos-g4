@@ -46,7 +46,8 @@ export const ContainerList = styled.ul`
   align-items: center;
   flex-wrap: wrap;
   margin: 0 auto;
-
+  height:650px;
+  overflow: auto;
   li {
     width: 90%;
     min-height: 400px;

@@ -46,13 +46,11 @@ const FormCrateGroups = () => {
     <>
       <FormGroupCreate
         onSubmit={handleSubmit(onSubmitFunction)}
-        initial={{ scale: 0 }}
-        animate={{ rotate: 360, scale: 1 }}
-        transition={{
-          type: "spring",
-          stiffness: 260,
-          damping: 40,
-        }}
+        initial={{y:-100 }}
+        animate={{y:0}}
+        transition={{duration:2}}
+          
+        
       >
         <h2>Cadastre Novos Grupos</h2>
 
@@ -74,6 +72,9 @@ const FormCrateGroups = () => {
           size="small"
           color="primary"
           {...register("description")}
+          multiline
+          rows={4}
+          rowsMax={4}
           error={!!errors.description}
           helperText={errors.description?.message}
         />
@@ -88,7 +89,7 @@ const FormCrateGroups = () => {
           error={!!errors.category}
           helperText={errors.category?.message}
         />
-
+       
         <ButtonDefault> Cadastrar </ButtonDefault>
       </FormGroupCreate>
     </>
